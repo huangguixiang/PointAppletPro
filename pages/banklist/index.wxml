@@ -1,0 +1,18 @@
+<view>
+	<view class="blak_list">
+		<image src="/img/me/yh.png" class="icon"  bindtap="recording"></image>
+		<view>中国建设银行
+			<text>8888 **** **** 8888</text>
+		</view>
+		<view>
+			<van-radio-group value="{{ radio }}" bind:change="onChange">
+				<van-radio name="1"></van-radio>
+			</van-radio-group>
+		</view>
+	</view>
+
+
+	<view class="btns"  bindtap="navto">
+		<image src="/img/me/add.png"></image>添加银行卡
+	</view>
+</view>

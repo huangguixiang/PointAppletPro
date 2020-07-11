@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/dist/checkbox/index",
+    "van-checkbox-group": "/dist/checkbox-group/index",
+    "van-popup": "/dist/popup/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-radio": "/dist/radio/index",
+    "van-radio-group": "/dist/radio-group/index"
+  },
+  "navigationBarTitleText": "订单支付"
+}

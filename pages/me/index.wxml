@@ -1,0 +1,96 @@
+<view>
+	<view class="top">
+		<view class="user">
+			<view>
+				<image class="user_img" src="/img/me/img.jpg"></image>
+			</view>
+			<view class="f32" style="color:#fff">
+				Despair
+			</view>
+
+			<view class="tishi_text   ">
+				<view class="view " bindtap="navto" data-name="Distribution">
+					<view class="left">
+						<image src="/img/me/top.png" style="margin-right:10rpx"></image>分销中心
+					</view>
+					<view class="right">
+						推荐好友享收益<image src="/img/me/r.png"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		<image src="/img/me/bj.png" class="bj"></image>
+	</view>
+
+
+	<view class="p30">
+		<view class="order">
+			<view class="order_top">
+				我的订单
+				<view bindtap="navto" data-name="order">查看全部订单
+					<image src="/img/me/r.png"></image>
+				</view>
+			</view>
+			<view class="list p30">
+				<view>
+					<view class="list_top">
+						<image src="/img/me/1.png"></image>
+						<view>1</view>
+					</view>
+					<view class="f26">待付款</view>
+				</view>
+				<view>
+					<view class="list_top">
+						<image src="/img/me/2.png"></image>
+						<view>1</view>
+					</view>
+					<view class="f26">待发货</view>
+				</view>
+				<view>
+					<view class="list_top">
+						<image src="/img/me/3.png"></image>
+						<view>1</view>
+					</view>
+					<view class="f26">待收货</view>
+				</view>
+				<view>
+					<view class="list_top">
+						<image src="/img/me/4.png"></image>
+						<view>1</view>
+					</view>
+					<view class="f26">待评价</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="k_list">
+		<view>
+			<image src="/img/me/11.png"></image>
+			<view>创作历史</view>
+		</view>
+		<view>
+			<image src="/img/me/22.png"></image>
+			<view>地址管理</view>
+		</view>
+		<view>
+			<image src="/img/me/33.png"></image>
+			<view>在线客服</view>
+		</view>
+		<view>
+			<image src="/img/me/44.png"></image>
+			<view>优惠券</view>
+		</view>
+	</view>
+
+
+
+	<view style="margin-top:80rpx" class="p30">
+		<view class="title">优惠活动</view>
+		<view class="img_list">
+			<image src="/img/me/bottom.png"></image>
+			<image src="/img/me/bottom.png"></image>
+		</view>
+	</view>
+</view>

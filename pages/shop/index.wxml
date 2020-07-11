@@ -1,0 +1,153 @@
+<view>
+	<view class="kong">
+		<image src="/img/k.png"></image>
+		<view class="f24">非常难为情地说，您的购物车里空空如也...</view>
+		<view class="btns  f28">去逛逛</view>
+	</view>
+
+	<view class="goods p30">
+		<view class="f36 title" style="padding-bottom:60rpx">
+			共22件商品
+		</view>
+
+		<view class="dp">
+			<view class="dp_list">
+				<view style="padding-bottom:32rpx">
+					<van-checkbox-group value="{{ result }}" bind:change="onChange">
+						<van-checkbox name="a" shape="square">
+							<image src="/img/img.png" class="home"></image>
+							手机壳
+						</van-checkbox>
+					</van-checkbox-group>
+				</view>
+				<van-swipe-cell right-width="{{ 65 }}">
+					<van-cell-group>
+						<view class="good_list">
+							<van-checkbox-group value="{{ result }}" bind:change="onChange">
+								<van-checkbox name="b" shape="square">
+								</van-checkbox>
+							</van-checkbox-group>
+							<image src="/img/1.png" class="goodname"></image>
+							<view style="flex:auto">
+								<view>PVC材质手机壳定制...</view>
+								<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
+								<view class="amout">
+									<text class="f32">￥188.00</text>
+									<view>
+										<van-stepper value="{{ 1 }}" bind:change="changtext" />
+									</view>
+								</view>
+							</view>
+						</view>
+					</van-cell-group>
+					<view slot="right">
+						<view class="box_right">
+							<image src="/img/btns.png" style="width:60rpx;height:60rpx"></image>
+						</view>
+					</view>
+				</van-swipe-cell>
+			</view>
+		</view>
+
+
+
+		<view class="dp">
+			<view class="dp_list">
+				<view style="padding-bottom:32rpx">
+					<van-checkbox-group value="{{ result }}" bind:change="onChange">
+						<van-checkbox name="a" shape="square">
+							<image src="/img/img.png" class="home"></image>
+							手机壳
+						</van-checkbox>
+					</van-checkbox-group>
+				</view>
+				<van-swipe-cell right-width="{{ 65 }}">
+					<van-cell-group>
+						<view class="good_list">
+							<van-checkbox-group value="{{ result }}" bind:change="onChange">
+								<van-checkbox name="b" shape="square">
+								</van-checkbox>
+							</van-checkbox-group>
+							<image src="/img/1.png" class="goodname"></image>
+							<view style="flex:auto">
+								<view>PVC材质手机壳定制...</view>
+								<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
+								<view class="amout">
+									<text class="f32">￥188.00</text>
+									<view>
+										<van-stepper value="{{ 1 }}" bind:change="changtext" />
+									</view>
+								</view>
+							</view>
+						</view>
+					</van-cell-group>
+					<view slot="right">
+						<view class="box_right">
+							<image src="/img/btns.png" style="width:60rpx;height:60rpx"></image>
+						</view>
+					</view>
+				</van-swipe-cell>
+			</view>
+		</view>
+	</view>
+
+	<view class="box  p20">
+		<view class="f36 title">为您推荐</view>
+		<view class="tabs">
+			<view class="f28 active">手机壳</view>
+			<view class="f28">保温杯</view>
+			<view class="f28">T恤</view>
+		</view>
+		<view class="flex">
+			<view class="list">
+				<view>
+					<image src="/img/1.png"></image>
+				</view>
+				<view class="f28">
+					玻璃手机壳
+				</view>
+				<view class="f24">
+					原创插画
+				</view>
+			</view>
+			<view class="list">
+				<view>
+					<image src="/img/1.png"></image>
+				</view>
+				<view class="f28">
+					玻璃手机壳
+				</view>
+				<view class="f24">
+					原创插画
+				</view>
+			</view>
+			<view class="list">
+				<view>
+					<image src="/img/1.png"></image>
+				</view>
+				<view class="f28">
+					玻璃手机壳
+				</view>
+				<view class="f24">
+					原创插画
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+
+	<view class="bottom_flex">
+		<view class="left">
+			<van-checkbox value="{{ checked }}" style="margin-right:20rpx" bind:change="onChange"></van-checkbox>
+			全选
+		</view>
+		<view style="flex:auto"  class="amouts">
+			合计：
+			<text>￥14689.00</text>
+		</view>
+		<view class="js_btn"  bindtap="navto">
+			去结算
+		</view>
+	</view>
+</view>

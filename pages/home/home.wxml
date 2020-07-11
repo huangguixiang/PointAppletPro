@@ -1,0 +1,70 @@
+<!-- 轮播 开始-->
+<view id="swiper">
+	<swiper class="swiperOne" autoplay interval="2000" circular current indicator-dots>
+		<swiper-item wx:for="{{banner}}" wx:key="index">
+			<image src="{{item.img}}" class="img1"></image>
+		</swiper-item>
+	</swiper>
+</view>
+<!-- 轮播 结束-->
+<!-- 导航开始 -->
+<scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+	<view class="out">
+		<view class="box" wx:for="{{nav}}" wx:key="index" data-id="{{item.id}}" data-title="{{item.name}}" bindtap="toDetail">
+			<image class="navImg" src="{{item.img}}" />
+			<view style="margin-top: -20rpx;">
+				<image class="" style="height:13rpx;width:72rpx" src="../../images/home/yinying.png"></image>
+			</view>
+			<view class="name">{{item.name}}</view>
+			<view class="price">{{item.price}}</view>
+		</view>
+	</view>
+	<view class="prev">
+		<scroll-view scroll-left="{{scrollLeft}}">
+		<image class="NImg" src="../../images/home/left.png" bindtap="goLeft"></image>
+</scroll-view>
+</view>
+
+<view class="next">
+	<scroll-view scroll-left="{{scrollLeft}}">
+		<image class="NImg" src="../../images/home/right.png" bindtap="goRight" ></image>
+	</scroll-view>
+</view>
+</scroll-view>
+
+<!-- 导航结束 -->
+
+<!-- 主体开始 -->
+<view class="content">
+	<image class="" src="{{item}}" wx:for="{{content}}" wx:key="index"></image>
+</view>
+<scroll-view scroll-x class="nav" scroll-left="{{scrollLeft}}" scroll-with-animation>
+	<view class="out">
+		<view class="box" wx:for="{{nav1}}" wx:key="index" data-id="{{item.id}}" bindtap="cupdetail">
+			<image class="navImg" src="{{item.img}}" />
+			<view style="margin-top: -20rpx;">
+				<image class="" style="height:13rpx;width:72rpx" src="../../images/home/yinying.png"></image>
+			</view>
+			<view class="name">{{item.name}}</view>
+			<view class="price">{{item.price}}</view>
+		</view>
+	</view>
+</scroll-view>
+<!-- 主体结束-->
+<!-- 主体开始 -->
+<view class="content">
+	<image class="" src="{{item}}" wx:for="{{content1}}" wx:key="index" />
+</view>
+<scroll-view scroll-x class="nav" scroll-left="{{scrollLeft}}" scroll-with-animation>
+	<view class="out">
+		<view class="box" wx:for="{{nav2}}" wx:key="index" data-id="{{item.id}}" bindtap="shirt">
+			<image class="navImg" src="{{item.img}}" />
+			<view style="margin-top: -20rpx;">
+				<image class="" style="height:13rpx;width:72rpx" src="../../images/home/yinying.png"></image>
+			</view>
+			<view class="name">{{item.name}}</view>
+			<view class="price">{{item.price}}</view>
+		</view>
+	</view>
+</scroll-view>
+<!-- 主体结束-->

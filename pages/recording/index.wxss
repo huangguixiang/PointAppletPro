@@ -1,0 +1,27 @@
+/* pages/recording/index.wxss */
+
+page{
+  height: 100%;
+  background: #F5F5F5;
+}
+
+.list{
+  display: flex;
+  padding: 50rpx 30rpx;
+  border-bottom: 1px solid #EEEEEE;
+  justify-content: space-between;
+}
+
+.list image{
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 20rpx;
+}
+
+.center{
+  flex: auto;
+}
+
+.right{
+  text-align: right;
+}

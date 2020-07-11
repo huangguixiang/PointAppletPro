@@ -1,0 +1,85 @@
+<view>
+	<view class="top">
+		<view class="user">
+			<view>
+				<image class="user_img" src="/img/me/img.jpg"></image>
+			</view>
+			<view class="f32" style="color:#fff;margin-top:30rpx">
+				Despair
+			</view>
+		</view>
+		<image src="/img/me/bj.png" class="bj"></image>
+	</view>
+
+
+	<view class="income">
+		<view class="f30 ta" style="color:#3D365E;padding-top:40rpx">累计收益（元）</view>
+		<view class=" ta" style="color:#3D365E;padding-top:40rpx;font-size:50rpx">999.00</view>
+		<view class=" btns" bindtap="navto" data-name="withdraw">
+			立即提现
+		</view>
+		<view class="p30 btns_list">
+			<view>
+				<view class="f24">本周收益（元）</view>
+				<view class="f30">999.00</view>
+			</view>
+			<view bindtap="navto" data-name="recording">
+				<view class="f24">锁定收益（元）</view>
+				<view class="f30">999.00</view>
+			</view>
+			<view>
+				<view class="f24">待提现（元）</view>
+				<view class="f30">999.00</view>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="user_list">
+		<view class="user_top">
+			<view>
+				<image src="/img/me/left.png"></image> 推广订单
+			</view>
+			<view>
+				<image src="/img/me/right.png"></image> 推广用户
+			</view>
+		</view>
+
+		<view class="kong ta">
+			<image src="/img/me/tg.png"></image>
+			<view class="f24 ta">您还没有推广任何订单哦~</view>
+			<view class="btns" bindtap="clickTg">
+				立即推广
+			</view>
+		</view>
+
+
+
+		<view>
+			<view class="usernamelist">
+				<view>
+					<image src="/img/me/img.jpg"></image>
+					<view style="margin-left:20rpx">
+						<view class="f26">彭于晏</view>
+						<view class="f24" style="color:#C28E90;margin-top:20rpx">直接好友</view>
+					</view>
+				</view>
+				<view style="color:#999999" class="f24">
+					2020-03-01
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+
+
+	<van-overlay show="{{ show }}" bind:click="onClickHide">
+		<view class="wrapper">
+			<image src="/img/me/tgimg.png"></image>
+			<view>
+				<image  bind:click="onClickHide" src="/img/me/g.png" style="width:54rpx;height:54rpx;margin-top:14rpx"></image>
+			</view>
+		</view>
+	</van-overlay>
+</view>

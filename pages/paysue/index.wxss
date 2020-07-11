@@ -1,0 +1,87 @@
+/* pages/paysue/index.wxss */
+.beijing {
+  width: 447rpx;
+  height: 20rpx;
+}
+
+.pay_top {
+  text-align: center;
+  padding: 85rpx 60rpx 54rpx 60rpx;
+  position: relative;
+  height: 65rpx;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -40rpx;
+}
+
+.icons image {
+  width: 65rpx;
+  height: 62rpx;
+}
+
+.btns {
+  margin-top: 85rpx;
+  padding: 0 194rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 80rpx;
+}
+
+.btns view {
+  font-size: 28rpx;
+  padding: 22rpx 25rpx;
+  border: 1px solid rgba(238, 238, 238, 1);
+  border-radius: 5px;
+
+}
+
+.hui {
+  height: 30rpx;
+  background: #F5F5F5;
+}
+
+
+.title{
+  padding-top: 60rpx;
+}
+
+
+.tabs{
+  display: flex;
+  margin-top: 66rpx;
+}
+
+.tabs>view{
+  margin-right: 80rpx;
+  color: #999999;
+}
+
+.tabs .active{
+  color: #3D365E;
+}
+
+
+.list{
+  margin-right: 20rpx;
+}
+.list image{
+  width: 328rpx;
+  height: 428rpx;
+}
+
+.list .f24{
+  color: #999999;
+  margin-top: 16rpx;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-top: 44rpx;
+  padding-bottom: 45rpx;
+}

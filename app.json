@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/securities/securities",
+    "pages/user/user",
+    "pages/detail/detail",
+    "pages/customization/customization",
+    "pages/cupdetail/cupdetail",
+    "pages/cupcustomization/cupcustomization",
+    "pages/shirtdetail/shirtdetail",
+    "pages/shirtcustomization/shirtcustomization",
+    "pages/addbank/index",
+    "pages/AddressGl/index",
+    "pages/Aftersale/index",
+    "pages/banklist/index",
+    "pages/changeaddress/index",
+    "pages/Distribution/index",
+    "pages/index/index",
+    "pages/me/index",
+    "pages/order/index",
+    "pages/orderdel/index",
+    "pages/paysue/index",
+    "pages/recording/index",
+    "pages/shop/index",
+    "pages/withdraw/index",
+    "components/cropper"
+
+
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "弥点定制",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/icons/01.png",
+        "selectedIconPath": "images/icons/11.png"
+      },
+      {
+        "pagePath": "pages/shop/index",
+        "text": "购物车",
+        "iconPath": "images/icons/02.png",
+        "selectedIconPath": "images/icons/12.png"
+      },
+      {
+        "pagePath": "pages/securities/securities",
+        "text": "领卷",
+        "iconPath": "images/icons/03.png",
+        "selectedIconPath": "images/icons/13.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的",
+        "iconPath": "images/icons/04.png",
+        "selectedIconPath": "images/icons/14.png"
+      }
+    ],
+    "selectedColor": "#3D365E"
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "sitemapLocation": "sitemap22.json"
+}

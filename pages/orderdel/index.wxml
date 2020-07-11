@@ -1,0 +1,87 @@
+<view>
+	<view class="top">
+		<view class="f30">待付款</view>
+		<view class="text">
+			<view class="f24">订单信息：</view>
+			<view class="f24">您的商品，您可以随时来查看物流 信息哦~</view>
+		</view>
+		<view class="f24" style="color:#BBBBBB">2020-03-01</view>
+	</view>
+
+
+	<view class="dizhi" bindtap="changeAddress">
+		<view class="dz_top">
+			<image src="/img/dz.png"></image>
+			<view>
+				彭于晏 18966668888
+			</view>
+		</view>
+		<view class="f24" style="margin-top:24rpx">
+			浙江省 杭州市 余杭区 高教路浙江丽水数字大厦A座6楼杭州 弥点定制
+		</view>
+	</view>
+
+
+	<view class="dp">
+		<view class="dp_list">
+			<view style="padding-bottom:32rpx">
+				<image src="/img/img.png" class="home"></image>
+				手机壳
+			</view>
+			<view class="good_list">
+				<image src="/img/1.png" class="goodname"></image>
+				<view style="flex:auto">
+					<view>PVC材质手机壳定制...</view>
+					<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
+					<view class="amout">
+						<text class="f32">￥188.00</text>
+						<view>
+							<van-stepper value="{{ 1 }}" bind:change="changtext" />
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="order_del">
+		<view>
+			<view>订单编号：</view>3655566321231
+		</view>
+		<view>
+			<view>下单时间：</view>3655566321231
+		</view>
+		<view>
+			<view>支付方式：</view>3655566321231
+		</view>
+		<view>
+			<view>支付金额：</view>3655566321231
+		</view>
+	</view>
+
+	<view class="order_del">
+		<van-field label="留言" value="{{ value }}" type="textarea" placeholder="请输入留言" autosize placeholder="留言" border="{{ false }}" bind:change="onChange" />
+		<van-field label="发票" value="{{ value }}" placeholder="发票" border="{{ false }}" bind:change="onChange" />
+	</view>
+
+	<view class="btns">
+		<view>取消支付</view>
+		<view class="pay">继续支付</view>
+	</view>
+
+
+	<view class="Logistics">
+		<view class="title">
+			<image src="/img/img.png" class="home"></image>
+			手机壳
+		</view>
+
+		<view class="order_xx">
+			订单跟踪
+			<view>圆通速递：956957655965988987</view>
+		</view>
+
+		<van-steps steps="{{ steps }}"   direction="vertical" active-color="#ee0a24" />
+	</view>
+</view>

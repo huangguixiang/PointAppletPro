@@ -1,0 +1,160 @@
+/* pages/shop/index.wxss */
+
+.kong{
+  background:#F5F5F5 ;
+  height: 514rpx;
+  text-align: center;
+}
+
+.kong image{
+  width: 134rpx;
+  height: 184rpx;
+  margin-top: 92rpx;
+}
+
+
+.kong .f24{
+  margin-top: 40rpx;
+  color: #999999;
+}
+
+
+.kong .btns{
+  border: 1px solid #C28E90;
+  width: 150rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  margin: 0 auto;
+  margin-top: 46rpx;
+  color: #C28E90;
+}
+
+
+.box{
+  border-radius:25rpx 25rpx 0px 0px;
+}
+
+.title{
+  padding-top: 60rpx;
+}
+
+
+.tabs{
+  display: flex;
+  margin-top: 66rpx;
+}
+
+.tabs>view{
+  margin-right: 80rpx;
+  color: #999999;
+}
+
+.tabs .active{
+  color: #3D365E;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-top: 44rpx;
+  padding-bottom: 160rpx;
+}
+
+.list{
+  margin-right: 20rpx;
+}
+.list image{
+  width: 328rpx;
+  height: 428rpx;
+}
+
+.list .f24{
+  color: #999999;
+  margin-top: 16rpx;
+}
+
+
+.goods{
+  background:#F5F5F5 ; 
+}
+
+.home{
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.dp{
+  padding-bottom: 30rpx;
+}
+.dp_list{
+  padding:30rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+
+.good_list{
+  display: flex;
+  align-items: center;
+  padding-top: 62rpx;
+}
+
+.good_list .goodname{
+  width: 80rpx;
+  height: 167rpx;
+  margin-left: 58rpx;
+  margin-right: 62rpx;
+}
+
+.amout text{
+  color: #C28E90;
+
+}
+
+.amout{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box_right{
+  line-height: 168px;
+  height: 168px;
+  width: 80px;
+  text-align: center;
+}
+
+.bottom_flex{
+  display: flex;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  background: #fff;
+  height: 128rpx;
+}
+
+.bottom_flex .js_btn{
+  width: 255rpx;
+  height: 100%;
+  background: #3D365E;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 128rpx;
+  text-align: center;
+}
+
+.bottom_flex  .left{
+  margin-left: 60rpx;
+  display: flex;
+  align-items: center;
+}
+
+.amouts{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amouts text{
+  color: #C28E90;
+}

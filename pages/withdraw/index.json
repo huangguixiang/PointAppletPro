@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-field": "/dist/field/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index"
+  },
+  "navigationBarTitleText": "提现"
+}

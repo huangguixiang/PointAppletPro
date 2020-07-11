@@ -1,0 +1,71 @@
+<view>
+	<view class="tabs">
+		<van-tabs color="#C28E90" active="{{ active }}" bind:change="onChange">
+			<van-tab title="全部"></van-tab>
+			<van-tab title="待付款"></van-tab>
+			<van-tab title="待收货"></van-tab>
+			<van-tab title="待评价"></van-tab>
+			<van-tab title="已完成"></van-tab>
+		</van-tabs>
+	</view>
+
+
+	<view class="order">
+		<view class="title f28">
+			订单编号：2000000001
+			<view style="color:#C28E90">待发货</view>
+		</view>
+		<view class="conter">
+			<view>
+				<image src="/img/1.png"></image>
+			</view>
+			<view style=" flex: auto;  position: relative;">
+				<view class="f32">PVC材质手机壳定制...</view>
+				<view class="f26">iPhone X</view>
+				<view class="f32 bottom">
+					￥188.00<text>*1</text></view>
+			</view>
+		</view>
+		<view class="amout">
+			共1件
+			<view>应付总金额：
+				<text>￥188.00</text>
+			</view>
+		</view>
+		<view class="btns">
+			<view>取消支付</view>
+			<view class="pay"  bindtap="navto">继续支付</view>
+		</view>
+	</view>
+
+
+
+	<view class="order">
+		<view class="title f28">
+			订单编号：2000000001
+			<view style="color:#C28E90">待发货</view>
+		</view>
+		<view class="conter">
+			<view>
+				<image src="/img/1.png"></image>
+			</view>
+			<view style=" flex: auto;  position: relative;">
+				<view class="f32">PVC材质手机壳定制...</view>
+				<view class="f26">iPhone X</view>
+				<view class="f32 bottom">
+					￥188.00<text>*1</text></view>
+			</view>
+		</view>
+		<view class="amout">
+			共1件
+			<view>应付总金额：
+				<text>￥188.00</text>
+			</view>
+		</view>
+		<view class="btns">
+			<view>取消支付</view>
+			<view class="pay"  bindtap="navtoAftersale">申请售后</view>
+		</view>
+	</view>
+
+</view>

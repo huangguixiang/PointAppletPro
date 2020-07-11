@@ -1,0 +1,51 @@
+<view style="padding-bottom:100rpx">
+	<view class="top">
+		<view class="user">
+			<view>
+				<view class="f30" style="color:#BBBBBB">可提现金额（元）</view>
+			</view>
+			<view style="color:#fff;margin-top:40rpx;font-size:50rpx">
+				999.00
+			</view>
+		</view>
+		<image src="/img/me/bj.png" class="bj"></image>
+	</view>
+
+	<view class="amout p30">
+		<view class="f26">提现金额</view>
+		<van-field label="￥" label-class="labelclass" value="{{ value }}" input-class="inputs" placeholder="输入提现金额" border bind:change="onChange" />
+	</view>
+
+
+	<view class="tx">
+		<van-tabs active="{{ active }}" color="#333333" bind:change="onChange">
+			<van-tab title="提现到支付宝"></van-tab>
+			<van-tab title="提现到银行卡"></van-tab>
+		</van-tabs>
+
+		<view wx:if="{{active==1}}">
+			<view class="blak_list">
+				<image src="/img/me/yh.png" class="icon"></image>
+				<view>中国建设银行
+					<text>8888 **** **** 8888</text>
+				</view>
+				<image src="/img/me/rr.png" class="rr" bindtap="morelist"></image>
+			</view>
+		</view>
+		<view wx:else style="padding:30rpx">
+			<van-field label="真实姓名" value="{{ value }}" placeholder="请输入您的真实姓名" border bind:change="onChange" />
+			<van-field label="支付宝账号" value="{{ value }}" placeholder="请输入您的支付宝账号" border bind:change="onChange" />
+			<van-field label="手机号码" value="{{ value }}" placeholder="请输入您的手机号码" border bind:change="onChange" />
+			<van-field label="验证码" value="{{ value }}" placeholder="请输入验证码" border bind:change="onChange">
+				<van-button slot="button" size="small" type="primary">发送验证码</van-button>
+			</van-field>
+			<view style="margin-top:80rpx">
+				<view class="btns">确认</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="ta f24" style="margin-top:58rpx;color:#999999">*现在申请提现，预计2个小时内到账，实际到账时间以落地行处理结果为准哦~</view>
+
+	<view class="btns" style="margin-top:100rpx;">立即提现</view>
+</view>

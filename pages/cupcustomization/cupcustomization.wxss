@@ -1,0 +1,30 @@
+.gongju {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.gongju .gongju-item {
+  width: 750rpx;
+  height: 98rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-around;
+}
+.gongju .gongju-item image {
+  width: 39px;
+  height: 33px;
+}
+.gongju .footer {
+  width: 750rpx;
+  height: 68rpx;
+  background: #ffffff;
+}
+.gongju .footer .footer-item {
+  width: 175rpx;
+  height: 8rpx;
+  background: #333333;
+  border-radius: 3px;
+  margin: 0 auto;
+  position: relative;
+  top: 15rpx;
+}

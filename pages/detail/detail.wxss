@@ -1,0 +1,304 @@
+/*轮播页*/
+page {
+  background-color: #F5F5F5;
+}
+page #swiper {
+  width: 750rpx;
+  height: 924rpx;
+  z-index: 10;
+}
+page #swiper .swiperOne {
+  width: 750rpx;
+  height: 924rpx;
+}
+page #swiper .swiperOne image {
+  width: 750rpx;
+  height: 924rpx;
+}
+page .detailText {
+  width: 750rpx;
+  height: 274rpx;
+  background: #ffffff;
+}
+page .detailText .detailText-item {
+  display: flex;
+  justify-content: space-around;
+}
+page .detailText .detailText-item .left {
+  width: 375rpx;
+  height: 274rpx;
+}
+page .detailText .detailText-item .left .Egname {
+  width: 100%;
+  height: 52rpx;
+  font-size: 20rpx;
+  font-family: BankGothic Lt BT;
+  font-weight: 300;
+  color: #333333;
+  line-height: 52rpx;
+}
+page .detailText .detailText-item .left .Chname {
+  width: 100%;
+  height: 62rpx;
+  font-size: 31rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 52rpx;
+}
+page .detailText .detailText-item .left .Price {
+  width: 156rpx;
+  height: 35rpx;
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #c28e90;
+  line-height: 52rpx;
+}
+page .detailText .detailText-item .right {
+  width: 186rpx;
+  height: 107rpx;
+  margin-top: 52rpx;
+}
+page .detailText .detailText-item .right image {
+  width: 186rpx;
+  height: 107rpx;
+  box-shadow: 0rpx 3rpx 6rpx 0rpx rgba(0, 0, 0, 0.11);
+}
+page .pin {
+  width: 750rpx;
+  background: #ffffff;
+  margin-top: 45rpx;
+}
+page .pin .All {
+  margin: 0 30rpx;
+}
+page .pin .All .bar {
+  width: 648rpx;
+  height: 68rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333333;
+  line-height: 52rpx;
+  box-shadow: 0px 1px 0px 0px #eeeeee;
+  margin-bottom: 45rpx;
+  padding-bottom: 36rpx;
+}
+page .pin .All .All-item {
+  width: 1380rpx;
+  height: 478rpx;
+  margin-bottom: 47rpx;
+  box-shadow: 0px 1px 0px 0px #eeeeee;
+}
+page .pin .All .All-item .userInfo {
+  height: 100rpx;
+  width: 100%;
+}
+page .pin .All .All-item .userInfo .userInfo-tou {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+page .pin .All .All-item .userInfo .userInfo-all {
+  position: relative;
+  top: -98rpx;
+  left: 110rpx;
+}
+page .pin .All .All-item .userInfo .userInfo-all .userInfo-name {
+  width: 160rpx;
+  height: 46rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333333;
+  line-height: 26px;
+}
+page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx {
+  position: absolute;
+  left: 0;
+  top: 49rpx;
+}
+page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx .userInfo-pin {
+  width: 40rpx;
+  height: 40rpx;
+  background: #d8b2b6;
+}
+page .pin .All .All-item .userInfo .tui {
+  width: 1350rpx;
+  height: 134rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #777777;
+  line-height: 56rpx;
+}
+page .pin .All .All-item .userInfo .up {
+  display: flex;
+  width: 690rpx;
+  justify-content: space-around;
+}
+page .pin .All .All-item .userInfo .up image {
+  width: 160rpx;
+  height: 110rpx;
+  border-radius: 5px;
+}
+page .pin .gop {
+  width: 690rpx;
+  height: 82rpx;
+  background: #3d365e;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 82rpx;
+  margin: 0 auto;
+}
+page .pin .gop .goto {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: white;
+}
+page .detail {
+  width: 750rpx;
+  margin-top: 45rpx;
+  text-align: center;
+}
+.goshop {
+  width: 750rpx;
+  position: fixed;
+  bottom: 0;
+}
+.goshop .goshop1 {
+  width: 750rpx;
+  height: 108rpx;
+  background: #3d365e;
+  text-align: center;
+  line-height: 108rpx;
+}
+.goshop .goshop1 text {
+  width: 161rpx;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 26rpx;
+  letter-spacing: 10rpx;
+  position: relative;
+  top: 10rpx;
+}
+.goshop .goshop2 {
+  width: 750rpx;
+  height: 68rpx;
+  background: #3d365e;
+  text-align: center;
+  line-height: 68rpx;
+}
+.goshop .goshop2 view {
+  width: 190rpx;
+  height: 8rpx;
+  background: #ffffff;
+  border-radius: 3px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 30rpx;
+}
+.content {
+  margin: 0 30rpx;
+}
+.content .shangp {
+  width: 663rpx;
+  height: 281rpx;
+  display: flex;
+  margin-top: 115rpx;
+  justify-content: center;
+}
+.content .shangp .shangp-img {
+  width: 50%;
+  text-align: right;
+  margin-right: 39rpx;
+}
+.content .shangp .shangp-img image {
+  width: 70rpx;
+  height: 157rpx;
+  border-radius: 5px;
+}
+.content .shangp .moren {
+  width: 50%;
+}
+.content .shangp .moren .price {
+  width: 100%;
+  height: 35rpx;
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #3d365e;
+}
+.content .shangp .moren .Version {
+  width: 100%;
+  height: 37rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 160rpx;
+}
+.content .pinpai {
+  width: 690rpx;
+  margin-top: -70rpx;
+}
+.content .pinpai .zhonglei {
+  margin-top: 40rpx;
+  width: 690rpx;
+  float: left;
+  margin-bottom: 40rpx;
+}
+.content .pinpai .zhonglei .van-tabs__nav--card {
+  border: none;
+}
+.content .pinpai .zhonglei .van-tabs__nav--card .van-tab {
+  border: none;
+}
+.content .pinpai .zhonglei .van-tabs__nav--card /deep/ .tab-active-class {
+  background-color: #3D365E;
+}
+.content .pinpai .zhonglei .van-ellipsis {
+  width: 150rpx;
+  height: 58rpx;
+  border-radius: 5px;
+  margin-right: 15rpx;
+}
+.content .pinpai .xinghao {
+  width: 600rpx;
+  justify-content: space-around;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+.content .pinpai .xinghao  .van-tabs__scroll--card {
+  border: none;
+}
+.content .pinpai .xinghao .van-button--normal {
+  width: 150rpx;
+  height: 58rpx;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+.content .next {
+  width: 690rpx;
+  height: 128rpx;
+  background: #3d365e;
+  border-radius: 5px;
+  text-align: center;
+  position: fixed;
+  bottom: 10rpx;
+}
+.content .next view {
+  width: 690rpx;
+  height: 128rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 128rpx;
+}

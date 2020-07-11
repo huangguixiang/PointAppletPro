@@ -1,0 +1,153 @@
+/* pages/Distribution/index.wxss */
+.top {
+  height: 350rpx;
+  width: 100%;
+  position: relative;
+}
+
+.top .bj {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  bottom: 0px;
+}
+
+.user {
+  text-align: center;
+  padding-top: 72rpx;
+}
+
+.user .user_img {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+}
+
+.user text {
+  color: #fff;
+}
+
+
+.income {
+  margin: -36rpx 30rpx 0 30rpx;
+  border: 1px solid rgba(238, 238, 238, 1);
+  box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  background: #fff;
+}
+
+page {
+  height: 100%;
+  background: #F5F5F5;
+}
+
+.income .btns {
+  font-size: 24rpx;
+  margin: 0 auto;
+  color: #C28E90;
+  padding: 18rpx 43rpx;
+  border: 1px solid rgba(194, 142, 144, 1);
+  border-radius: 5px;
+  width: 95rpx;
+  margin-top: 60rpx;
+}
+
+.btns_list {
+  display: flex;
+  margin-top: 56rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns_list view {
+  text-align: center;
+}
+
+.btns_list .f24 {
+  color: #999999;
+  margin-bottom: 20rpx;
+}
+
+.btns_list .f30 {
+  padding-bottom: 40rpx;
+}
+
+.user_list {
+  margin: 30rpx 30rpx 60rpx 30rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(238, 238, 238, 1);
+  box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.user_top {
+  display: flex;
+  align-items: center;
+  padding-top: 30rpx;
+}
+
+.user_top image {
+  width: 23rpx;
+  height: 27rpx;
+}
+
+.user_top>view {
+  flex: 1;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.kong {
+  margin-top: 80rpx;
+  padding-bottom: 60rpx;
+}
+
+.kong image {
+  width: 155rpx;
+  height: 200rpx;
+}
+
+.kong .f24 {
+  color: #999999;
+}
+
+.kong .btns {
+  width: 426rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  text-align: center;
+  background: rgba(61, 54, 94, 1);
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 88rpx;
+}
+
+.usernamelist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+
+.usernamelist image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+
+.usernamelist>view:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.wrapper image {
+  width: 690rpx;
+  height: 1075rpx;
+}

@@ -1,0 +1,96 @@
+<!-- 详情轮播 开始-->
+<view id="swiper">
+	<swiper class="swiperOne" autoplay interval="2000" circular current indicator-dots>
+		<swiper-item wx:for="{{banner}}" wx:key="index">
+			<image src="{{item.img}}" class="img1"></image>
+		</swiper-item>
+	</swiper>
+</view>
+<!-- 详情轮播 结束-->
+<!-- 价格名字开始 -->
+<view class="detailText">
+	<view class="detailText-item" wx:for="{{text}}" wx:key="index">
+		<view class="left">
+			<view class="Egname">{{item.Egname}}</view>
+			<view class="Chname">{{item.Chname}}</view>
+			<view class="Price">￥{{item.Price}}</view>
+		</view>
+		<view class="right">
+			<image src="{{item.img}}"></image>
+		</view>
+	</view>
+</view>
+<!-- 价格名字结束 -->
+<!-- 评论开始 -->
+<view class="pin">
+	<view class="All">
+		<view class="bar">弥友们怎么说(6120)</view>
+		<view class="All-item" wx:for="{{pin}}"  wx:key="index">
+			<view class="userInfo">
+				<image class="userInfo-tou" src="{{item.tou}}"></image>
+				<view class="userInfo-all" > 
+					<text class="userInfo-name">{{item.name}}</text>
+         <view class="userInfo-pinx">
+          <image class="userInfo-pin" src="{{item}}" wx:for="{{item.pinj}}" wx:key="index"></image>
+              </view>
+				</view>
+        <view class="tui">{{item.tui}}</view>
+       <view class="up">
+              <image src="{{item}}" wx:for="{{item.up}}" wx:key="index"></image>
+
+       </view>
+			</view>
+    </view>
+    
+	</view>
+  	<view class="gop">
+	       <view class="goto">点击查看更多评论 >></view>
+	</view>
+</view>
+  <view class="detail">
+  <image src="/images/detail/detail-log.png"  mode="widthFix"></image>
+  </view>
+<!-- 评论结束 -->
+<!-- 立即定制开始 -->
+<view class="goshop">
+<view class="goshop1"><text  bindtap="showPopup">立即定制</text></view>
+<view class="goshop2"><view></view></view>
+</view>
+<van-transition show="{{ show }}" custom-class="block" name="fade">
+<van-popup show="{{ show }}" round  position="bottom" custom-style="height:992rpx" bind:close="onClose">
+<view class="content">
+         <view class="shangp">
+              <view class="shangp-img">
+              <image src="/images/detail/sp1.jpg">
+              </image></view>
+         <view class="moren">
+              <view class="price">￥39.00</view>
+              <view class="Version">已选：HUAWEI P40 Pro</view>
+         </view>
+         </view>
+         <view class="pinpai"> 
+         <view class="call">手机品牌</view>
+              <view class="zhonglei">
+        <van-tabs type="card">
+                <van-tab bind:tap="onTap"  title="{{item.paizi}}" wx:for="{{pinpai}}" wx:key="index" style="background-color:{{pageBackgroundColor}}" >
+                  <view class="xinhao">
+                  <view class="xinghao">型号</view>
+                            <van-tabs type="card">
+                            <van-tab title="{{item}}" wx:for="{{item.xinghao}}" wx:key="index">
+                            </van-tab>
+                               </van-tabs>
+                  </view>
+                </van-tab>
+          </van-tabs>
+          
+              </view> 
+         </view>
+       <view class="next"> 
+          <view bindtap="next">下一步</view>
+       </view>
+         
+</view>
+ </van-popup>
+</van-transition>
+
+<!-- 立即定制结束 -->

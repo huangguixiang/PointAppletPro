@@ -1,0 +1,75 @@
+<view>
+	<view class="pay_top">
+		<image src="/img/bj.png" class="beijing"></image>
+		<view class="icons">
+			<image src="/img/11.png"></image>
+			<image src="/img/22.png"></image>
+			<image src="/img/33.png"></image>
+		</view>
+	</view>
+
+	<view class="f36 ta">
+		支付成功
+	</view>
+
+
+	<view class="ta f40" style="margin-top:96rpx;color:#C28E90">
+		<text class="f24">￥</text>160
+	</view>
+	<view class="ta f24">
+		已优惠 <text  style="color:#C28E90">￥20.00</text>
+	</view>
+
+
+	<view class="btns">
+		<view>查看订单</view>
+		<view>回到首页</view>
+	</view>
+
+  <view class="hui"></view>
+
+
+  	<view class="box  p20">
+		<view class="f36 title">为您推荐</view>
+		<view class="tabs">
+			<view class="f28 active">手机壳</view>
+			<view class="f28">保温杯</view>
+			<view class="f28">T恤</view>
+		</view>
+		<view class="flex">
+			<view class="list">
+				<view>
+					<image src="/img/1.png"></image>
+				</view>
+				<view class="f28">
+					玻璃手机壳
+				</view>
+				<view class="f24">
+					原创插画
+				</view>
+			</view>
+			<view class="list">
+				<view>
+					<image src="/img/1.png"></image>
+				</view>
+				<view class="f28">
+					玻璃手机壳
+				</view>
+				<view class="f24">
+					原创插画
+				</view>
+			</view>
+			<view class="list">
+				<view>
+					<image src="/img/1.png"></image>
+				</view>
+				<view class="f28">
+					玻璃手机壳
+				</view>
+				<view class="f24">
+					原创插画
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

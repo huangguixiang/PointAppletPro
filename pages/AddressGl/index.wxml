@@ -1,0 +1,35 @@
+<view>
+	<view class="list">
+		<view style="min-width:100rpx;padding-right:30rpx">
+			<view class="f32">彭于晏</view>
+			<view class="f24 btns">默认</view>
+		</view>
+		<view class="center">
+			<view class="f32">188****6666</view>
+			<view class="f24" style="margin-top:26rpx;color:#999999">浙江省杭州市余杭区五常街道荆长路西溪花城31幢一单 元602</view>
+		</view>
+
+		<view style="padding-left:100rpx" class="right">
+			<image src="/img/r.png"></image>
+		</view>
+	</view>
+
+
+	<view class="list">
+		<view style="min-width:100rpx;padding-right:30rpx">
+			<view class="f32">彭于晏</view>
+			<view class="f24 btns">默认</view>
+		</view>
+		<view class="center">
+			<view class="f32">188****6666</view>
+			<view class="f24" style="margin-top:26rpx;color:#999999">浙江省杭州市余杭区五常街道荆长路西溪花城31幢一单 元602</view>
+		</view>
+		<view style="padding-left:100rpx" class="right">
+			<image src="/img/r.png"></image>
+		</view>
+	</view>
+
+  <view class="addbtn" bindtap="adddz">
+    新增地址
+  </view>
+</view>

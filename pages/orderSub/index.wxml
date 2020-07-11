@@ -1,0 +1,131 @@
+<view>
+	<view class="p30">
+		<view class="address" bindtap="changeaddress">
+			<view class="address_top">
+				<view>
+					<image src="/img/dz.png" class="left"></image>
+					请选择收货地址
+				</view>
+				<image src="/img/r.png" class="right"></image>
+			</view>
+			<view class="names">
+				<text>皮皮鲁</text>
+				18986686666
+			</view>
+		</view>
+
+		<view class="goods">
+			<view class="goods_title f28">
+				<view style="color:#333333">
+					<image src="/img/img.png"></image>手机壳
+				</view>
+				共2件
+			</view>
+			<view class="goodlist">
+				<image src="/img/1.png"></image>
+				<view>
+					<view class="f32">PVC材质手机壳定制...</view>
+					<view class="f26" style="color:#999999;margin-top:17rpx">iPhone X</view>
+					<view style="color:#C28E90;margin-top:35rpx">￥188.00</view>
+				</view>
+			</view>
+			<view class="goodlist">
+				<image src="/img/1.png"></image>
+				<view>
+					<view class="f32">PVC材质手机壳定制...</view>
+					<view class="f26" style="color:#999999;margin-top:17rpx">iPhone X</view>
+					<view style="color:#C28E90;margin-top:35rpx">￥188.00</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="order">
+			<view class="list">
+				商品金额
+				<view>￥180.00
+					<image src="/img/r.png"></image>
+				</view>
+			</view>
+
+			<view class="list" bindtap="coupon">
+				优惠券
+				<view style="color:#C28E90">-￥20.00
+				</view>
+			</view>
+			<view class="list">
+				运费
+				<view>免运费
+				</view>
+			</view>
+			<view class="list">
+				留言
+				<view style="color:#999999" class="f24">建议留言前先与商家沟通确认
+				</view>
+			</view>
+			<view class="list">
+				合计：
+				<view style="color:#C28E90">￥160.00
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+
+
+	<view class="bottom_flex">
+		<!-- <view class="left">
+			<van-checkbox value="{{ checked }}" style="margin-right:20rpx" bind:change="onChange"></van-checkbox>
+			全选
+		</view> -->
+		<view style="flex:auto" class="amouts">
+			合计：
+			<text>￥14689.00</text>
+		</view>
+		<view class="js_btn" bindtap="navto">
+			去结算
+		</view>
+	</view>
+
+
+	<van-popup show="{{ show }}" custom-style="height: 70%" position="bottom" bind:close="onClose">
+		<view class="title_con f36">
+			优惠券
+		</view>
+		<view style="padding-bottom:34rpx">
+			<van-tabs color="#C28E90" active="{{ active }}" bind:change="onChange">
+				<van-tab title="可用优惠券（2）"></van-tab>
+				<van-tab title="不可用优惠券（0）"></van-tab>
+			</van-tabs>
+		</view>
+
+
+		<view class="list">
+			<view class="con_list">
+				<view class="left">
+					<view class="f28">
+						<text>13</text>张
+					</view>
+					<view class="f24">5寸照片抵扣券</view>
+				</view>
+				<view class="conter">
+					<view class="f28">5寸照片抵扣券13张</view>
+					<view class="f24" style="margin-top:34rpx">无门槛</view>
+					<view class="f24 tiems" style="margin-top:16rpx">有效期至：2020.03.31
+						<text>即将过期</text>
+					</view>
+				</view>
+				<view class="right">
+					<van-radio-group value="{{ radio }}" bind:change="onChanges">
+						<van-radio name="1"></van-radio>
+					</van-radio-group>
+				</view>
+			</view>
+		</view>
+
+
+		<view class="kong">
+			
+		</view>
+	</van-popup>
+</view>

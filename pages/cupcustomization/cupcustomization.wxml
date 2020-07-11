@@ -1,0 +1,12 @@
+<view class="gongju">
+<view class="gongju-item">
+  <image src="/images/detail/选照片.png"></image>
+  <image src="/images/detail/图库.png"></image>
+  <image src="/images/detail/输文字.png"></image>
+  <image src="/images/detail/选贴纸.png"></image>
+  <image src="/images/detail/选颜色.png"></image>
+</view>
+<view class="footer">
+<view class="footer-item"></view>
+</view>
+</view>

@@ -1,0 +1,56 @@
+/* pages/banklist/index.wxss */
+
+page {
+  height: 100%;
+  background: #F5F5F5;
+}
+
+.blak_list {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 40rpx;
+  justify-content: space-between;
+  margin: 30rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(238, 238, 238, 1);
+  box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.blak_list .icon {
+  width: 67rpx;
+  height: 70rpx;
+}
+
+.blak_list view {
+  font-size: 26rpx;
+}
+
+.blak_list view text {
+  margin-left: 30rpx;
+}
+
+.blak_list .rr {
+  width: 10rpx;
+  height: 18rpx;
+}
+
+.btns {
+  margin: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #C28E90;
+  font-size: 26rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(238, 238, 238, 1);
+  box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 38rpx 0px;
+}
+
+.btns image {
+  width: 27rpx;
+  height: 27rpx;
+  margin-right: 12rpx;
+}

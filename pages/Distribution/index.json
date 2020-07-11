@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-overlay": "/dist/overlay/index"
+  },
+  "navigationBarTitleText": "分销中心"
+}
