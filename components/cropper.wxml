@@ -1,5 +1,0 @@
-<view class="container">
-  <view class="img" style="width:{{ width }}rpx; height:{{height}}rpx;" catchtouchstart="touchstartCallback"  catchtouchmove="touchmoveCallback" catchtouchend="touchendCallback"  >
-    <image style="transform: translate({{stv.offsetX}}rpx, {{stv.offsetY}}rpx) scale({{stv.scale}}) rotate({{ stv.rotate }}deg);width:{{originImg.width}}rpx; height: {{originImg.height-100}}rpx" src="{{ originImg.url }}"></image>
-  </view>
-</view>

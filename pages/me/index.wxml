@@ -34,14 +34,14 @@
 			<view class="list p30">
 				<view>
 					<view class="list_top">
-						<image src="/img/me/1.png"></image>
+						<image src="/img/me/2.png"></image>
 						<view>1</view>
 					</view>
 					<view class="f26">待付款</view>
 				</view>
 				<view>
 					<view class="list_top">
-						<image src="/img/me/2.png"></image>
+						<image src="/img/me/1.png"></image>
 						<view>1</view>
 					</view>
 					<view class="f26">待发货</view>
@@ -70,7 +70,7 @@
 			<image src="/img/me/11.png"></image>
 			<view>创作历史</view>
 		</view>
-		<view>
+		<view bindtap="navto" data-name="AddressGl">
 			<image src="/img/me/22.png"></image>
 			<view>地址管理</view>
 		</view>
@@ -78,7 +78,7 @@
 			<image src="/img/me/33.png"></image>
 			<view>在线客服</view>
 		</view>
-		<view>
+		<view bindtap="navto" data-name="conList">
 			<image src="/img/me/44.png"></image>
 			<view>优惠券</view>
 		</view>
@@ -89,8 +89,12 @@
 	<view style="margin-top:80rpx" class="p30">
 		<view class="title">优惠活动</view>
 		<view class="img_list">
-			<image src="/img/me/bottom.png"></image>
-			<image src="/img/me/bottom.png"></image>
+			<view>
+				<image src="/img/me/bottom.png"></image>
+			</view>
+			<view>
+				<image src="/img/me/bottom.png"></image>
+			</view>
 		</view>
 	</view>
 </view>

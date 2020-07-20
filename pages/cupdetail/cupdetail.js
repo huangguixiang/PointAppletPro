@@ -6,64 +6,100 @@ Page({
    */
   data: {
     banner:[
-      {"img":'../../images/detail/beidetail.jpg'},
-      {"img":'../../images/detail/beidetail.jpg'},
-      {"img":'../../images/detail/beidetail.jpg'},
-      {"img":'../../images/detail/beidetail.jpg'},
-      {"img":'../../images/detail/beidetail.jpg'},
-
+      {"img":'http://graph.baidu.com/resource/1221b985a6ade2d70579701594878954.jpg'},
+      {"img":'http://graph.baidu.com/resource/1221b985a6ade2d70579701594878954.jpg'},
+      {"img":'http://graph.baidu.com/resource/1221b985a6ade2d70579701594878954.jpg'},
      ],
      text:[
-        {
-          "Egname":"MIDIAN DINGZHI",
-          "Chname":"保温杯定制",
-          "Price":"39.00",
-          "img":"/images/detail/保温杯.png",
-        }
-     ],
+      {
+        "Egname":"MIDIAN DINGZHI",
+        "Chname":"原创插画保温杯定制",
+        "Price":"39.00",
+        "img":"/images/detail/bwb-bz.png",
+      }
+   ],
      pin:[
         {
           "tou":"/images/detail/user.jpg",
           "name":"Atiina",
           "tui":"这个保温手机壳太酷啦！设计感十足 ！关键是可以DIY你想要的样式！而且制作的质量超级棒！爱不释手！赶紧推荐给朋友！",
          "pinj":[
-          "/images/detail/xin.jpg",
-          "/images/detail/xin.jpg",
-          "/images/detail/xin.jpg",
-          "/images/detail/xin.jpg",
-          "/images/detail/xin.jpg"
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
           ],
           "up":[
-            "/images/detail/up1.jpg",
-            "/images/detail/up1.jpg",
-            "/images/detail/up1.jpg",
-            "/images/detail/up1.jpg"
-          ]
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+          ],
+
+        },
+        {
+          "tou":"/images/detail/user.jpg",
+          "name":"Atiina",
+          "tui":"这个保温手机壳太酷啦！设计感十足 ！关键是可以DIY你想要的样式！而且制作的质量超级棒！爱不释手！赶紧推荐给朋友！",
+         "pinj":[
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          "/images/detail/pl-star.png",
+          ],
+          "up":[
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+            "https://pics.images.ac.cn/image/5f0febf90713d.html",
+          ],
+
         }
      ],
+     //预览照片
+     "imgList":[
+      "https://oimagea5.ydstatic.com/image?id=-5285314247220546696&product=adpublish&w=520&h=347",
+      "https://iknow-base.cdn.bcebos.com/540X230.jpg",
+    ],
      pinpai:[
-      {
-      "paizi":"保温杯1",
-      "xinghao":["mate20","mate20pro","mate30","mate30pro","mate40","mate40pro"],
-     },
-     {
-       "paizi":"保温杯2",
-       "xinghao":["小米1","小米2","小米3","小米4","小米5","小米6"],
+       {
+       "id":0,
+       "shibpaizi":"250ml",
+
       },
+
       {
-       "paizi":"保温杯3",
-       "xinghao":["苹果1","苹果2","苹果3","苹果4","苹果5","苹果6"],
-      },
-      {
-       "paizi":"保温杯4",
-       "xinghao":["OPPO1","OPPO2","OPPO3","OPPO4","OPPO5","OPPO6"]
-      }
+        "id":1,
+        "shibpaizi":"350ml",
+       },
 ],
+     showdown:false,
      show: false,
      id:'',
+     bgc:'',
+     bgcs:'',
+     iPhone:false
   },
-  showPopup() {
-    this.setData({ show: true });
+    //预览图片，放大预览
+    preview(event) {
+      // console.log(event.currentTarget.dataset.src)
+      let currentUrl = event.currentTarget.dataset.src
+      wx.previewImage({
+        current: currentUrl, // 当前显示图片的http链接
+        urls: this.data.imgList // 需要预览的图片http链接列表
+      })
+    },
+  showPopup() {    //后端拿到的牌子和型号分别复制给bgc和bgcs 实现点击定制改变背景颜色
+    this.setData({ 
+      show: true ,
+      showdown:true
+      // bgc:paizi,    
+      // bgcs:xinhao
+    });
   },
 
   onClose() {
@@ -74,20 +110,66 @@ Page({
   next(){
     let id =this.data.id
     wx.navigateTo({
-      url:'/pages/cupcustomization/cupcustomization?index= ' + id,
+      url:'/pages/customization/customization?index= ' + id,
     })
   },
 
+  jixin(e){
+  // console.log(e)
+  let pz=e.currentTarget.dataset.innhtml
+  let {index} = e.currentTarget.dataset
+  this.setData({
+    xin:pz,
+    bgc:index,
+    shibpaizi:index
+  })
+  },
+
+  jixins(e){
+  // console.log(e)
+  let {items} = e.currentTarget.dataset
+  this.setData({
+    bgcs:items
+  })
+  },
+
+//  async getData(){
+//     const res = await get({
+//       url:'',
+//       data:'',
+//       header:""
+//     })
+//     this.setData({
+//       goodList:res.data.data,
+//       xin:res.data.data
+//     })
+//   },
+
+  guanbi(){
+    this.setData({
+      show:false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console. log( options )
     let id= options. index;
+    let _that= this;
+    wx.getSystemInfo({
+      success: function(res) {
+        // console.log(res.model)
+        if (res.model=='iPhone X'||res.model=='iPhone XR'||res.model=='iPhone XS Max'||res.model=='iPhone 11'||res.model=='iPhone 11pro'||res.model=='iPhone 11pro Max') {
+          _that.setData({
+              id:id,
+              iPhone:true
+          })
+        }
+      }
+      })
     // console. log( id )
-    this. setData({
-      id:id,
-    })
+   
+
     //改变顶部导航动态
     // wx.setNavigationBarTitle({
     //   title: '当前页面'

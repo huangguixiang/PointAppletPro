@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/dist/checkbox/index",
+    "van-checkbox-group": "/dist/checkbox-group/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-radio": "/dist/radio/index",
+    "van-radio-group": "/dist/radio-group/index"
+  },
+  "navigationBarTitleText": "优惠券"
+}

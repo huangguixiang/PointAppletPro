@@ -1,0 +1,42 @@
+<view>
+	<view style="padding-bottom:34rpx">
+		<van-tabs color="#C28E90" active="{{ active }}" bind:change="onChange">
+			<van-tab title="可用优惠券（2）"></van-tab>
+			<van-tab title="不可用优惠券（0）"></van-tab>
+		</van-tabs>
+	</view>
+	<view class="list">
+		<view class="con_list">
+			<view class="left">
+				<view class="f28">
+					<text>13</text>张
+				</view>
+				<view class="f24">5寸照片抵扣券</view>
+			</view>
+			<view class="conter">
+				<view class="f28">5寸照片抵扣券13张</view>
+				<view class="f24" style="margin-top:34rpx">无门槛</view>
+				<view class="f24 tiems" style="margin-top:16rpx">有效期至：2020.03.31
+					<text>即将过期</text>
+				</view>
+			</view>
+			<view class="right">
+				<van-radio-group value="{{ radio }}" bind:change="onChanges">
+					<van-radio name="1"></van-radio>
+				</van-radio-group>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="kong">
+		<view class="ta">
+			<image src="/img/k.png"></image>
+		</view>
+		<view class="f30 ta" style="margin-top:74rpx">
+			很遗憾地说
+		</view>
+		<view class="f26 ta" style="margin-top:30rpx;color:#999999">您暂无可以使用的优惠券</view>
+		<view class="f24 ta" style="margin-top:200rpx;color:#999999">关注一波“弥点定制”公众号，第一时间了解优惠活动~</view>
+	</view>
+</view>

@@ -8,3 +8,37 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.f24 {
+  font-size: 24rpx;
+}
+.f26 {
+  font-size: 26rpx;
+}
+.f28 {
+  font-size: 28rpx;
+}
+
+.f32 {
+  font-size: 32rpx;
+}
+
+.f36 {
+  font-size: 36rpx;
+}
+
+
+.f40 {
+  font-size: 40rpx;
+}
+
+.p20 {
+  padding: 0 20rpx;
+}
+
+.p30 {
+  padding: 0 30rpx;
+}
+
+.ta{
+  text-align: center;
+}

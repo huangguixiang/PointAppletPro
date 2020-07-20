@@ -1,25 +1,25 @@
 /* pages/shop/index.wxss */
 
-.kong{
-  background:#F5F5F5 ;
+.kong {
+  background: #F5F5F5;
   height: 514rpx;
   text-align: center;
 }
 
-.kong image{
+.kong image {
   width: 134rpx;
   height: 184rpx;
   margin-top: 92rpx;
 }
 
 
-.kong .f24{
+.kong .f24 {
   margin-top: 40rpx;
   color: #999999;
 }
 
 
-.kong .btns{
+.kong .btns {
   border: 1px solid #C28E90;
   width: 150rpx;
   height: 58rpx;
@@ -30,30 +30,30 @@
 }
 
 
-.box{
-  border-radius:25rpx 25rpx 0px 0px;
+.box {
+  border-radius: 30rpx 30rpx 0px 0px;
 }
 
-.title{
+.title {
   padding-top: 60rpx;
 }
 
 
-.tabs{
+.tabs {
   display: flex;
   margin-top: 66rpx;
 }
 
-.tabs>view{
+.tabs>view {
   margin-right: 80rpx;
   color: #999999;
 }
 
-.tabs .active{
+.tabs .active {
   color: #3D365E;
 }
 
-.flex{
+.flex {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
@@ -61,100 +61,122 @@
   padding-bottom: 160rpx;
 }
 
-.list{
+.list {
   margin-right: 20rpx;
 }
-.list image{
+
+.list image {
   width: 328rpx;
   height: 428rpx;
+  border-radius: 8px;
 }
 
-.list .f24{
+.list .f24 {
   color: #999999;
   margin-top: 16rpx;
 }
 
 
-.goods{
-  background:#F5F5F5 ; 
+.goods {
+  background: #F5F5F5;
 }
 
-.home{
+.home {
   width: 26rpx;
   height: 26rpx;
 }
 
-.dp{
+.dp {
   padding-bottom: 30rpx;
 }
-.dp_list{
-  padding:30rpx;
+
+.dp_list {
+  padding: 30rpx;
   background: #fff;
   margin-bottom: 30rpx;
+  border-radius: 5px;
 }
 
-.good_list{
+.good_list {
   display: flex;
   align-items: center;
   padding-top: 62rpx;
 }
 
-.good_list .goodname{
+.good_list .goodname {
   width: 80rpx;
   height: 167rpx;
   margin-left: 58rpx;
   margin-right: 62rpx;
 }
 
-.amout text{
+.amout text {
   color: #C28E90;
 
 }
 
-.amout{
+.amout {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.box_right{
+.box_right {
   line-height: 168px;
   height: 168px;
   width: 80px;
   text-align: center;
+  /* background:#F5F5F5 ; */
 }
 
-.bottom_flex{
+.bottom_flex {
   display: flex;
   position: fixed;
-  bottom:0px;
+  bottom: 0px;
   width: 100%;
   background: #fff;
-  height: 128rpx;
+  height: 110rpx;
 }
 
-.bottom_flex .js_btn{
+.bottom_flex .js_btn {
   width: 255rpx;
   height: 100%;
   background: #3D365E;
   color: #fff;
   font-size: 36rpx;
-  line-height: 128rpx;
+  line-height: 110rpx;
   text-align: center;
 }
 
-.bottom_flex  .left{
+.bottom_flex .left {
   margin-left: 60rpx;
   display: flex;
   align-items: center;
 }
 
-.amouts{
+.amouts {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.amouts text{
+.amouts text {
   color: #C28E90;
+}
+
+
+.van-checkbox__icon--checked {
+  background-color: #C28E90 !important;
+  border: 1px solid #C28E90 !important;
+}
+
+.van-stepper__minus,
+.van-stepper__plus {
+  border-radius: 50% !important;
+}
+.van-checkbox__icon-wrap {
+  border-radius: 50% !important;
+}
+.good_list .van-checkbox {
+  border-radius: 50% !important;
 }

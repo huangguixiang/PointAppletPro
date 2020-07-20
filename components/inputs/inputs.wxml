@@ -1,0 +1,2 @@
+
+<input   bindblur="sub" catchtouchmove="buttonMove" catchtouchstart="buttonStart" catchtouchend="buttonEnd" style="top:{{buttonTop}}rpx;left:{{buttonLeft}}rpx;" ></input>

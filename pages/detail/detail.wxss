@@ -4,8 +4,9 @@ page {
 }
 page #swiper {
   width: 750rpx;
-  height: 924rpx;
+  height: 1000rpx;
   z-index: 10;
+  box-sizing: border-box;
 }
 page #swiper .swiperOne {
   width: 750rpx;
@@ -16,9 +17,11 @@ page #swiper .swiperOne image {
   height: 924rpx;
 }
 page .detailText {
+  box-sizing: border-box;
   width: 750rpx;
   height: 274rpx;
   background: #ffffff;
+  margin-top: -74rpx;
 }
 page .detailText .detailText-item {
   display: flex;
@@ -27,6 +30,8 @@ page .detailText .detailText-item {
 page .detailText .detailText-item .left {
   width: 375rpx;
   height: 274rpx;
+  padding-top: 47rpx;
+
 }
 page .detailText .detailText-item .left .Egname {
   width: 100%;
@@ -45,6 +50,7 @@ page .detailText .detailText-item .left .Chname {
   font-weight: 500;
   color: #333333;
   line-height: 52rpx;
+  box-sizing: border-box;
 }
 page .detailText .detailText-item .left .Price {
   width: 156rpx;
@@ -59,51 +65,59 @@ page .detailText .detailText-item .right {
   width: 186rpx;
   height: 107rpx;
   margin-top: 52rpx;
+  
 }
 page .detailText .detailText-item .right image {
   width: 186rpx;
   height: 107rpx;
-  box-shadow: 0rpx 3rpx 6rpx 0rpx rgba(0, 0, 0, 0.11);
+  /* box-shadow: 0rpx 3rpx 6rpx 0rpx rgba(0, 0, 0, 0.11); */
+  margin-top: 47rpx;
+
 }
 page .pin {
   width: 750rpx;
   background: #ffffff;
-  margin-top: 45rpx;
+  margin-top: 30rpx;
 }
 page .pin .All {
   margin: 0 30rpx;
 }
 page .pin .All .bar {
-  width: 648rpx;
+  width: 690rpx;
   height: 68rpx;
   font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: bold;
   color: #333333;
-  line-height: 52rpx;
+  line-height: 108rpx;
   box-shadow: 0px 1px 0px 0px #eeeeee;
   margin-bottom: 45rpx;
   padding-bottom: 36rpx;
 }
 page .pin .All .All-item {
-  width: 1380rpx;
-  height: 478rpx;
+  height: 437rpx;
   margin-bottom: 47rpx;
   box-shadow: 0px 1px 0px 0px #eeeeee;
 }
 page .pin .All .All-item .userInfo {
   height: 100rpx;
-  width: 100%;
+  width: 690rpx;
+  position: relative;
+
 }
 page .pin .All .All-item .userInfo .userInfo-tou {
   width: 88rpx;
   height: 88rpx;
+
   border-radius: 50%;
 }
 page .pin .All .All-item .userInfo .userInfo-all {
-  position: relative;
-  top: -98rpx;
-  left: 110rpx;
+  width: 228px;
+  position: absolute;
+  height: 80rpx;
+  top: -7rpx;
+  left: 121rpx;
+  
 }
 page .pin .All .All-item .userInfo .userInfo-all .userInfo-name {
   width: 160rpx;
@@ -120,19 +134,24 @@ page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx {
   top: 49rpx;
 }
 page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx .userInfo-pin {
-  width: 40rpx;
-  height: 40rpx;
-  background: #d8b2b6;
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 12rpx;
+
+  
 }
 page .pin .All .All-item .userInfo .tui {
-  width: 1350rpx;
-  height: 134rpx;
+  width: 710rpx;
+  height: 165rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;
   color: #777777;
-  line-height: 56rpx;
+  line-height: 45rpx;
+  margin-top: -33rpx;
+  
 }
+
 page .pin .All .All-item .userInfo .up {
   display: flex;
   width: 690rpx;
@@ -167,17 +186,20 @@ page .detail {
   width: 750rpx;
   position: fixed;
   bottom: 0;
+  box-sizing: border-box;
 }
 .goshop .goshop1 {
   width: 750rpx;
-  height: 108rpx;
+  height: 121rpx;
   background: #3d365e;
   text-align: center;
   line-height: 108rpx;
+  box-sizing: border-box;
 }
 .goshop .goshop1 text {
   width: 161rpx;
   height: 34rpx;
+  box-sizing: border-box;
   font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: bold;
@@ -207,12 +229,28 @@ page .detail {
 .content {
   margin: 0 30rpx;
 }
+.content .henxian{
+  width: 130rpx;
+  height: 30rpx;
+  margin: 0 auto;
+  border: none;
+  margin-top: 24rpx;
+}
+.content .henxian .henxian-item{
+  width: 130rpx;
+  height: 8rpx;
+  border-radius: 6rpx;
+  background-color: #eeeeee;
+
+}
 .content .shangp {
   width: 663rpx;
   height: 281rpx;
+
   display: flex;
-  margin-top: 115rpx;
+  margin-top: 70rpx;
   justify-content: center;
+  
 }
 .content .shangp .shangp-img {
   width: 50%;
@@ -246,52 +284,135 @@ page .detail {
 }
 .content .pinpai {
   width: 690rpx;
+  height: 290rpx;
   margin-top: -70rpx;
 }
+
 .content .pinpai .zhonglei {
   margin-top: 40rpx;
   width: 690rpx;
   float: left;
   margin-bottom: 40rpx;
 }
-.content .pinpai .zhonglei .van-tabs__nav--card {
-  border: none;
+.content .pinpai .pplogo{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
 }
-.content .pinpai .zhonglei .van-tabs__nav--card .van-tab {
-  border: none;
+.content .pinpai .zhonglei {
+  width: 710rpx;
+  height:116rpx ;
+  /* border: 1px solid rebeccapurple; */
 }
-.content .pinpai .zhonglei .van-tabs__nav--card /deep/ .tab-active-class {
-  background-color: #3D365E;
+.content .pinpai .zhonglei .zhonglei-item {
+  float: left;
+  width: 147rpx;
+  height: 60rpx;
+  background: #f5f5f5;
+  border-radius: 6rpx;
+  line-height: 58rpx;
+  text-align: center; 
+  position: relative; 
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
 }
-.content .pinpai .zhonglei .van-ellipsis {
-  width: 150rpx;
-  height: 58rpx;
-  border-radius: 5px;
-  margin-right: 15rpx;
+.content .pinpai .zhonglei .zhongleItems {
+  background: #3D365E;
 }
+
+.content .pinpai .zhonglei .zhonglei-item .pimg{
+  width:150rpx;
+  height:58rpx;
+  border-radius:5px;
+  position: relative;
+  }
 .content .pinpai .xinghao {
   width: 600rpx;
   justify-content: space-around;
   margin-top: 40rpx;
   margin-bottom: 40rpx;
 }
-.content .pinpai .xinghao  .van-tabs__scroll--card {
-  border: none;
+.content .pinpais {
+  width: 690rpx;
+  height: 500rpx;
+  /* margin-top: -60rpx; */
 }
-.content .pinpai .xinghao .van-button--normal {
-  width: 150rpx;
-  height: 58rpx;
+.content .pinpais .zhonglei {
+  margin-top: 40rpx;
+  width: 690rpx;
+  float: left;
+  margin-bottom: 40rpx;
+}
+.content .pinpais .pplogo{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+}
+.content .pinpais .zhonglei {
+  width: 710rpx;
+  height:116rpx ;
+  /* border: 1px solid rebeccapurple; */
+
+}
+.content .pinpais .zhonglei .zhonglei-item {
+  width: 147rpx;
+  height: 60rpx;
   background: #f5f5f5;
-  border-radius: 5px;
+  border-radius: 6rpx;
+  line-height: 58rpx;
+  text-align: center; 
+  position: relative; 
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  display: inline-block;
+}
+
+.content .pinpais .zhonglei .zhongleItems {
+  background: #3D365E;
+  color: #ffffff;
+} 
+.content .pinpais .zhonglei .ccccc{
+  width: 710rpx;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+/* 
+清除默认滚动条
+*/
+.content .pinpais .zhonglei .ccccc::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.content .pinpais .zhonglei .zhonglei-item .pimg{
+  width:150rpx;
+  height:58rpx;
+  border-radius:5px;
+  position: relative;
+  }
+  .content .pinpais .zhonglei .zhonglei-item .pname{
+    width: 147rpx;
+    font-size: 24rpx;
+    font-family:PingFang SC;
+    font-weight: 400;
+  }
+.content .pinpais .xinghao {
+  width: 600rpx;
+  justify-content: space-around;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
 }
 .content .next {
   width: 690rpx;
   height: 128rpx;
   background: #3d365e;
-  border-radius: 5px;
+  border-radius: 5rpx;
   text-align: center;
   position: fixed;
-  bottom: 10rpx;
+  bottom: 50rpx;
 }
 .content .next view {
   width: 690rpx;

@@ -2,13 +2,14 @@
 <view id="swiper">
 	<swiper class="swiperOne" autoplay interval="2000" circular current indicator-dots>
 		<swiper-item wx:for="{{banner}}" wx:key="index">
-			<image src="{{item.img}}" class="img1"></image>
+			<image src="{{item.img}}" class="img1" mode="aspectFill"></image>
 		</swiper-item>
 	</swiper>
 </view>
 <!-- 详情轮播 结束-->
 <!-- 价格名字开始 -->
 <view class="detailText">
+
 	<view class="detailText-item" wx:for="{{text}}" wx:key="index">
 		<view class="left">
 			<view class="Egname">{{item.Egname}}</view>
@@ -19,6 +20,12 @@
 			<image src="{{item.img}}"></image>
 		</view>
 	</view>
+
+
+
+
+
+
 </view>
 <!-- 价格名字结束 -->
 <!-- 评论开始 -->
@@ -27,17 +34,17 @@
 		<view class="bar">弥友们怎么说(6120)</view>
 		<view class="All-item" wx:for="{{pin}}"  wx:key="index">
 			<view class="userInfo">
-				<image class="userInfo-tou" src="{{item.tou}}"></image>
+				<image class="userInfo-tou" src="{{item.tou}}" mode="aspectFill"></image>
 				<view class="userInfo-all" > 
 					<text class="userInfo-name">{{item.name}}</text>
          <view class="userInfo-pinx">
-          <image class="userInfo-pin" src="{{item}}" wx:for="{{item.pinj}}" wx:key="index"></image>
+          <image class="userInfo-pin" src="{{item}}" wx:for="{{item.pinj}}" wx:key="index" mode="aspectFill"></image>
               </view>
 				</view>
+                           <view style="width: 690rpx;height: 37rpx;"> </view>
         <view class="tui">{{item.tui}}</view>
        <view class="up">
-              <image src="{{item}}" wx:for="{{item.up}}" wx:key="index"></image>
-
+              <image src="{{item}}" wx:for="{{item.up}}" wx:key="index"  bindtap="preview" data-src="{{item}}" mode="aspectFill"></image>
        </view>
 			</view>
     </view>
@@ -48,43 +55,59 @@
 	</view>
 </view>
   <view class="detail">
-  <image src="/images/detail/detail-log.png"  mode="widthFix"></image>
+  <image src=""  mode="widthFix"></image>
   </view>
 <!-- 评论结束 -->
 <!-- 立即定制开始 -->
 <view class="goshop">
 <view class="goshop1"><text  bindtap="showPopup">立即定制</text></view>
-<view class="goshop2"><view></view></view>
+<view class="goshop2"  wx:if="{{iPhone}}"></view>
 </view>
 <van-transition show="{{ show }}" custom-class="block" name="fade">
-<van-popup show="{{ show }}" round  position="bottom" custom-style="height:992rpx" bind:close="onClose">
+<van-popup show="{{ show }}"   position="bottom" custom-style="height:792rpx ;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;" bind:close="onClose">
 <view class="content">
+      <view class="henxian" bindtap="guanbi">
+      <view class="henxian-item"></view>
+      </view>
+<van-transition
+  show="{{ showdown }}"
+  name="fade-down"
+  duration="{{ { enter: 800, leave: 1000 } }}"
+  enter-class="van-enter-class"
+  enter-active-class="van-enter-active-class"
+  leave-active-class="van-leave-active-class"
+  leave-to-class="van-leave-to-class"
+>
          <view class="shangp">
               <view class="shangp-img">
-              <image src="/images/detail/beizi.jpg">
+              <image src="/images/detail/bwb-cpt1.png" mode="aspectFill">
               </image></view>
          <view class="moren">
               <view class="price">￥39.00</view>
-              <view class="Version">已选：HUAWEI P40 Pro</view>
+              <view class="Version">已选：{{shibpaizi}}</view>
          </view>
-         </view>
+            </view>
+         </van-transition>
          <view class="pinpai"> 
-         <view class="call">手机品牌</view>
+         <view class="call">容量</view>
               <view class="zhonglei">
-        <van-tabs type="card">
-                <van-tab bind:tap="onTap"  title="{{item.paizi}}" wx:for="{{pinpai}}" wx:key="index" style="background-color:{{pageBackgroundColor}}" >
-                  <view class="xinhao">
-                  <view class="xinghao">型号</view>
-                            <van-tabs type="card">
-                            <van-tab title="{{item}}" wx:for="{{item.xinghao}}" wx:key="index">
-                            </van-tab>
-                               </van-tabs>
-                  </view>
-                </van-tab>
-          </van-tabs>
-          
+               <view class="zhonglei-item  {{bgc==item.shibpaizi?'zhongleItems':''}}"  data-index="{{item.shibpaizi}}" wx:for="{{pinpai}}"  wx:key="index" bindtap="jixin" data-innhtml="{{item.xinghao}}">
+               <!-- <image  src="{{bgc==item.shibpaizi?item.logo1:item.logo}}" mode="widthFix"></image> -->
+               <view class="pimg">{{item.shibpaizi}}</view>
+              </view>    
               </view> 
          </view>
+         
+      <!-- <view class="pinpais"> 
+         <view class="">型号</view>
+              <view class="zhonglei">
+               <view class="ccccc">
+                    <view class="zhonglei-item {{bgcs==item?'zhongleItems':''}}"  wx:for="{{xin}}" data-items="{{item}}" wx:key="index" bindtap="jixins" data-innhtml="{{item.xinghao}}">
+                    <view class="pname">{{item}}</view>
+               </view>
+              </view>    
+              </view> 
+         </view> -->
        <view class="next"> 
           <view bindtap="next">下一步</view>
        </view>

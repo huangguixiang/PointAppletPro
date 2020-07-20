@@ -1,3 +1,437 @@
+.dinzhiye {
+  width: 750rpx;
+  background: #ffffff;
+}
+.dinzhiye .mu {
+  width: 750rpx;
+  height: 715rpx;
+  top: 100rpx;
+  margin: 100rpx 201rpx;
+}
+.dinzhiye .mu .muban {
+  width: 347rpx;
+  height: 715rpx;
+  border-radius: 5px;
+  position: relative;
+}
+.dinzhiye .mu .shext{
+  position: relative;
+  top: -560rpx;
+  left: -331rpx;
+  width: 134rpx;
+  height: 134rpx;
+  border-radius: 10rpx;
+}
+.dinzhiye .tubiao {
+  position: relative;
+  left: 584rpx;
+  bottom: 165rpx;  
+  z-index: 100;
+
+}
+.dinzhiye .tubiao .tb {
+  width: 100rpx;
+  height: 100rpx;
+  background: #ffffff;
+  box-shadow: 0px 0px 18rpx 0px rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+.dinzhiye .tubiao .tb .count{
+   width: 40rpx;
+   height: 40rpx;
+   background-color: #D8B2B6;
+   color: white;
+   border-radius: 50%;
+   text-align: center;
+   line-height: 40rpx;
+   position: absolute;
+   top: 128rpx;
+   left: 92rpx;
+   
+
+}
+.dinzhiye .tubiao .tb image {
+  width: 130rpx;
+  height: 107rpx;
+  border-radius: 5px;
+}
+.dinzhiye .tubiao .shop {
+  position: relative;
+  width: 300rpx;
+  height: 225rpx;
+  background: #ffffff;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  top: -330rpx;
+  right: 212rpx;
+}
+.dinzhiye .tubiao .shop .jiaru {
+  width: 256rpx;
+  height: 50rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 52rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+
+}
+.dinzhiye .tubiao .shop .jiaru .shopicon {
+  width: 60rpx;
+  height: 40rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+  position: absolute;
+  top: 0;
+  left: 203rpx;
+  text-align: center;
+  z-index: 2;
+
+}
+.dinzhiye .tubiao .shop .jiaru .shopicon2{
+  width: 60rpx;
+
+  height: 40rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  left: 203rpx;
+  text-align: center;
+
+}
+.dinzhiye .tubiao .shop .fangru {
+  width: 256rpx;
+  height: 50rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 52rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+
+}
+.dinzhiye .tubiao .shop .fangru .shuliang{
+  width: 60rpx;
+  height: 40rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+  position: absolute;
+  top: 52rpx;
+  left: 203rpx;
+  text-align: center;
+  
+
+}
+
+.dinzhiye .tubiao .shop .lijishop {
+  width: 256rpx;
+  height: 50rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 52rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+
+}
+.dinzhiye .tubiao .shop .lijishop .gouamiicon {
+
+  width: 60rpx;
+  height: 40rpx;
+  margin: 20rpx 0 20rpx 20rpx;
+  position: absolute;
+  top: 124rpx;
+  left: 203rpx;
+  text-align: center;
+}
+.tieImg{
+  position: absolute;
+  top: 350rpx;
+  left: 127rpx;
+  width: 505rpx;
+  height: 440rpx;
+  
+}
+.tieImg1 {
+  position: absolute;
+  top: 350rpx;
+  left: 127rpx;
+  width: 505rpx;
+  height: 440rpx;
+  
+}
+.tieImg2 {
+  position: absolute;
+  top: 350rpx;
+  left: 127rpx;
+  width: 150rpx;
+  height: 300rpx;
+  
+}
+.tieImg3 {
+  position: absolute;
+  top: 350rpx;
+  left: 127rpx;
+  width: 505rpx;
+  height: 440rpx;
+  
+}
+.tieImg4 {
+  position: absolute;
+  top: 350rpx;
+  left: 127rpx;
+  width: 505rpx;
+  height: 440rpx;
+  
+}
+.bgc {
+  position: absolute;
+  top: 350rpx;
+  left: 127rpx;
+  width: 505rpx;
+  height: 440rpx;
+  
+}
+.all {
+  width: 710rpx;
+  position: relative;
+  background: #f5f5f5;
+  float: left;
+  margin: 0 20rpx;
+}
+.all .van-collapse-item {
+  position: fixed;
+  bottom: 0;
+}
+.all .van-tab__pane {
+  position: relative;
+  top: -265rpx;
+}
+.all .list {
+  width: 710rpx;
+  background: #f5f5f5;
+  box-shadow: 0px -10px 15px 0px rgba(0, 0, 0, 0.06);
+  border-radius: 25rpx 25rpx 0px 0px;
+}
+.all .list .van-bottom-enter-to {
+  padding: 30rpx 0 30rpx 30rpx;
+}
+.all .list .collapse-item-index--van-cell {
+  width: 216rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #c28e90;
+  line-height: 26px;
+}
+.all .a {
+  width: 400rpx;
+  height: 70rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #c28e90;
+  line-height: 62rpx;
+}
+.all .b {
+  width: 710rpx;
+}
+.all .b .allImg {
+  width: 190rpx;
+  height: 211rpx;
+  border-radius: 5px;
+  margin: 15rpx 19rpx;
+}
+.all .van-collapse-item {
+  width: 710rpx;
+  height: 98rpx;
+  background: #ffffff;
+}
+.all .bu {
+  width: 120rpx;
+  height: 60rpx;
+  background: #c28e90;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 11px;
+  left: 213rpx;
+  color: white;
+  font-size: 26rpx;
+  text-align: center;
+}
+.all .cha {
+  position: absolute;
+  right: 10px;
+  width: 26rpx;
+  height: 26rpx;
+  color: #c28e90;
+  border-radius: 2px;
+  bottom: 31px;
+  font-size: 43rpx;
+}
+.dd {
+  width: 750rpx;
+}
+.dd .alls {
+  width: 710rpx;
+  position: relative;
+  background: #f5f5f5;
+  float: left;
+  margin: 0 20rpx;
+}
+.dd .alls .van-collapse-item {
+  position: fixed;
+  bottom: 0;
+}
+.dd .alls .van-tab__pane {
+  position: relative;
+  top: -265rpx;
+}
+.dd .alls .bb {
+  width: 710rpx;
+}
+.dd .alls .bb .allImg {
+  width: 200rpx;
+  height: 211rpx;
+  border-radius: 5px;
+  margin: 10rpx 19rpx;
+}
+.dd .alls .van-collapse-item {
+  width: 710rpx;
+  height: 98rpx;
+  background: #ffffff;
+}
+.dd .listtie {
+  width: 710rpx;
+  position: fixed;
+  height: 100rpx;
+  display: flex;
+  bottom: 0;
+  background: #f5f5f5;
+  box-shadow: 0px -10px 15px 0px rgba(0, 0, 0, 0.06);
+}
+.dd .listtie .collapse-item-index--van-cell {
+  width: 216rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #c28e90;
+  line-height: 26px;
+}
+.dd .listtie .cc {
+  display: flex;
+  color: #c28e90;
+}
+.dd .listtie .cc .aa {
+  width: 143rpx;
+  height: 100rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  line-height: 100rpx;
+  color: #c28e90;
+}
+.inp input {
+  width: 325rpx;
+  height: 72rpx;
+  border: 1px dashed #f95858;
+  border-radius: 5px;
+  position: relative;
+  top: -756rpx;
+  left: 202rpx;
+  
+}
+.huaban {
+  box-shadow: 0px -8px 20px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 25px 25px 0px 0px;
+}
+.huaban .huaban-item {
+  width: 710rpx;
+  margin: 20rpx 20rpx;
+}
+.huaban .huaban-item .jian {
+  width: 188rpx;
+  height: 46rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #999999;
+  line-height: 26px;
+}
+.huaban .huaban-item .yuan {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  float: left;
+  margin: 10rpx 15rpx;
+}
+.huaban .qicai {
+  position: relative;
+  top: 184rpx;
+  left: 182rpx;
+}
+.huaban .qicai .res {
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  margin: 0 20rpx;
+  background: #ffffff;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  position: relative;
+}
+.huaban .qicai .res view {
+  width: 68rpx;
+  height: 68rpx;
+  background: #e5e3ee;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 68rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 17rpx;
+}
+.huaban .qicai .qicaiyuan {
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  margin: 0 20rpx;
+  background: #ffffff;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  position: relative;
+}
+.huaban .qicai .qicaiyuan image {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 20rpx;
+  left: 17rpx;
+}
+.huaban .qicai .sub {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  margin: 0 20rpx;
+  background: #ffffff;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+}
+.huaban .qicai .sub view {
+  width: 68rpx;
+  height: 68rpx;
+  background: #e5e3ee;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  line-height: 68rpx;
+  text-align: center;
+  position: absolute;
+  top: 20rpx;
+  left: 17rpx;
+}
 .gongju {
   position: fixed;
   bottom: 0;
@@ -11,8 +445,8 @@
   justify-content: space-around;
 }
 .gongju .gongju-item image {
-  width: 39px;
-  height: 33px;
+  width: 39rpx;
+  height: 33rpx;
 }
 .gongju .footer {
   width: 750rpx;

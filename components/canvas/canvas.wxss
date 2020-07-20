@@ -1,0 +1,4 @@
+.view{
+  width: 20rpx;
+  height: 200rpx;
+}

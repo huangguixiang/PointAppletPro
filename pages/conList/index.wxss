@@ -1,0 +1,194 @@
+/* pages/orderSub/index.wxss */
+
+page {
+  height: 100%;
+  background: #F5F5F5;
+}
+
+.address {
+  background: #FFFFFF;
+  margin-top: 30rpx;
+  padding: 40rpx 30rpx 50rpx 30rpx;
+}
+
+.address_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+}
+
+.address_top .left {
+  width: 24rpx;
+  height: 30rpx;
+  margin-right: 40rpx;
+}
+
+.address_top .right {
+  width: 18rpx;
+  height: 18rpx;
+}
+
+.address .names {
+  padding-left: 74rpx;
+  margin-top: 37rpx;
+  font-size: 28rpx;
+}
+
+
+.goods {
+  margin-top: 30rpx;
+  background: #fff;
+  padding-bottom: 40rpx;
+}
+
+.goods_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  color: #666666;
+}
+
+.goods_title image {
+  width: 23rpx;
+  height: 23rpx;
+}
+
+.goodlist {
+  display: flex;
+  padding: 0 58rpx;
+  margin-top: 62rpx;
+}
+
+.goodlist image {
+  width: 79rpx;
+  height: 167rpx;
+  margin-right: 62rpx;
+}
+
+.order {
+  margin-top: 30rpx;
+  background: #fff;
+  padding-bottom: 160rpx;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  justify-content: space-between;
+}
+
+.list image {
+  width: 10rpx;
+  height: 18rpx;
+}
+
+
+.bottom_flex {
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: #fff;
+  height: 128rpx;
+}
+
+.bottom_flex .js_btn {
+  width: 255rpx;
+  height: 100%;
+  background: #3D365E;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 128rpx;
+  text-align: center;
+}
+
+.bottom_flex .left {
+  margin-left: 60rpx;
+  display: flex;
+  align-items: center;
+}
+
+
+.amouts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amouts text {
+  color: #C28E90;
+}
+
+
+.title_con {
+  padding: 60rpx 30rpx;
+  background: #fff;
+}
+
+.van-popup--bottom {
+  background: #F5F5F5;
+}
+
+.list {
+  padding: 30rpx;
+}
+
+.con_list {
+  display: flex;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.05);
+  padding: 48rpx 23rpx;
+}
+
+.con_list .left {
+  color: #C28E90;
+  padding-right: 25rpx;
+  border-right: 1px solid #DDDDDD;
+  text-align: center;
+}
+
+.con_list .left text {
+  font-size: 60rpx;
+}
+
+.conter{
+  padding-left: 48rpx;
+}
+
+.conter text{
+  display: inline-block;
+  background: #C28E90;
+  color: #fff;
+  font-size: 24rpx;
+  margin-left: 24rpx;
+  padding: 0 8rpx;
+}
+
+
+.tiems{
+  display: flex;
+  align-items: center;
+}
+
+.con_list .right{
+  flex: auto;
+  display: flex;
+  align-items: center;
+}
+
+.van-radio__icon--checked {
+  background-color: #C28E90 !important;
+  border: 1px solid #C28E90 !important;
+}
+
+.kong  image{
+  width: 130rpx;
+  height: 178rpx;
+  margin-top: 200rpx;
+}
+.kong{
+  padding-bottom: 770rpx;
+}

@@ -22,8 +22,11 @@
     "pages/paysue/index",
     "pages/recording/index",
     "pages/shop/index",
+    "pages/conList/index",
     "pages/withdraw/index",
-    "components/cropper"
+    "components/cropper/cropper",
+    "components/inputs/inputs",
+    "components/canvas/canvas"
 
 
   ],
@@ -49,7 +52,7 @@
         "selectedIconPath": "images/icons/12.png"
       },
       {
-        "pagePath": "pages/securities/securities",
+        "pagePath": "pages/conList/index",
         "text": "领卷",
         "iconPath": "images/icons/03.png",
         "selectedIconPath": "images/icons/13.png"
@@ -64,19 +67,20 @@
     "selectedColor": "#3D365E"
   },
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index",
-    "van-dialog": "@vant/weapp/dialog/index",
-    "van-popup": "@vant/weapp/popup/index",
-    "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index",
-    "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index",
-    "van-transition": "@vant/weapp/transition/index",
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index",
-    "van-collapse": "@vant/weapp/collapse/index",
-    "van-collapse-item": "@vant/weapp/collapse-item/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-button": "/dist/button/index",
+    "van-dialog": "/dist/dialog/index",
+    "van-popup": "/dist/popup/index",
+    "van-radio": "/dist/radio/index",
+    "van-radio-group": "/dist/radio-group/index",
+    "van-grid": "/dist/grid/index",
+    "van-grid-item": "/dist/grid-item/index",
+    "van-transition": "/dist/transition/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-collapse": "/dist/collapse/index",
+    "van-collapse-item": "/dist/collapse-item/index",
+    "van-icon": "/dist/icon/index",
+    "van-field": "/dist/field/index"
   },
   "sitemapLocation": "sitemap22.json"
 }

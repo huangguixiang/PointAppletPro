@@ -14,7 +14,7 @@
 			<view class="dp_list">
 				<view style="padding-bottom:32rpx">
 					<van-checkbox-group value="{{ result }}" bind:change="onChange">
-						<van-checkbox name="a" shape="square">
+						<van-checkbox name="a" >
 							<image src="/img/img.png" class="home"></image>
 							手机壳
 						</van-checkbox>
@@ -55,7 +55,7 @@
 			<view class="dp_list">
 				<view style="padding-bottom:32rpx">
 					<van-checkbox-group value="{{ result }}" bind:change="onChange">
-						<van-checkbox name="a" shape="square">
+						<van-checkbox name="a">
 							<image src="/img/img.png" class="home"></image>
 							手机壳
 						</van-checkbox>
@@ -65,7 +65,7 @@
 					<van-cell-group>
 						<view class="good_list">
 							<van-checkbox-group value="{{ result }}" bind:change="onChange">
-								<van-checkbox name="b" shape="square">
+								<van-checkbox name="b" >
 								</van-checkbox>
 							</van-checkbox-group>
 							<image src="/img/1.png" class="goodname"></image>

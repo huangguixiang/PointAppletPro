@@ -7,34 +7,35 @@ Page({
   data: {
     
      banner:[
-      {"img":'../../images/home/banner1.png'},
-      {"img":'../../images/home/banner1.png'},
-      {"img":'../../images/home/banner1.png'},
+      {"img":'https://pics.images.ac.cn/image/5f0fec11bab0e.html'},
+      {"img":'https://pics.images.ac.cn/image/5f0fec11bab0e.html'},
+      {"img":'https://pics.images.ac.cn/image/5f0fec11bab0e.html'},
+
      ],
      //轮播页数组
       nav: [
           {
             "id":"0",
-            "img":"../../images/home/call1.png",
-            "name":"原创插画 玻璃壳",
+            "img":"../../images/home/sjk-cpt1.png",
+            "name":"原创插画 玻璃壳 原创插画 玻璃壳",
             "price":"￥10.00",
           },
           {
             "id":"1",
-            "img":"../../images/home/call1.png",
+            "img":"../../images/home/sjk-cpt2.png",
             "name":"原创插画 玻璃壳",
             "price":"￥10.00",
           },
           {
             "id":"2",
-            "img":"../../images/home/call1.png",
+            "img":"../../images/home/sjk-cpt3.png",
             "name":"原创插画 玻璃壳",
             "price":"￥10.00",
           },
           {
             "id":"3",
-            "img":"../../images/home/call1.png",
-            "name":"原创插画 玻璃壳",
+            "img":"../../images/home/sjk-cpt2.png",
+            "name":"原创插画 玻璃壳 ",
             "price":"￥10.00",
           },
 
@@ -42,19 +43,19 @@ Page({
       nav1: [
         {
           "id":"5",
-          "img":"../../images/home/beizi.jpg",
-          "name":"原创插画 350ml",
+          "img":"../../images/home/bwb-cpt1.png",
+          "name":"杯子一",
           "price":"￥10.00",
         },
         {
           "id":"6",
-          "img":"../../images/home/beizi.jpg",
+          "img":"../../images/home/bwb-cpt2.png",
           "name":"原创插画 350ml",
           "price":"￥10.00",
         },
         {
           "id":"7",
-          "img":"../../images/home/beizi.jpg",
+          "img":"../../images/home/bwb-cpt3.png",
           "name":"原创插画 350ml",
           "price":"￥10.00",
         },
@@ -63,25 +64,25 @@ Page({
       nav2: [
         {
           "id":"10",
-          "img":"../../images/home/yifu.jpg",
+          "img":"../../images/home/tx-cpt1.png",
           "name":"女生T恤",
           "price":"￥10.00",
         },
         {
           "id":"11",
-          "img":"../../images/home/yifu.jpg",
+          "img":"../../images/home/tx-cpt2.png",
           "name":"女生T恤",
           "price":"￥10.00",
         },
         {
           "id":"12",
-          "img":"../../images/home/yifu.jpg",
+          "img":"../../images/home/tx-cpt2.png",
           "name":"女生T恤",
           "price":"￥10.00",
         },
         {
           "id":"13",
-          "img":"../../images/home/yifu.jpg",
+          "img":"../../images/home/tx-cpt3.png",
           "name":"女生T恤",
           "price":"￥10.00",
         },
@@ -89,10 +90,10 @@ Page({
     ],
       scrollLeft:'',
       content:[
-        '../../images/home/112.png'
+        'https://pics.images.ac.cn/image/5f0fec1942173.html'
       ],
       content1:[
-        '../../images/home/1133.png'
+        'https://pics.images.ac.cn/image/5f0fec0d9731d.html'
       ],
     },
   //点击往左
