@@ -1,153 +1,222 @@
-<view>
+<!-- 没有商品时候显示 开始 -->
+<view wx:if="{{sum==0}}">
 	<view class="kong">
-		<image src="/img/k.png"></image>
+		<image src="http://graph.baidu.com/resource/1223b98fabfcfbe87677c01596762740.jpg"></image>
 		<view class="f24">非常难为情地说，您的购物车里空空如也...</view>
-		<view class="btns  f28">去逛逛</view>
+		<navigator url="/pages/home/home" open-type="switchTab" class="btns  f28">去逛逛</navigator>
 	</view>
 
-	<view class="goods p30">
+	<view class="goods p30" wx:if="{{sum>0}}">
 		<view class="f36 title" style="padding-bottom:60rpx">
-			共22件商品
+			共{{sum}}件商品
 		</view>
+	</view>
 
-		<view class="dp">
-			<view class="dp_list">
-				<view style="padding-bottom:32rpx">
-					<van-checkbox-group value="{{ result }}" bind:change="onChange">
-						<van-checkbox name="a" >
-							<image src="/img/img.png" class="home"></image>
-							手机壳
-						</van-checkbox>
-					</van-checkbox-group>
-				</view>
-				<van-swipe-cell right-width="{{ 65 }}">
-					<van-cell-group>
-						<view class="good_list">
-							<van-checkbox-group value="{{ result }}" bind:change="onChange">
-								<van-checkbox name="b" shape="square">
-								</van-checkbox>
-							</van-checkbox-group>
-							<image src="/img/1.png" class="goodname"></image>
-							<view style="flex:auto">
-								<view>PVC材质手机壳定制...</view>
-								<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
-								<view class="amout">
-									<text class="f32">￥188.00</text>
-									<view>
-										<van-stepper value="{{ 1 }}" bind:change="changtext" />
+	<view class="box">
+		<view style="margin:0 20rpx">
+			<view class="f36 title">为您推荐</view>
+			<van-tabs animated>
+				<van-tab title="手机壳">
+		
+						<view class="list">
+							<view>
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+						<view class="list">
+							<view>
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+						<view class="list">
+							<view>
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+				</van-tab>
+				<van-tab title="保温杯">
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+
+				</van-tab>
+				<van-tab title="T恤">
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+				</van-tab>
+
+			</van-tabs>
+		</view>
+	</view>
+
+</view>
+<!-- 没有商品时候显示 结束 -->
+<!-- 有商品 开始 -->
+ <!-- wx:if="{{cart.length!==0}}" -->
+<view id="shop" wx:if="{{sum>0}}"  wx:for="{{cart[0]}}"  wx:for-item='p_item' wx:for-index='p_index' wx:key="p_index" >
+	<view style="padding-bottom:32rpx" class="shp">
+		<radio-group value="{{ result }}" bind:change="onChange" style="  margin: 0rpx 30rpx;">
+			<radio class="checked" checked="true" color="#C28E90" style="background:rgba(255,255,255,1);">
+				<image src="/images/user/img.png" class="home"></image>
+				<text> {{p_index}}</text>
+			</radio>
+		</radio-group>
+	</view>
+	<view  wx:for="{{p_item}}" wx:for-item='c_item' wx:key="c_index">
+		<van-swipe-cell right-width="{{ 65 }}">
+			<van-cell-group>
+				<view class="shop-item">
+					<view class="pd">
+						<radio-group bindtap="handleItemChange" data-id="{{c_item.cate_id}}" data-istrue="{{c_item.istrue}}"  data-index="{{index}}"  data-item="{{p_item}}" data-price="{{c_item.productInfo.price}}"  data-num="{{c_item.cart_num}}"> 
+							<radio class="checked" checked="{{c_item.istrue}}" color="#C28E90" style="background:rgba(255,255,255,1);"></radio>
+						</radio-group>
+						
+						<view class="img">
+							<image src="{{c_item.img}}"></image>
+						</view>
+						<view class="shuju">
+							<view class="left">
+								<view class="name">{{c_item.productInfo.store_name}}</view>
+								<view class="xh">{{c_item.productInfo.attrInfo.suk}}</view>
+							</view>
+							<view class="right">
+								<view class="price">
+									<block>￥</block> {{c_item.productInfo.price}}
+								</view>
+								<view class="count">
+									<view bindtap="handleEdit" data-index="{{index}}" data-id="{{item.id}}" data-operation="{{-1}}" class="buttomOne">
+										<view>-</view>
+									</view>
+									<text class="input">{{c_item.cart_num}}</text>
+									<view bindtap="handleEdit" data-index="{{index}}" data-id="{{item.id}}" data-operation="{{1}}" class="buttomTwo">
+										<view>+</view>
 									</view>
 								</view>
 							</view>
 						</view>
-					</van-cell-group>
-					<view slot="right">
-						<view class="box_right">
-							<image src="/img/btns.png" style="width:60rpx;height:60rpx"></image>
-						</view>
 					</view>
-				</van-swipe-cell>
-			</view>
-		</view>
-
-
-
-		<view class="dp">
-			<view class="dp_list">
-				<view style="padding-bottom:32rpx">
-					<van-checkbox-group value="{{ result }}" bind:change="onChange">
-						<van-checkbox name="a">
-							<image src="/img/img.png" class="home"></image>
-							手机壳
-						</van-checkbox>
-					</van-checkbox-group>
 				</view>
-				<van-swipe-cell right-width="{{ 65 }}">
-					<van-cell-group>
-						<view class="good_list">
-							<van-checkbox-group value="{{ result }}" bind:change="onChange">
-								<van-checkbox name="b" >
-								</van-checkbox>
-							</van-checkbox-group>
-							<image src="/img/1.png" class="goodname"></image>
-							<view style="flex:auto">
-								<view>PVC材质手机壳定制...</view>
-								<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
-								<view class="amout">
-									<text class="f32">￥188.00</text>
-									<view>
-										<van-stepper value="{{ 1 }}" bind:change="changtext" />
-									</view>
-								</view>
-							</view>
-						</view>
-					</van-cell-group>
-					<view slot="right">
-						<view class="box_right">
-							<image src="/img/btns.png" style="width:60rpx;height:60rpx"></image>
-						</view>
-					</view>
-				</van-swipe-cell>
+			</van-cell-group>
+			<view slot="right">
+				<view class="box_right" bindtap="dele" data-id="{{c_item.id}}" data-index="{{index}}">
+					<image src="/images/user/btns.png" style="width:60rpx;height:60rpx"></image>
+				</view>
 			</view>
-		</view>
+		</van-swipe-cell>
 	</view>
-
-	<view class="box  p20">
-		<view class="f36 title">为您推荐</view>
-		<view class="tabs">
-			<view class="f28 active">手机壳</view>
-			<view class="f28">保温杯</view>
-			<view class="f28">T恤</view>
+	<view id="zong">
+		<view class="checkAll-item">
+			<radio-group bindtap="handleItemAllcheck">
+				<radio checked="{{item.istrue}}" color="#C28E90" checked="{{allchecked}}">全选</radio>
+			</radio-group>
+			<view class="shu"><text>共计:</text><text class="price">￥{{totalPrice}}</text>元</view>
 		</view>
-		<view class="flex">
-			<view class="list">
-				<view>
-					<image src="/img/1.png"></image>
-				</view>
-				<view class="f28">
-					玻璃手机壳
-				</view>
-				<view class="f24">
-					原创插画
-				</view>
-			</view>
-			<view class="list">
-				<view>
-					<image src="/img/1.png"></image>
-				</view>
-				<view class="f28">
-					玻璃手机壳
-				</view>
-				<view class="f24">
-					原创插画
-				</view>
-			</view>
-			<view class="list">
-				<view>
-					<image src="/img/1.png"></image>
-				</view>
-				<view class="f28">
-					玻璃手机壳
-				</view>
-				<view class="f24">
-					原创插画
-				</view>
-			</view>
-		</view>
-	</view>
-
-
-
-	<view class="bottom_flex">
-		<view class="left">
-			<van-checkbox value="{{ checked }}" style="margin-right:20rpx" bind:change="onChange"></van-checkbox>
-			全选
-		</view>
-		<view style="flex:auto"  class="amouts">
-			合计：
-			<text>￥14689.00</text>
-		</view>
-		<view class="js_btn"  bindtap="navto">
-			去结算
+		<view class="calculate" hover-class="feedBack" bindtap="navtos" data-totalNum="{{totalNum}}" data-totalPrice="{{totalPrice}}">
+			<view class="button">去结算{{totalNum}}</view>
 		</view>
 	</view>
 </view>
+<!-- <view wx:for="{{cart[0]}}"  wx:for-item='p_item' wx:for-index='p_index'>
+ {{p_index}}
+ <view wx:for="{{p_item}}" wx:for-item='c_item'>
+ {{c_item.productInfo.store_name}}
+ </view>
+</view> -->
+<!-- 有商品 结束 -->

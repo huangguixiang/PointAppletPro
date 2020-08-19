@@ -1,6 +1,8 @@
   //定义公共url
-const baseUrl = ""
+const baseUrl = "https://api.midiandz.com/api"
 let ajaxTImes = 0
+let token=wx.getStorageSync('Authori-zation')
+// console.log(token)
 export const get=(params)=>{
   ajaxTImes++
   wx.showLoading({
@@ -11,6 +13,10 @@ export const get=(params)=>{
     wx.request({
       ...params,
       url:baseUrl+params.url,
+      header: {
+        "Content-Type": "application/json;charset=UTF-8",
+        'Authori-zation':token
+      },
       method:"GET",
       success:(res)=>{
         resolve(res);
@@ -38,8 +44,13 @@ export const post=(params)=>{
       ...params,
       url:baseUrl+params.url,
       header: {
-        'Content-Type': 'application/x-www-form-urlencoded' 
+        "Content-Type": "application/json;charset=UTF-8",
+        'Authori-zation':token
+
       },
+      // header: {
+                   //token要不要放请求头 请求头的类型
+      // },
       method:"POST",
       success:(res)=>{
         resolve(res);

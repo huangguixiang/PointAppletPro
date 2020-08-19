@@ -1,66 +1,88 @@
+const app = getApp()
+const ctx = wx.createCanvasContext('myCanvas')
 Page({
-  data:{
-    text:"Page animation",
-    animation: ''
+data: {
+    text_x: 20, //x轴
+    text_y:20, //y轴
+    imageUrl: '',  // 生成的图片路径
+    showst:false, //是否完成图片和文字的填入
+    sytext: '', //文本
   },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-  },
-  onReady:function(){
-    // 页面渲染完成
-    //实例化一个动画
-    this.animation = wx.createAnimation({
-      // 动画持续时间，单位ms，默认值 400
-      duration: 1000, 
-      /**
-       * http://cubic-bezier.com/#0,0,.58,1  
-       *  linear  动画一直较为均匀
-       *  ease    从匀速到加速在到匀速
-       *  ease-in 缓慢到匀速
-       *  ease-in-out 从缓慢到匀速再到缓慢
-       * 
-       *  http://www.tuicool.com/articles/neqMVr
-       *  step-start 动画一开始就跳到 100% 直到动画持续时间结束 一闪而过
-       *  step-end   保持 0% 的样式直到动画持续时间结束        一闪而过
-       */
-      timingFunction: 'linear',
-      // 延迟多长时间开始
-      delay: 100,
-      /**
-       * 以什么为基点做动画  效果自己演示
-       * left,center right是水平方向取值，对应的百分值为left=0%;center=50%;right=100%
-       * top center bottom是垂直方向的取值，其中top=0%;center=50%;bottom=100%
-       */
-      transformOrigin: 'top center',
-      success: function(res) {
+chooseImageFun(){ //选择图片
+    var _this  = this
+    wx.chooseImage({
+      success: function (res) {
         console.log(res)
+        _this.setData({
+          imageUrl: res.tempFilePaths[0]
+        })
+        ctx.drawImage(res.tempFilePaths[0], 6, 0, 189, 310)
+        ctx.draw()
       }
     })
   },
-  /**
-   * 旋转
-   */
-  rotate: function() {
-    //顺时针旋转10度
-    //
-    this.animation.rotate(90).step()
+  InputFuns(e){ //文字
     this.setData({
-      //输出动画
-      animation: this.animation.export()
+      sytext: e.detail.value
+    })
+    ctx.setFontSize(14)
+    ctx.fillText(this.data.sytext, this.data.text_x, this.data.text_y)
+    ctx.draw(true)
+    this.setData({
+      showst:true
     })
   },
-  /**
-   * 旋转
-   */
-  // rotate: function() {
-  //   //两个动画组 一定要以step()结尾
-  //   /**
-  //    * 动画顺序 顺时针旋转150度>x,y 放大二倍>x，y平移10px>x,y顺时针倾斜>改变样式和设置宽度宽度
-  //    */
-  //   this.animation.rotate(150).step().scale(2).step().translate(10).step().skew(10).step().opacity(0.5).width(10).step({ducation: 8000})
-  //   this.setData({
-  //     //输出动画
-  //     animation: this.animation.export()
-  //   })
-  // }
+  start(e){ // 手指开始接触移动
+    console.log(e)
+    this.setData({
+      text_x: e.touches[0].x,
+      text_y: e.touches[0].y
+    })
+    ctx.clearRect(0, 0, 200, 310)
+    ctx.draw()
+    ctx.drawImage(this.data.imageUrl, 6, 0, 189, 310) //重新画上
+    ctx.setFontSize(14)//重新画上字体大小
+    ctx.fillText(this.data.sytext, this.data.text_x, this.data.text_y)//重新画上
+    ctx.draw(true) //重新画上
+  },
+  move(e) { // 手指在移动
+    console.log(e)
+    this.setData({
+      text_x: e.touches[0].x,
+      text_y: e.touches[0].y
+    })
+    ctx.clearRect(0, 0, 200, 310)  //清除画布上的内容
+    ctx.draw()
+    ctx.drawImage(this.data.imageUrl, 6, 0, 189, 310) //重新画上
+    ctx.setFontSize(14)  //重新画上字体大小
+    ctx.fillText(this.data.sytext, this.data.text_x, this.data.text_y)//重新画上
+    ctx.draw(true)//重新画上
+  },
+  Okgenerate(){ //生成图片方法
+    var _this = this
+    this.setData({
+      showst: false
+    })
+    wx.canvasToTempFilePath({ //生成图片
+      x: 0,
+      y: 0,
+      width: 200,
+      height: 310,
+      destWidth: 189,
+      destHeight: 310,
+      quality:1,
+      canvasId: 'myCanvas',
+      success: function (res) {
+        wx.saveImageToPhotosAlbum({  //保存生成的图片到手机相册里
+          filePath: res.tempFilePath,
+          success(res) {
+            app.showToasts('保存成功')
+            _this.setData({
+              showst: true
+            })
+          }
+        })
+      }
+    })
+  }
 })

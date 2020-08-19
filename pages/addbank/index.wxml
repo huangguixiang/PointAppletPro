@@ -1,17 +1,19 @@
 <view>
 	<view class="forms">
-		<van-field label="真实姓名" value="{{ value }}" placeholder="请输入您的真实姓名" border bind:change="onChange" />
-		<van-field label="身份证号码" value="{{ value }}" placeholder="请输入您的身份证号码" border bind:change="onChange" />
-		<van-field label="银行卡号" value="{{ value }}" placeholder="请输入您的银行卡号" border bind:change="onChange" />
-
-		<van-field label="手机号码" value="{{ value }}" placeholder="请输入您的手机号码" border bind:change="onChange" />
-		<van-field label="验证码" value="{{ value }}" placeholder="请输入验证码" border bind:change="onChange">
+		<van-field label="真实姓名" value="{{ value }}" placeholder="请输入您的真实姓名" border bind:blur="getName" />
+		<van-field label="身份证号码" value="{{ value }}" placeholder="请输入您的身份证号码" border bind:blur="getIdentity" />
+				<van-field label="开户银行"  bindtap="selectdz"   readonly value="{{ brnd }}" placeholder="请选择银行" border/>
+		<van-field label="银行卡号" value="{{ value }}" placeholder="请输入您的银行卡号" border  bind:blur="getCard" />
+		<van-field label="手机号码" value="{{ value }}" placeholder="请输入您的手机号码" border bind:blur="getCall" />
+		<van-field label="验证码" value="{{ value }}" placeholder="请输入验证码" border bind:blur="getVerification">
 			<van-button slot="button" size="small" type="primary">发送验证码</van-button>
 		</van-field>
 	</view>
-
+	<van-popup show="{{ show }}" position="bottom" bind:close="onClose">
+		<van-picker columns="{{ columns }}" bind:change="onChange" />
+	</van-popup>
 	<view style="margin-top:80rpx">
-		<view class="btns">确认</view>
+		<view class="btns" bindtap="infoBrnd">确认</view>
 		<view class="ta f24" style="margin-top:30rpx;color:#999999">*请仔细填写本人银行信息哦~</view>
 	</view>
 </view>

@@ -2,7 +2,7 @@
 .dinzhiye {
   padding-top: 5rpx;
   width: 750rpx;
-  height: 1328rpx;
+  height: 1520rpx;
   background-color: #f5f5f5;
 }
 .dinzhiye .mu {
@@ -32,42 +32,93 @@
   
 }
 .dinzhiye .tubiao {
-  position: absolute;
+  position: fixed;
   right: 37rpx;
-  bottom: 191rpx;  
+  bottom: 258rpx;  
   z-index: 100;
 }
 .dinzhiye .tubiao .tb {
-  width: 88rpx;
-  height: 88rpx;
+  width: 100rpx;
+  height: 100rpx;
   background: #ffffff;
   box-shadow: 0px 0px 18rpx 0px rgba(0, 0, 0, 0.05);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* 抠图 */
+.dinzhiye .tubiao .cutout {
+  position: absolute;
+  width:250rpx;
+  height:50rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 0px 18px 0px rgba(0, 0, 0, 0.05);
+  border-radius:5px;
+  top: -178rpx;
+  right: 0rpx;
+  z-index: 1;
+}
+.dinzhiye .tubiao .cutout .cutout-item {
+  width:200rpx;
+  height:75rpx;
+  padding:0 30rpx;
+  background:rgba(255,255,255,1);
+  /* box-shadow:0px 0px 18px 0px rgba(0, 0, 0, 0.05); */
+  /* border-radius:5px; */
+  top: -178rpx;
+  right: 0rpx;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dinzhiye .tubiao .cutout .cutout-item .cutout-itemOne {
+  /* width:76rpx;
+  height:25rpx; */
+  font-size:26rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:26rpx;
+}
+.dinzhiye .tubiao .cutout .cutout-item .cutout-itemTwo{
+width: 40rpx;
+height: 40rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.dinzhiye .tubiao .cutout .cutout-item .cutout-itemTwo image{
+  width: 26rpx;
+  height: 29rpx;
+  }
+
+
+/* 购物车 */
 .dinzhiye .tubiao .tb .count{
-   width: 40rpx;
-   height: 40rpx;
-   background-color: #D8B2B6;
-   color: white;
-   border-radius: 50%;
-   text-align: center;
-   line-height: 40rpx;
-   position: absolute;
-   top: 98rpx;
-   left: 58rpx;   
-   z-index: 2;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #D8B2B6;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40rpx;
+  position: absolute;
+  top: 119rpx;
+  left: 73rpx;
+  z-index: 2;
+  
 }
 .dinzhiye .tubiao .tb image {
-  /* width: 60rpx;
-  height:60rpx; */
-  width: 45rpx;
-  height: 45rpx;
+  width: 88rpx;
+  height: 88rpx;
   border-radius: 5px;
-  position:relative;
-  /* top: 16rpx;
-  left: 14rpx;   */
-  top: 23rpx;
-  left: 23rpx;
+  /* position: relative;
+  top: 14rpx;
+  left: 17rpx; */
+  
 
 }
 .dinzhiye .tubiao .shop {
@@ -82,7 +133,7 @@
   z-index: 1;
 }
 .dinzhiye .tubiao .shop .jiaru {
-  width: 281rpx;
+  width: 260rpx;
   height: 50rpx;
   font-size: 26rpx;
   font-family: PingFang SC;
@@ -93,22 +144,25 @@
   align-items: center;
   line-height: 52rpx;
   margin: 20rpx 0 20rpx 20rpx;
-
-
 }
 .dinzhiye .tubiao .shop .jiaru .tub{
   width: 53rpx;
   height: 53rpx;
-  margin-right: -49rpx;
+  margin-right: -87rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .dinzhiye .tubiao .shop .jiaru .tub .shopicon {
-  width: 53rpx;
-  height: 53rpx;
+  width: 36rpx;
+  height: 34rpx;
+  
 
 }
 .dinzhiye .tubiao .shop .jiaru .tub .shopicon2{
-  width: 53rpx;
-  height: 53rpx;
+  width: 36rpx;
+  height: 34rpx;
+  border-radius: 5px;
   position: absolute;
   top: 0;
   z-index: 0;
@@ -117,7 +171,7 @@
 
 }
 .dinzhiye .tubiao .shop .fangru {
-  width: 281rpx;
+  width: 260rpx;
   height: 50rpx;
   font-size: 26rpx;
   font-family: PingFang SC;
@@ -135,12 +189,15 @@
   top: 52rpx;
   left: 203rpx;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 
 }
 
 .dinzhiye .tubiao .shop .lijishop {
-  width: 281rpx;
+  width: 260rpx;
   height: 50rpx;
   font-size: 26rpx;
   font-family: PingFang SC;
@@ -156,17 +213,166 @@
 .dinzhiye .tubiao .shop .lijishop .tub2{
   width: 45rpx;
   height: 42rpx;
-  margin-right: 20rpx;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
 .dinzhiye .tubiao .shop .lijishop .gouamiicon {
-  width: 45rpx;
-  height: 42rpx;
-  
-  
-  /* padding-left: 29rpx; */
+  width: 31rpx;
+  height: 29rpx;
 }
+.dinzhiye .remind{
+  width: 442rpx;
+  /* border: 1px solid rebeccapurple; */
+  position: fixed;
+  bottom: 284rpx;
+  left: 169rpx;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  
+
+}
+.dinzhiye .remind .polygonCutout{
+  width: 288rpx;
+  height: 64rpx;
+  display: flex  ;
+  /* background-size: ; */
+}
+.dinzhiye .remind .polygonCutout .polygonCutout-angle{
+  background: #A6A3A6;
+  width: 238rpx;
+  height: 64rpx;
+  /* background-size: ; */
+}
+.dinzhiye .remind .polygonCutout .polygonCutout-angle .polygonCutout-angleWenzi{
+  width: 238rpx;
+  height: 64rpx;
+  font-size:22rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.dinzhiye .remind .polygonCutout .polygonCutout-triangle{
+  width: 0;
+  height: 0;
+  border-top: 35rpx solid transparent;
+  border-right: 29rpx solid transparent;
+  border-bottom: 30rpx solid transparent;
+  border-left: 30rpx solid #A6A3A6;
+  
+  
+  
+}
+
+.shopone{
+  width: 390rpx;
+  height: 64rpx;
+  display: flex  ;
+  margin-right: 50rpx;
+  margin-top: 65rpx;
+
+}
+.shopone .shopBg{
+  width: 390rpx;
+  height: 64rpx;
+  background: #A6A3A6;
+}
+.shopone .shopBg .shopCharacters{
+  width: 390rpx;
+  height: 64rpx;
+  font-size:22rpx;
+  font-family:PingFang SC;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.shopone   .shopTriangle{
+  width: 0;
+  height: 0;
+  border-top: 37rpx solid transparent;
+  border-right: 37rpx solid transparent;
+  border-bottom: 29rpx solid transparent;
+  border-left: 33rpx solid #A6A3A6;
+  
+
+}
+.next{
+  width:136rpx;
+  height:64rpx;
+  border:1px solid rgba(0,0,0,1);
+  opacity:0.3;
+  border-radius:5px;
+  position: fixed;
+  bottom: 284rpx;
+
+
+}
+.next .nextItem{
+  width:136rpx;
+  height:64rpx;
+  font-size:22rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.recommend{
+  width: 730rpx;
+  margin: 0 10rpx;
+  height: 78rpx;
+  background: #A6A3A6;
+  margin-top: -83rpx;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 153rpx;
+} 
+.recommend .recommendItem{
+  width:146rpx;
+  height: 78rpx;
+  font-size:22rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.recommend .recommendItem view{
+  width:146rpx;
+  height: 78rpx;
+  font-size:22rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.indicate{
+  position: fixed;
+  bottom: 132rpx;
+  left: 362rpx;
+  width: 0;
+  height: 0;
+  border-top: 10rpx solid #A6A3A6;
+  border-right: 10rpx solid transparent;
+  border-bottom: 10rpx solid transparent;
+  border-left: 10rpx solid transparent;
+}
+
+
 .tieImg{
   position: absolute;
   top: 9rpx;
@@ -559,13 +765,43 @@ align-items: center;
 
   justify-content: space-around;
 }
-.gongju .gongju-item view{
+.gongju .gongju-item .Item1{
   width: 40rpx;
-  height: 40rpx;
+  height: 34rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.gongju .gongju-item .Item2{
+  width: 37rpx;
+  height: 37rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gongju .gongju-item .Item3{
+  width: 37rpx;
+  height: 37rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gongju .gongju-item .Item4{
+  width: 31rpx;
+  height: 43rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gongju .gongju-item .Item5{
+  width: 39rpx;
+  height: 39rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .gongju .gongju-item .image1 {
   width: 39rpx;
   height: 33rpx;
@@ -579,7 +815,7 @@ align-items: center;
   height: 36rpx;
 }.gongju .gongju-item .image4 {
   width: 30rpx;
-  height: 42rpx;
+  height: 41rpx;
 }
 .gongju .gongju-item .image5 {
   width: 38rpx;

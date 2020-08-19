@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/securities/securities",
     "pages/user/user",
@@ -18,15 +19,23 @@
     "pages/index/index",
     "pages/me/index",
     "pages/order/index",
+    "pages/orderSub/index",
+    "pages/authentication/authentication",
     "pages/orderdel/index",
     "pages/paysue/index",
+    "pages/material/material",
+    "pages/creation/creation",
+    "pages/innovate/innovate",
     "pages/recording/index",
+    "pages/logistics/logistics",
     "pages/shop/index",
     "pages/conList/index",
     "pages/withdraw/index",
+    "pages/discuss/discuss",
+    "pages/editAddress/editAddress",
     "components/cropper/cropper",
-    "components/inputs/inputs",
-    "components/canvas/canvas"
+    "components/canvas/canvas",
+    "components/inputs/inputs"
 
 
   ],
@@ -35,7 +44,7 @@
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "弥点定制",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "list": [
@@ -80,7 +89,9 @@
     "van-collapse": "/dist/collapse/index",
     "van-collapse-item": "/dist/collapse-item/index",
     "van-icon": "/dist/icon/index",
-    "van-field": "/dist/field/index"
+    "van-field": "/dist/field/index",
+    "van-rate": "/dist/rate/index",
+    "van-skeleton": "/dist/skeleton/index"
   },
   "sitemapLocation": "sitemap22.json"
 }

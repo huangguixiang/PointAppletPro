@@ -1,0 +1,24 @@
+page{
+  background-color: #F5F5F5;
+  width: 750rpx;
+}
+
+.Img{
+  width: 750rpx;
+  height: 1400rpx;
+
+}
+.Img .ImgItem {
+  width: 690rpx;
+  height: 1400rpx;
+  margin: 0 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.Img .ImgItem image{
+ width: 50%;
+ height:50%;
+
+}

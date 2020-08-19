@@ -1,202 +1,259 @@
 <view style="width:100%;height:100%">
-<view class="pag">
+	<view class="pag">
 
 
-<view class="dinzhiye"> 
- <view>
-   
-  </view>
-  <van-transition show="{{ show }}"  name="slide-down">
-      <view class="mu">
-        <image src="/images/detail/sjk-iPhoneX.png" class="muban " mode="aspectFill"></image>
-                <!-- 摄像头 -->
-         <image src="/images/detail/sjk-iPhoneX02.png" class="shext" style="z-index:{{touindex}}" mode="aspectFill"  ></image>
-        <!-- 相机 -->
-         <image src="{{benimg}}" catchTap="chooseImageTap" mode="aspectFill" class="tieImg" style="z-index:{{imgINp1}}" mode="aspectFill" wx:if="{{bg1}}"/>
-         <!-- 网络图片 -->
-        <image src="{{wangIMG}}" class="tieImg1" style="z-index:{{imgINp2}}" mode="aspectFill"  wx:if="{{bg2}}"></image>
-        <!-- 图贴-->
-          <cropper  url="{{ originUrl }}" ratio="{{ ratio }}" class="tieImg2" style="z-index:{{imgINp4}}" wx:if="{{bg3}}">
-          <!-- <view class="del">X</view> -->
-          </cropper>
-           <!-- 画板 -->
-           <view class="bgc" style="background:{{bgcolos}};z-index:{{imgINp5}}" wx:if="{{bgcm}}"></view>
-        </view>
-        <!-- 删除 -->
-        <!-- <van-icon name="cross" class="shanchuimg" /> -->
-  </van-transition>
-<!-- 右侧图标开始 -->
+		<view class="dinzhiye" >
+			<view>
 
-<view class="tubiao">
- <!-- <van-transition show="{{ show }}"  name="slide-down"> -->
+			</view>
+			<van-transition show="{{ show }}" name="slide-down">
+				<view class="mu">
+					<image src="/images/detail/sjk-iPhoneX.png" class="muban " mode="aspectFill"></image>
+					<!-- 摄像头 -->
+					<image src="/images/detail/sjk-iPhoneX02.png" class="shext" style="z-index:{{touindex}}" mode="aspectFill"></image>
+					<!-- 相机 -->
+					<image src="{{benimg}}" catchTap="chooseImageTap" mode="aspectFill" class="tieImg" style="z-index:{{imgINp1}}" mode="aspectFill" wx:if="{{bg1}}" />
+					<!-- 网络图片 -->
+					<image src="{{wangIMG}}" class="tieImg1" style="z-index:{{imgINp2}}" mode="aspectFill" wx:if="{{bg2}}"></image>
+					<!-- 图贴-->
+					<cropper url="{{ originUrl }}" ratio="{{ ratio }}" class="tieImg2" style="z-index:{{imgINp4}}" wx:if="{{bg3}}">
+						<!-- <view class="del">X</view> -->
+					</cropper>
+					<!-- 画板 -->
+					<view class="bgc" style="background:{{bgcolos}};z-index:{{imgINp5}}" wx:if="{{bgcm}}"></view>
+				</view>
+				<!-- 删除 -->
+				<!-- <van-icon name="cross" class="shanchuimg" /> -->
+			</van-transition>
+			<!-- 右侧图标开始 -->
 
-     <view class="tb">
-      <image src="/images/detail/dz-ai.png" mode="aspectFill"></image>
-  </view>
-  <view class="tb" style="margin-top: 30rpx;">
-      <image src="/images/detail/dz-gwc.png" bindtap="hindeshop" mode="aspectFill"></image>
-      <view class="count" wx:if="{{count}}">{{cartTotalCounts}}</view>
-  </view>
-  
-<!-- duration="{{ { enter: 500, leave: 1000 } }}" -->
-<van-transition name="fade" show="{{ hindeshop }}" duration="{{ { enter: 500, leave: 1000 } }}">
-     <view class="shop">
-         <view class="jiaru">
-            <view>加入购物车</view>
-            <view class="tub">
-                      <image src="/images/detail/jg-2.png" class="shopicon"  bindtap="jia" mode="aspectFill" ></image>
-                       <image src="/images/detail/jg-2.png" class="shopicon2" style="{{translateStyle}}" mode="aspectFill" wx:if="{{goicon}}"></image>
-            </view>
-       <!-- //红点 -->
-<view
- class="good_box"
- animation="{{animation}}"
- style="left: {{bus_x}}px; top: {{bus_y}}px; opacity: 0"
->
-</view>
-         </view>
-            <view class="fangru">
-                <view >查看购物车</view>
-                <view class="shuliang" bindtap="chakan">{{cartTotalCounts}}</view>
-            </view>
-                <view class="lijishop">
-                    <view >立即购买</view>
-                     <view class="tub2">
-                       <image src="/images/detail/buy.png" class="gouamiicon" bindtap="goumai" mode="aspectFill"></image>
-                     </view>
+			<view class="tubiao">
+				<!-- <van-transition show="{{ show }}"  name="slide-down"> -->
+				<view class="tb"  >
+					<image src="/images/detail/face-01.svg" mode="aspectFill" bindtap="userCutout"></image>
+				</view>
+				<view class="tb" style="margin-top: 30rpx;">
+					<image src="/images/detail/car.svg" bindtap="hindeshop" mode="aspectFill"></image>
+					<view class="count" wx:if="{{count}}">{{cartTotalCounts}}</view>
+				</view>
+				<!-- duration="{{ { enter: 500, leave: 1000 } }}" -->
+				<van-transition name="fade" show="{{ hindeshop }}" duration="{{ { enter: 300, leave: 600 } }}" >
+					<view class="shop">
+						<view class="jiaru" bindtap="jia">
+							<view class="jiaruShop">加入购物车</view>
+							<view class="tub">
+								<image src="/images/detail/car-01.svg" class="shopicon"  mode="aspectFill"></image>
+								<image src="/images/detail/car-02.svg" class="shopicon2" style="{{translateStyle}}" mode="aspectFill" wx:if="{{goicon}}"></image>
+							</view>
+							<!-- //红点 -->
+							<view class="good_box" animation="{{animation}}" style="left: {{bus_x}}px; top: {{bus_y}}px; opacity: 0">
+							</view>
+						</view>
+						<view class="fangru" bindtap="chakan">
+							<view>查看购物车</view>
+							<view class="shuliang" >{{cartTotalCounts}}</view>
+						</view>
+						<view class="lijishop"  bindtap="purchase">
+							<view bindtap="purchase" >立即购买</view>
+							<view class="tub2">
+								<image src="/images/detail/bag.svg" class="gouamiicon" mode="aspectFill"></image>
+							</view>
 
-                </view>
-     </view>
-     </van-transition>
-  <!-- </van-transition> -->
-</view>
-<!-- 右侧图标结束 -->
-</view>
-<!-- 相机开始 -->
+						</view>
+					</view>
+				</van-transition>
 
- <!-- 相机结束-->
-<!-- 网络图片开始 -->
-<view class="aa">
-<van-popup show="{{ showwl }}" position="bottom"  safe-area-inset-top custom-style="height:100%;">
-<view class="all">
- <block wx:for="{{listone}}" wx:key="index">
-    <view hidden="{{ishidden != index}}" class="b" >
-      <!--   ishidden != index == true  则显示 -->
-     <!-- <van-transition show="{{ shows }}" custom-class="block" name="slide-up"> -->
-    <image wx:for="{{item.content}}" src="{{item}}" class="allImg" wx:key="index" bindtap="qiehuan" data-Img="{{item}}"  ></image>
-           <!-- </van-transition> -->
-    </view>
-    </block>
-<view class="list" style="z-index:{{ind}}">
-<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
-  <van-collapse-item title="所有照片" name="1" >
-          <image src="/images/detail/color-qx.png"  class="cha" bindtap="onChanges" mode="aspectFill">  </image>
-        <van-popup show="{{ showall }}" position="bottom" custom-style="height: 47%;"   round bindtap="onChange2" closeable>
-        <view wx:for="{{ list }}" wx:key="index" class="a" bindtap='showTo' data-myindex="{{index}}" >
-          {{ item }}
-          </view>
-      </van-popup>
-  </van-collapse-item>
-</van-collapse>
-</view>
-</view>
-</van-popup>
-</view>
-<!-- 网络图片结束 -->
+				<!-- <view class="cutout" wx:if="{{cutout}}" >
+					<view class="cutout-item">
+						<view class="cutout-itemOne">DIY</view>
+						<view class="cutout-itemTwo">
+							<image bindtap="coseCutout" src="/images/detail/face-02.svg"></image>
+						</view>
+					</view>
+				</view> -->
+				<!-- </van-transition> -->
+			</view>
+			<!-- 右侧图标结束 -->
 
-<!-- 输入字体开始 -->
-<view class='inp'>
-   <input  class="tieImg3" wx:if="{{isinp}}"  bindblur="subs" style="z-index:{{imgINp3}}" name='wenzi' bindinput='watchPassWord' type='text' class="weui-input" placeholder="请输入" />
-   <!-- <image src='/images/detail/网络1.jpg'></image> -->
-   <view class="inp2" wx:if="{{pin2}}" style="z-index:{{imgINp3}}">{{valzhi}}</view>
-</view>
-<!-- 输入字体结束 -->
+		<!-- 进来第一次的时候显示 -->
+		<view class="remind" wx:if="{{polygon}}">
+		  <view class="polygonCutout">
+			   <view class="polygonCutout-angle">
+			    <view class="polygonCutout-angleWenzi">人脸识别自动抠图~</view>
+			 </view>
+			 <view class="polygonCutout-triangle"></view>
+			</view>
+			   <view class="shopone">
+							<view class="shopBg">
+							   <view class="shopCharacters">“加入购物”&“立即购买”在这里哦~</view>
+							</view>
+					 <view class="shopTriangle"></view>
+				 </view>
+		</view>
+		<view class="next"  wx:if="{{nextItemOne}}" >
+		<view class="nextItem" bindtap="nextKnow">下一步</view>
+		</view>
+		<view class="next" wx:if="{{nextItemTwo}}">
+	   	<view class="nextItem" bindtap="nextKnows" >知道了</view>
+		</view>
 
-<!-- 图贴开始 -->
-<view class="dd">
-      <van-popup show="{{ showw2 }}" position="bottom"  safe-area-inset-top custom-style="height:70%;" bindtap="onChange3" round >
-      <view class="all" style="z-index:{{ind}}">
-      <block wx:for="{{tieone}}" wx:key="index">
-          <view hidden="{{ishiddens != index}}" class="b" >
-            <!--   ishidden != index == true  则显示 -->
-          <!-- <van-transition show="{{ shows }}" custom-class="block" name="slide-up"> -->
-          <image wx:for="{{item.content}}" src="{{item}}" class="allImg" wx:key="index" bindtap="qiehuantie" data-Img="{{item}}" mode="aspectFill"></image>
-                <!-- </van-transition> -->
-          </view>
-          </block>
-      </view>
-      </van-popup>
-      <view class="listtie" style="z-index:{{inds}}"  wx:if="{{ismu}}">
-              <view  class="cc">
-              <!-- <van-transition show="{{ showdonghua }}" custom-class="block" name="fade-right">    -->
-                    <view wx:for="{{ tie }}" wx:key="index" class="aa" bindtap='showTos' data-tieindex="{{index}}" > {{ item }}</view>
-              <!-- </van-transition> -->    
-      </view>
-      </view>
-</view>
-<!-- 图贴结束 -->
+		<view class="recommend" wx:if="{{recommend}}">
+	    <view class="recommendItem">
+			<view>手机相册</view>
+			</view>
+	    <view class="recommendItem">
+					<view>弥点图库</view>
+			</view>
+	    <view class="recommendItem">
+					<view>编辑文字</view>
+			</view>
+	    <view class="recommendItem">
+					<view>选择贴图</view>
+			</view>
+	    <view class="recommendItem">
+					<view>添加颜色</view>
+			</view>
+		</view>
 
-<!-- 画板开始 -->
+		<view class="indicate"  wx:if="{{recommend}}"> </view>
+		<!-- 进来第一次的时候结束 -->
+		</view>
+		<!-- 相机开始 -->
 
-<van-popup
-  show="{{ showhua }}"
-  position="bottom"
-  custom-style="height:664rpx;width: 750rpx; border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;"
-  bind:close="onClose">
-<view class="huaban">
-<view class="jian">推荐颜色</view>
-<view class="huaban-item">
+		<!-- 相机结束-->
+		<!-- 网络图片开始 -->
+		<view class="aa">
+			<van-popup show="{{ showwl }}" position="bottom" safe-area-inset-top custom-style="height:100%;">
+				<view class="all">
+					<block wx:for="{{listone}}" wx:key="index">
+						<view hidden="{{ishidden != index}}" class="b">
+							<!--   ishidden != index == true  则显示 -->
+							<!-- <van-transition show="{{ shows }}" custom-class="block" name="slide-up"> -->
+							<image wx:for="{{item.content}}" src="{{item}}" class="allImg" wx:key="index" bindtap="qiehuan" data-Img="{{item}}"></image>
+							<!-- </van-transition> -->
+						</view>
+					</block>
+					<view class="list" style="z-index:{{ind}}">
+						<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+							<van-collapse-item title="所有照片" name="1">
+								<image src="/images/detail/color-qx.png" class="cha" bindtap="onChanges" mode="aspectFill"> </image>
+								<van-popup show="{{ showall }}" position="bottom" custom-style="height: 47%;" round bindtap="onChange2" closeable>
+									<view wx:for="{{ list }}" wx:key="index" class="a" bindtap='showTo' data-myindex="{{index}}">
+										{{ item }}
+									</view>
+								</van-popup>
+							</van-collapse-item>
+						</van-collapse>
+					</view>
+				</view>
+			</van-popup>
+		</view>
+		<!-- 网络图片结束 -->
 
-<view class="{{activ==item?'activ':'activ1'}}"  wx:for="{{bgcolor}}" wx:key="index" data-bg="{{item}}" bindtap="huoqubg">
-    <view style="background-color:{{item}}" class="yuan"></view>
-</view>
-</view>
-   <view class="qicai">
-      <view class="res">
-     <view class="res-item">
-      <image src="/images/detail/color-qx.png" mode="aspectFill"></image>
-     </view>
-      </view>
-      <view class="qicaiyuan">
-          <view class="qicai-item">
-          <image src="/images/detail/color-sh.png" mode="aspectFill"></image> 
-          </view>
-      </view>
-       <view class="sub">
-       <view class="sub-item">
-            <image src="/images/detail/color-qx.png" mode="aspectFill"></image>
-       </view>
-       </view>
-   </view>
 
-</view>
-</van-popup>
 
-<!-- 画板结束 -->
+		<!-- 输入字体开始 -->
+		<view class='inp'>
+			<input class="tieImg3" wx:if="{{isinp}}" bindblur="subs" style="z-index:{{imgINp3}}" name='wenzi' bindinput='watchPassWord' type='text' class="weui-input" placeholder="请输入" />
+			<!-- <image src='/images/detail/网络1.jpg'></image> -->
+			<view class="inp2" wx:if="{{pin2}}" style="z-index:{{imgINp3}}">{{valzhi}}</view>
+		</view>
+		<!-- 输入字体结束 -->
 
-<view class="gongju">
-  <van-transition show="{{ show }}"  name="fade-left" duration="{{ { enter: 800, leave: 1000 } }}">
-<view class="gongju-item">
-   <view>
-     <image class="image1" src="{{bottomTb?'/images/detail/icn-photo.svg':coTb}}" bindtap="chooseimage" data-tbUrl="/images/detail/icn-photo2.svg" mode="aspectFill"></image>
-   </view>
-<view>
-  <image class="image2" src="{{bottomTbone?'/images/detail/icn-picture.svg':coTbone}}" data-tbUrl="/images/detail/icn-picture2.svg"  bindtap="bnediimage" mode="aspectFill"></image>
-</view>
-<view>
-  <image class="image3" src="{{bottomTbtwo?'/images/detail/icn-write.svg':coTbtwo}}" data-tbUrl="/images/detail/icn-write2.svg" bindtap="isinpchange" mode="aspectFill"></image>
-</view>
-<view>
-  <image class="image4" src="{{bottomTbthree?'/images/detail/icn-tiezhi.svg':coTbthree}}" data-tbUrl="/images/detail/icn-tiezhi2.svg" bindtap="istutie" mode="aspectFill"></image>
-</view>
-<view>
-  <image class="image5" src="{{bottomTbfure?'/images/detail/icn-color.svg':coTbfure}}" data-tbUrl="/images/detail/icn-color2.svg" bindtap="showPopup" mode="aspectFill"></image>
-</view>
-</view>
-    </van-transition>
-<view class="footer">
-<!-- <view class="footer-item" style="z-index:{{hengang}};"></view> -->
-</view>
-</view>
-</view>
+		<!-- 图贴开始 -->
+		<view class="dd">
+			<van-popup show="{{ showw2 }}" position="bottom" safe-area-inset-top custom-style="height:70%;" bindtap="onChange3" round>
+				<view class="all" style="z-index:{{ind}}">
+					<block wx:for="{{tieone}}" wx:key="index">
+						<view hidden="{{ishiddens != index}}" class="b">
+							<!--   ishidden != index == true  则显示 -->
+							<!-- <van-transition show="{{ shows }}" custom-class="block" name="slide-up"> -->
+							<image wx:for="{{item.content}}" src="{{item}}" class="allImg" wx:key="index" bindtap="qiehuantie" data-Img="{{item}}" mode="aspectFill"></image>
+							<!-- </van-transition> -->
+						</view>
+					</block>
+				</view>
+			</van-popup>
+			<view class="listtie" style="z-index:{{inds}}" wx:if="{{ismu}}">
+				<view class="cc">
+					<!-- <van-transition show="{{ showdonghua }}" custom-class="block" name="fade-right">    -->
+					<view wx:for="{{ tie }}" wx:key="index" class="aa" bindtap='showTos' data-tieindex="{{index}}"> {{ item }}</view>
+					<!-- </van-transition> -->
+				</view>
+			</view>
+		</view>
+		<!-- 图贴结束 -->
+		<!-- 画板开始 -->
+		<van-popup show="{{ showhua }}" position="bottom" custom-style="height:664rpx;width: 750rpx; border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;" bind:close="onClose">
+			<view class="huaban">
+				<view class="jian">推荐颜色</view>
+				<view class="huaban-item">
+
+					<view class="{{activ==item?'activ':'activ1'}}" wx:for="{{bgcolor}}" wx:key="index" data-bg="{{item}}" bindtap="huoqubg">
+						<view style="background-color:{{item}}" class="yuan"></view>
+					</view>
+				</view>
+				<view class="qicai">
+					<view class="res">
+						<view class="res-item">
+							<image src="/images/detail/color-qx.png" mode="aspectFill"></image>
+						</view>
+					</view>
+					<view class="qicaiyuan">
+						<view class="qicai-item">
+							<image src="/images/detail/color-sh.png" mode="aspectFill"></image>
+						</view>
+					</view>
+					<view class="sub">
+						<view class="sub-item">
+							<image src="/images/detail/color-qx.png" mode="aspectFill"></image>
+						</view>
+					</view>
+				</view>
+
+			</view>
+		</van-popup>
+		<!-- 画板结束 -->
+		<!-- DIY开始 -->
+		<view class="aa">
+			<van-popup show="{{ cutout }}" position="bottom" safe-area-inset-top custom-style="height:60%;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;"   bind:close="onCloseDiy"  >
+				<view class="all">
+					<block wx:for="{{listone}}" wx:key="index">
+						<view hidden="{{ishidden != index}}" class="b">
+							<!--   ishidden != index == true  则显示 -->
+							<!-- <van-transition show="{{ shows }}" custom-class="block" name="slide-up"> -->
+							<image wx:for="{{item.content}}" src="{{item}}" class="allImg" wx:key="index" bindtap="Diy" data-Img="{{item}}"></image>
+							<!-- </van-transition> -->
+						</view>
+					</block>
+				</view>
+			</van-popup>
+		</view>
+		<!-- DIY结束 -->
+
+		<view class="gongju">
+			<van-transition show="{{ show }}" name="fade-left" duration="{{ { enter: 800, leave: 1000 } }}">
+				<view class="gongju-item">
+				    	<view class="Item1">
+						<image class="image1" src="{{bottomTb?'/images/detail/icn-photo.svg':coTb}}" bindtap="chooseimage" data-tbUrl="/images/detail/icn-photo2.svg" mode="aspectFill"></image>
+				    	</view>
+				  	<view class="Item2">
+						<image class="image2" src="{{bottomTbone?'/images/detail/icn-picture.svg':coTbone}}" data-tbUrl="/images/detail/icn-picture2.svg" bindtap="bnediimage" mode="aspectFill"></image>
+				    	</view>
+					<view class="Item3">
+						<image class="image3" src="{{bottomTbtwo?'/images/detail/icn-write.svg':coTbtwo}}" data-tbUrl="/images/detail/icn-write2.svg" bindtap="isinpchange" mode="aspectFill"></image>
+					</view>
+					<view class="Item4">
+						<image class="image4" src="{{bottomTbthree?'/images/detail/icn-tiezhi.svg':coTbthree}}" data-tbUrl="/images/detail/icn-tiezhi2.svg" bindtap="istutie" mode="aspectFill"></image>
+					</view>
+					<view class="Item5">
+						<image class="image5" src="{{bottomTbfure?'/images/detail/icn-color.svg':coTbfure}}" data-tbUrl="/images/detail/icn-color2.svg" bindtap="showPopup" mode="aspectFill"></image>
+					</view>
+				</view>
+			</van-transition>
+			<view class="footer">
+				<!-- <view class="footer-item" style="z-index:{{hengang}};"></view> -->
+			</view>
+		</view>
+	</view>
 </view>

@@ -1,6 +1,8 @@
 /*轮播页*/
 page {
   background-color: #F5F5F5;
+  margin-bottom: 206rpx;
+
 }
 page #swiper {
   width: 750rpx;
@@ -29,7 +31,8 @@ page .detailText .detailText-item {
 }
 page .detailText .detailText-item .left {
   width: 375rpx;
-  height: 274rpx;
+  height: 229rpx;
+
   padding-top: 47rpx;
 
 }
@@ -40,7 +43,12 @@ page .detailText .detailText-item .left .Egname {
   font-family: BankGothic Lt BT;
   font-weight: 300;
   color: #333333;
-  line-height: 52rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 7rpx;
+
+
 }
 page .detailText .detailText-item .left .Chname {
   width: 100%;
@@ -49,17 +57,24 @@ page .detailText .detailText-item .left .Chname {
   font-family: PingFang SC;
   font-weight: 500;
   color: #333333;
-  line-height: 52rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
   box-sizing: border-box;
+  padding-left: 7rpx;
+
 }
 page .detailText .detailText-item .left .Price {
-  width: 156rpx;
-  height: 35rpx;
+  width: 100%;
+  /* height: 35rpx; */
   font-size: 46rpx;
   font-family: PingFang SC;
   font-weight: 500;
   color: #c28e90;
-  line-height: 52rpx;
+  /* text-align: left; */
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 page .detailText .detailText-item .right {
   width: 186rpx;
@@ -132,35 +147,49 @@ page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx {
   position: absolute;
   left: 0;
   top: 49rpx;
+  height: 46rpx;
+
 }
 page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx .userInfo-pin {
   width: 20rpx;
   height: 20rpx;
   margin-right: 12rpx;
+  padding: 5rpx 0;
 
   
 }
+
 page .pin .All .All-item .userInfo .tui {
   width: 710rpx;
-  height: 165rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;
   color: #777777;
   line-height: 45rpx;
   margin-top: -33rpx;
+  margin-bottom: 33rpx;
+  
   
 }
 
 page .pin .All .All-item .userInfo .up {
   display: flex;
   width: 690rpx;
-  justify-content: space-around;
+  height:150rpx;
+  align-items: center;
+}
+page .pin .All .All-item .userInfo .up view {
+  display: flex;
+  width: 160rpx;
+  height:120rpx;
+  align-items: center;
+  margin: 0 20rpx;
+  /* justify-content: space-around; */
 }
 page .pin .All .All-item .userInfo .up image {
-  width: 160rpx;
-  height: 110rpx;
-  border-radius: 5px;
+width:100%;
+height:100%;
+
 }
 page .pin .gop {
   width: 690rpx;
@@ -179,7 +208,7 @@ page .pin .gop .goto {
 }
 page .detail {
   width: 750rpx;
-  margin-top: 45rpx;
+  margin-top: 100rpx;
   text-align: center;
 }
 .goshop {
@@ -188,6 +217,7 @@ page .detail {
   bottom: 0;
   box-sizing: border-box;
 }
+
 .goshop .goshop1 {
   width: 750rpx;
   height: 121rpx;
@@ -195,6 +225,27 @@ page .detail {
   text-align: center;
   line-height: 108rpx;
   box-sizing: border-box;
+}
+.goshop .goshop12 {
+  width: 750rpx;
+  height: 186rpx;
+  background: #3d365e;
+  text-align: center;
+  line-height: 108rpx;
+  box-sizing: border-box;
+}
+.goshop .goshop12 text {
+  width: 161rpx;
+  height: 34rpx;
+  box-sizing: border-box;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 26rpx;
+  letter-spacing: 10rpx;
+  position: relative;
+  top: 10rpx;
 }
 .goshop .goshop1 text {
   width: 161rpx;
@@ -209,23 +260,7 @@ page .detail {
   position: relative;
   top: 10rpx;
 }
-.goshop .goshop2 {
-  width: 750rpx;
-  height: 68rpx;
-  background: #3d365e;
-  text-align: center;
-  line-height: 68rpx;
-}
-.goshop .goshop2 view {
-  width: 190rpx;
-  height: 8rpx;
-  background: #ffffff;
-  border-radius: 3px;
-  text-align: center;
-  margin: 0 auto;
-  position: relative;
-  top: 30rpx;
-}
+
 .content {
   margin: 0 30rpx;
 }
@@ -235,6 +270,9 @@ page .detail {
   margin: 0 auto;
   border: none;
   margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content .henxian .henxian-item{
   width: 130rpx;
@@ -257,7 +295,12 @@ page .detail {
   text-align: right;
   margin-right: 39rpx;
 }
-.content .shangp .shangp-img image {
+/* .content .shangp .shangp-img view  {
+  width: 70rpx;
+  height: 157rpx;
+  border-radius: 5px;
+} */
+.content .shangp .shangp-img view image {
   width: 70rpx;
   height: 157rpx;
   border-radius: 5px;
@@ -267,7 +310,6 @@ page .detail {
 }
 .content .shangp .moren .price {
   width: 100%;
-  height: 35rpx;
   font-size: 46rpx;
   font-family: PingFang SC;
   font-weight: bold;
@@ -318,6 +360,7 @@ page .detail {
 }
 .content .pinpai .zhonglei .zhongleItems {
   background: #3D365E;
+  color: white;
 }
 
 .content .pinpai .zhonglei .zhonglei-item .pimg{
@@ -325,6 +368,7 @@ page .detail {
   height:58rpx;
   border-radius:5px;
   position: relative;
+  display: inline-block;
   }
 .content .pinpai .xinghao {
   width: 600rpx;
@@ -365,6 +409,10 @@ page .detail {
   margin-right: 30rpx;
   margin-bottom: 30rpx;
   display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
 }
 
 .content .pinpais .zhonglei .zhongleItems {
@@ -394,10 +442,31 @@ page .detail {
   position: relative;
   }
   .content .pinpais .zhonglei .zhonglei-item .pname{
-    width: 147rpx;
+    /* width: 147rpx; */
+    width: 123rpx;
+    height: 60rpx;
     font-size: 24rpx;
     font-family:PingFang SC;
     font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 10rpx;
+  
+  }
+  .content .shangp .moren .Version {
+    width: 240rpx;
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 40rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 10rpx;
+     margin-left: 10rpx;
+    
   }
 .content .pinpais .xinghao {
   width: 600rpx;
@@ -422,4 +491,20 @@ page .detail {
   font-weight: bold;
   color: #ffffff;
   line-height: 128rpx;
+}
+/* //用户反馈 */
+.content .feedBack{
+  background:		#EEEEEE;
+  border-radius: 5px;
+
+}
+.feedBack{
+  background:		#EEEEEE;
+  border-radius: 5px;
+
+}
+.goshop .feedBack{
+  background:		#EEEEEE !important;
+  border-radius: 5px;
+
 }

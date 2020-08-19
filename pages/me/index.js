@@ -1,4 +1,5 @@
 // pages/me/index.js
+import {post,get  } from "../../request/request.js";
 Page({
 
   /**
@@ -14,12 +15,86 @@ Page({
   onLoad: function (options) {
 
   },
-  navto(e) {
-    let name = e.currentTarget.dataset.name;
+//订单
+order(e){
+  let {index}=e.currentTarget.dataset
+  wx.navigateTo({
+    url: `/pages/order/index?index=`+index,
+  })
+},
+
+
+  //分销中心
+  Distribution(e) {
+
     wx.navigateTo({
-      url: `/pages/${name}/index`,
+      url: `/pages/Distribution/index`,
     })
   },
+  //订单
+  navto(e) {
+
+    let {index}=e.currentTarget.dataset
+    // console.log(index)
+    wx.navigateTo({
+      url: `/pages/order/index?index=`+index,
+    })
+  },
+//创作中心
+creation(e){
+    // let {index}=e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/creation/creation`,
+    })
+  },
+    //地址
+    navtos(e) {
+      wx.navigateTo({
+        url: '/pages/AddressGl/index',
+      })
+    },
+
+    //客服
+    handleContact (e) {
+      console.log(e.detail.path)
+      console.log(e.detail.query)
+  },
+//优惠券
+discount() {
+  //跳转Tabbar
+    wx.switchTab({  
+      url: `/pages/conList/index`,
+          });
+  },
+
+
+  async user (){
+    let _that = this
+    let id = Number (_that.data.id)
+    // console.log( Number (id))
+    try {
+      const res = await get({
+        url: "/user"
+      })
+      let user=[]
+      user.push(res.data.data)
+      console.log(res)
+      if (res.data.status==200) {
+         _that.setData({
+          user
+         })
+      }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -31,7 +106,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+this.user()
   },
 
   /**

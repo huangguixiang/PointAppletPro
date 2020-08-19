@@ -8,7 +8,7 @@
 				999.00
 			</view>
 		</view>
-		<image src="/img/me/bj.png" class="bj"></image>
+		<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_70e2fa2a6f64e4b333e76c4e0b3ccdec.png" class="bj"></image>
 	</view>
 
 	<view class="amout p30">
@@ -25,11 +25,11 @@
 
 		<view wx:if="{{active==1}}">
 			<view class="blak_list">
-				<image src="/img/me/yh.png" class="icon"></image>
+				<image src="/images/user/yh.png" class="icon"></image>
 				<view>中国建设银行
 					<text>8888 **** **** 8888</text>
 				</view>
-				<image src="/img/me/rr.png" class="rr" bindtap="morelist"></image>
+				<image src="/images/user/rr.png" class="rr" bindtap="morelist"></image>
 			</view>
 		</view>
 		<view wx:else style="padding:30rpx">

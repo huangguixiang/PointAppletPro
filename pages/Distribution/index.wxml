@@ -1,18 +1,18 @@
 <view>
 	<view class="top">
-		<view class="user">
+		<view class="user" wx:for="{{user}}" wx:key="index">
 			<view>
-				<image class="user_img" src="/img/me/img.jpg"></image>
+				<image class="user_img" src="{{item.avatar}}"></image>
 			</view>
 			<view class="f32" style="color:#fff;margin-top:30rpx">
-				Despair
+						{{item.nickname}}
 			</view>
 		</view>
-		<image src="/img/me/bj.png" class="bj"></image>
+		<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_70e2fa2a6f64e4b333e76c4e0b3ccdec.png" class="bj"></image>
 	</view>
 
 
-	<view class="income">
+	<view class="income"  wx:for="{{user}}" wx:key="index" >
 		<view class="f30 ta" style="color:#3D365E;padding-top:40rpx">累计收益（元）</view>
 		<view class=" ta" style="color:#3D365E;padding-top:40rpx;font-size:50rpx">999.00</view>
 		<view class=" btns" bindtap="navto" data-name="withdraw">
@@ -29,7 +29,7 @@
 			</view>
 			<view>
 				<view class="f24">待提现（元）</view>
-				<view class="f30">999.00</view>
+				<view class="f30">{{item.brokerage_price}}</view>
 			</view>
 		</view>
 	</view>
@@ -38,15 +38,15 @@
 	<view class="user_list">
 		<view class="user_top">
 			<view>
-				<image src="/img/me/left.png"></image> 推广订单
+				<image src="/images/user/left.png"></image> 推广订单
 			</view>
 			<view>
-				<image src="/img/me/right.png"></image> 推广用户
+				<image src="/images/user/right.png"></image> 推广用户
 			</view>
 		</view>
 
 		<view class="kong ta">
-			<image src="/img/me/tg.png"></image>
+			<image src="/images/user/tg.png"></image>
 			<view class="f24 ta">您还没有推广任何订单哦~</view>
 			<view class="btns" bindtap="clickTg">
 				立即推广
@@ -58,7 +58,7 @@
 		<view>
 			<view class="usernamelist">
 				<view>
-					<image src="/img/me/img.jpg"></image>
+					<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_98a5943a12b5e5650872227d755632eb.png"></image>
 					<view style="margin-left:20rpx">
 						<view class="f26">彭于晏</view>
 						<view class="f24" style="color:#C28E90;margin-top:20rpx">直接好友</view>
@@ -76,9 +76,9 @@
 
 	<van-overlay show="{{ show }}" bind:click="onClickHide">
 		<view class="wrapper">
-			<image src="/img/me/tgimg.png"></image>
+			<image src="/images/user/tgimg.png"></image>
 			<view>
-				<image  bind:click="onClickHide" src="/img/me/g.png" style="width:54rpx;height:54rpx;margin-top:14rpx"></image>
+				<image  bind:click="onClickHide" src="/images/user/g.png" style="width:54rpx;height:54rpx;margin-top:14rpx"></image>
 			</view>
 		</view>
 	</van-overlay>

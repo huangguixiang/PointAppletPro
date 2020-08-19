@@ -1,0 +1,26 @@
+<view class="pin">
+	<view class="All">
+		<view class="bar" wx:if="{{pin.length>3?true:false}}">弥友们怎么说{{pin.length}}</view>
+		<view class="bar" wx:if="{{pin.length==0?true:false}}">暂无评论</view>
+		<view class="All-item" wx:for="{{pin}}"  wx:key="index">
+			<view class="userInfo">
+				<image class="userInfo-tou" src="{{item.avatar}}"  mode="aspectFill"></image>
+				<view class="userInfo-all" > 
+					<text class="userInfo-name">{{item.nickname}}</text>
+         <view class="userInfo-pinx">
+                <van-rate readonly value="{{ item.product_score }}" color="#C17372"   />
+              </view>
+				</view>
+          <view style="width: 690rpx;height: 37rpx;"> </view>
+                 <view class="tui">{{item.comment}}</view>
+        <view class="up" data-img="{{item.pics}}"  bindtap="preview">
+           <view   wx:for="{{item.pics}}" wx:key="index" >
+              <image src="{{item}}"  data-src="{{item}}"  mode="widthFix"></image>
+           </view>
+       </view>
+			</view>
+    </view>
+    
+	</view>
+
+</view>

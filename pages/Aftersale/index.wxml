@@ -1,4 +1,4 @@
-<view style="padding-bottom:80rpx">
+<view style="padding-bottom:80rpx;margin-top:40rpx">
 
 	<view class="dp">
 		<view class="dp_list">
@@ -6,7 +6,7 @@
 				订单编号：1000000001
 			</view>
 			<view class="good_list">
-				<image src="/img/1.png" class="goodname"></image>
+				<image src="/images/detail/sp1.jpg" class="goodname"></image>
 				<view style="flex:auto">
 					<view>PVC材质手机壳定制...</view>
 					<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
@@ -28,7 +28,7 @@
 	</view>
 
 	<view class="types">
-		<van-field label="售后类型" readonly value="{{ value }}" placeholder="退货退款" border="{{ false }}" bindtap="selectType" />
+		<van-field label="售后类型" readonly value="{{ radio }}" placeholder="退货退款" border="{{ false }}" bindtap="selectType" />
 	</view>
 
 
@@ -46,25 +46,37 @@
 		<van-field value="{{ value }}" placeholder="退款联系人" label="退款联系人" border />
 		<van-field value="{{ value }}" placeholder="联系方式" label="联系方式" border />
 	</view>
-
 	<view class="Feedback">
 		<view class="title">
-			商家反馈
+	  	<view>商家反馈</view>
 			<view>商家同意</view>
 		</view>
-
 		<view class="conter">
 			<view>请按如下地址退货: </view>
 			<view> 黄晓锐 18856668899</view>
 			<view>浙江省杭州市余杭区未来科技城有限公司</view>
 		</view>
 	</view>
-
-
-	  <view class="addbtn" >
-    新增地址
-  </view>
-	<van-popup show="{{ show }}" position="bottom" bind:close="onClose">
-		<van-picker columns="{{ columns }}" />
+	  <view class="addbtn" >提交</view>
+	<van-popup show="{{ show }}" position="bottom" bind:close="onClose"   custom-style="height: 40%;">
+				<van-radio-group value="{{ radio }}" bind:change="onChange">
+					<van-cell-group>
+						<van-cell title="不想要了" clickable data-name="不想要了" bind:click="onClick" >
+							<van-radio slot="right-icon" name="不想要了" checked-color="#C28E90"/>
+						</van-cell>
+						<van-cell title="发错货" clickable data-name="发错货" bind:click="onClick">
+							<van-radio slot="right-icon" name="发错货" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="商品损坏" clickable data-name="商品损坏" bind:click="onClick">
+							<van-radio slot="right-icon" name="商品损坏" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="质量问题" clickable data-name="质量问题"  bind:click="onClick">
+							<van-radio slot="right-icon" name="质量问题" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="其他" clickable data-name="其他" bind:click="onClick">
+							<van-radio slot="right-icon" name="其他" checked-color="#C28E90" />
+						</van-cell>
+					</van-cell-group>
+				</van-radio-group>
 	</van-popup>
 </view>

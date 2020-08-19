@@ -2,7 +2,7 @@
 <view id="swiper">
 	<swiper class="swiperOne" autoplay interval="2000" circular current indicator-dots>
 		<swiper-item wx:for="{{banner}}" wx:key="index">
-			<image src="{{item.img}}" class="img1"  mode="aspectFill"></image>
+			<image src="{{item}}" class="img1"  mode="aspectFill"></image>
 		</swiper-item>
 	</swiper>
 </view>
@@ -10,14 +10,15 @@
 <!-- 价格名字开始 -->
 <view class="detailText">
 
-	<view class="detailText-item" wx:for="{{text}}" wx:key="index">
+	<view class="detailText-item" wx:for="{{particulars}}" wx:key="index">
 		<view class="left">
-			<view class="Egname">{{item.Egname}}</view>
-			<view class="Chname">{{item.Chname}}</view>
-			<view class="Price">￥{{item.Price}}</view>
+			<view class="Egname">{{item.store_name}}</view>
+			<view class="Chname">{{item.store_name}}</view>
+			<view class="Price">￥{{item.price}}</view>
 		</view>
 		<view class="right">
-			<image src="{{item.img}}"  mode="widthFix"></image>
+			<!-- <image src="/images/detail/sj-01.png"  mode="widthFix"></image> -->
+			<image src="/images/detail/sj-01.png"  mode="widthFix"></image>
 		</view>
 	</view>
 
@@ -31,69 +32,85 @@
 <!-- 评论开始 -->
 <view class="pin">
 	<view class="All">
-		<view class="bar">弥友们怎么说(6120)</view>
-		<view class="All-item" wx:for="{{pin}}"  wx:key="index">
+		<view class="bar" wx:if="{{pin.length>3?true:false}}">弥友们怎么说{{pin.length}}</view>
+		<view class="bar" wx:if="{{pin.length==0?true:false}}">暂无评论</view>
+		<view class="All-item" wx:for="{{evaluate}}"  wx:key="index"  wx:if="{{pin.length==0?false:true}}">
 			<view class="userInfo">
-				<image class="userInfo-tou" src="{{item.tou}}"  mode="aspectFill"></image>
+				<!-- <image class="userInfo-tou" src="{{item.userIcon}}"  mode="aspectFill"></image> -->
+				<image class="userInfo-tou" src="{{item.avatar}}"  mode="aspectFill"></image>
 				<view class="userInfo-all" > 
-					<text class="userInfo-name">{{item.name}}</text>
-         <view class="userInfo-pinx">
-          <image class="userInfo-pin" src="{{item}}" wx:for="{{item.pinj}}" wx:key="index"  mode="aspectFill"></image>
+					<text class="userInfo-name">{{item.nickname}}</text>
+         <view class="userInfo-pinx" >
+                <van-rate readonly value="{{ item.product_score }}" color="#C17372"   />
               </view>
 				</view>
-                    <view style="width: 690rpx;height: 37rpx;"> </view>
-        <view class="tui">{{item.tui}}</view>
-       <view class="up">
-              <image src="{{item}}" wx:for="{{item.up}}" wx:key="index"  bindtap="preview" data-src="{{item}}"  mode="aspectFill"></image>
+          <view style="width: 690rpx;height: 37rpx;"> </view>
+                 <view class="tui">{{item.comment}}</view>
+        <view class="up" data-img="{{item.pics}}"  bindtap="preview">
+             <view   wx:for="{{item.pics}}" wx:key="index" >
+              <image src="{{item}}"  data-src="{{item}}"  mode="widthFix"></image>
+           </view>
        </view>
 			</view>
     </view>
     
 	</view>
-  	<view class="gop">
-	       <view class="goto">点击查看更多评论 >></view>
+  	<view class="gop" bindtap="discuss"  wx:if="{{pin.length>3?true:false}}"  >
+	       <view class="goto" hover-class="feedBack" > 点击查看更多评论 >></view>
 	</view>
 </view>
   <view class="detail">
-  <image src=""   mode="aspectFill"></image>
+  <image src="{{item}}"   mode="aspectFill" wx:for="{{goodsDescImg}}" wx:key="index"  mode="aspectFill" lazy-load='true'></image>
   </view>
 <!-- 评论结束 -->
 <!-- 立即定制开始 -->
-<view class="goshop">
-<view class="goshop1"><text  bindtap="showPopup">立即定制</text></view>
-<view class="goshop2" wx:if="{{iPhone}}"></view>
-</view>
-<van-transition show="{{ show }}" custom-class="block" name="fade">
-<van-popup show="{{ show }}"   position="bottom" custom-style="height:1102rpx width:750rpx ;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;" bind:close="onClose">
-<view class="content">
-      <view class="henxian" bindtap="guanbi">
-      <view class="henxian-item"></view>
-      </view>
-<van-transition
-  show="{{ showdown }}"
-  name="fade-down"
-  duration="{{ { enter: 800, leave: 1000 } }}"
-  enter-class="van-enter-class"
-  enter-active-class="van-enter-active-class"
-  leave-active-class="van-leave-active-class"
-  leave-to-class="van-leave-to-class"
->
+<view class="goshop "    bindtap="showPopup">
+     <view class="{{iPhone?'goshop12':'goshop1'}}" hover-class="feedBack"><text  >立即定制</text></view>
+     </view>
+     <van-transition show="{{ show }}" custom-class="block" name="fade">
+     <van-popup show="{{ show }}"   position="bottom" custom-style="height:1102rpx width:750rpx ;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;" bind:close="onClose">
+     <view class="content">
+          <view class="henxian" bindtap="guanbi" hover-class="feedBack">
+          <view class="henxian-item"></view>
+          </view>
+     <van-transition
+     show="{{ showdown }}"
+     name="fade-down"
+     duration="{{ { enter: 800, leave: 1000 } }}"
+     enter-class="van-enter-class"
+     enter-active-class="van-enter-active-class"
+     leave-active-class="van-leave-active-class"
+     leave-to-class="van-leave-to-class"
+     >
          <view class="shangp">
-              <view class="shangp-img">
-              <image src="/images/detail/sp1.jpg"   mode="aspectFill">
-              </image></view>
+              <view class="shangp-img" wx:if="{{image==null?true:false}}">
+                 <view>
+                     <image src="{{particulars[0].image}}"    mode='aspectFill' lazy-load='true' ></image>
+                 </view>
+       
+              
+              </view>
+              <view class="shangp-img"  wx:if="{{image!=null?true:false}}">
+              <view>
+                          <image src="{{image}}"  mode='aspectFill' lazy-load='true' ></image>
+              </view>
+              </view>
          <view class="moren">
-              <view class="price">￥39.00</view>
-              <view class="Version">已选：HUAWEI P40 Pro</view>
+              <view class="price" wx:if="{{productValue==null?true:false}}">￥{{particulars[0].price}}</view>
+              <view class="price" wx:if="{{productValue!=null?true:false}}" wx:for="{{productValue}}" wx:key="index" >￥{{item.data.price}}</view>
+              <view class="Version">已选：{{brand}} {{innhtml}}</view>
          </view>
             </view>
          </van-transition>
          <view class="pinpai"> 
          <view class="call">手机品牌</view>
               <view class="zhonglei">
-               <view class="zhonglei-item  {{bgc==item.shibpaizi?'zhongleItems':''}}"  data-index="{{item.shibpaizi}}" wx:for="{{pinpai}}"  wx:key="index" bindtap="jixin" data-innhtml="{{item.xinghao}}">
-               <image class="pimg" src="{{bgc==item.shibpaizi?item.logo1:item.logo}}"  mode="aspectFill"></image>
+             <block  wx:for="{{pinpai}}"  wx:key="index">
+              <view class="zhonglei-item  {{bgc==item.name||item.name==model?'zhongleItems':''}}"  data-index="{{item.name}}"  bindtap="jixin" data-relatedid="{{item.child_name}}">
+               <!-- <image class="pimg" src="{{bgc==item.name?item.image2:item.image}}"  mode="aspectFill"></image> -->
+                 {{item.name}}
               </view>    
+             </block>
               </view> 
          </view>
          
@@ -106,7 +123,7 @@
                </view> -->
                      <swiper>
                          <swiper-item>
-                         <view class="zhonglei-item {{bgcs==item?'zhongleItems':''}}"  wx:for="{{xin}}" data-items="{{item}}" wx:key="index" bindtap="jixins" data-innhtml="{{item.xinghao}}" >
+                         <view class="zhonglei-item {{bgcs==item?'zhongleItems':''}}"  wx:for="{{xin}}" data-items="{{item}}" wx:key="index" bindtap="jixins" data-innhtml="{{item}}" >
                                    <view class="pname">{{item}}</view>
                               </view>
                          </swiper-item>
@@ -114,8 +131,8 @@
               <!-- </view>     -->
               </view> 
          </view>
-       <view class="next"> 
-          <view bindtap="next">下一步</view>
+       <view class="next" bindtap="next" hover-class="feedBack"> 
+          <view >下一步</view>
        </view>
          
 </view>

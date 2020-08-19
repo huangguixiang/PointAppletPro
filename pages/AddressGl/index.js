@@ -1,4 +1,5 @@
 // pages/AddressGl/index.js
+import {post,get} from "../../request/request.js";
 Page({
 
   /**
@@ -7,6 +8,102 @@ Page({
   data: {
 
   },
+  //订单选择地址
+sele(e){
+
+  let {addr}=e.currentTarget.dataset
+  let site = this.data.address.filter(item => item.addressId==addr) //地址
+  console.log(site)
+  let pages = getCurrentPages();
+  let prevPage = pages[pages.length - 2];   //上一页面
+   prevPage.setData({
+    site,
+         //上个页面数据赋值 
+   });
+   //返回上一级关闭当前页面
+wx.navigateBack({
+  delta: 1
+})
+},
+//地址
+  async showLocation () {
+    let _that=this
+    // let id=_that.data.id
+    // console.log(id)
+    try {
+      const res = await get({
+        url: '/address/list?page=1&limit=999',
+        data: {
+              
+        },
+      })  
+      console.log(res.data.data)
+            //  let Banner=res.data.result.filter(item=>item.bannerId==id)
+         _that.setData({
+          address:res.data.data,
+         })
+     
+ 
+     } catch (error) {
+       if(error.errMsg=="request:fail "){
+        wx.showToast({
+          title: "无网络链接",
+          icon:'none',
+          duration:1000
+        }) 
+       }  
+     }
+   },
+
+//删除地址
+async dele (e) {
+  let _that=this
+  let {id}=e.currentTarget.dataset
+  // let id=_that.data.id
+  console.log(addressid)
+  try {
+    const res = await post({
+      url: '/address/del',
+      data: {
+        id
+      },
+      // header: {
+      //   "Content-Type": "application/json",
+      //   "token": "5a4c24f9608d455181e37b5a81a67177",
+      // },
+    })  
+    if (res.data.code==200) {
+      wx.showToast({
+        title: '删除成功',  // 标题
+        icon: 'success',   // 图标类型，默认success
+        duration: 1500   // 提示窗停留时间，默认1500ms
+    })
+    wx.redirectTo({
+      //目的页面地址
+      url: '/pages/AddressGl/index',
+      // success: function(res){},
+      // ...
+  })
+     }else{
+      wx.showToast({
+        title: '抱歉删除失败了',
+        icon: 'none',
+        duration: 1500
+    })
+     }
+  
+   } catch (error) {
+     if(error.errMsg=="request:fail "){
+      wx.showToast({
+        title: "无网络链接",
+        icon:'none',
+        duration:1000
+      }) 
+     }  
+   }
+ },
+
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -17,6 +114,19 @@ Page({
   adddz(){
     wx.navigateTo({
       url: '/pages/changeaddress/index',
+    })
+  },
+  editAddress(e){
+    // console.log(e)
+    let { addressid }=e.currentTarget.dataset
+    let { consigneename }=e.currentTarget.dataset
+    let { phoneno }=e.currentTarget.dataset
+    let { address }=e.currentTarget.dataset
+    let info=[]
+    info.push(addressid,consigneename,phoneno,address)
+    // console.log(info)
+    wx.navigateTo({
+      url: '/pages/editAddress/editAddress?info=' +JSON.stringify(info),
     })
   },
   /**
@@ -30,7 +140,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   this.showLocation()
   },
 
   /**

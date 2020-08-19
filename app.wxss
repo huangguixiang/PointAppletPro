@@ -42,3 +42,7 @@
 .ta{
   text-align: center;
 }
+/* //用户反馈 */
+.feedBack{
+  background:		#A9A9A9;
+}

@@ -27,12 +27,12 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.3",
-	"appid": "wx48c867e42a0dea5b",
+	"appid": "wx74c742d8ecd7d449",
 	"projectname": "PointApplet",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -139,6 +139,152 @@
 					"name": "components/canvas/canvas",
 					"pathName": "components/canvas/canvas",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/me/index",
+					"pathName": "pages/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shirtcustomization/shirtcustomization",
+					"pathName": "pages/shirtcustomization/shirtcustomization",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/AddressGl/index",
+					"pathName": "pages/AddressGl/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/changeaddress/index",
+					"pathName": "pages/changeaddress/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/changeaddress/index",
+					"pathName": "pages/changeaddress/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editAddress/editAddress",
+					"pathName": "pages/editAddress/editAddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Distribution/index",
+					"pathName": "pages/Distribution/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/addbank/index",
+					"pathName": "pages/addbank/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/addbank/index",
+					"pathName": "pages/addbank/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/banklist/index",
+					"pathName": "pages/banklist/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/index",
+					"pathName": "pages/order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/conList/index",
+					"pathName": "pages/conList/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/authentication/authentication",
+					"pathName": "pages/authentication/authentication",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderdel/index",
+					"pathName": "pages/orderdel/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/creation/creation",
+					"pathName": "pages/creation/creation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/innovate/innovate",
+					"pathName": "pages/innovate/innovate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/paysue/index",
+					"pathName": "pages/paysue/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/logistics/logistics",
+					"pathName": "pages/logistics/logistics",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Aftersale/index",
+					"pathName": "pages/Aftersale/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/canvas/canvas",
+					"pathName": "components/canvas/canvas",
 					"scene": null
 				}
 			]

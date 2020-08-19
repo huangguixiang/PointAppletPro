@@ -1,0 +1,73 @@
+
+	<view class="page">
+  <!-- 地址 -->
+  		<view class="express">
+			<view class="top ali-c">
+				<view class="text">
+			          <view class="Name"> 
+                		<image class="img" mode="aspectFill" src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597038762190.gif" class="dizhi"></image>
+                		<view class="text1">
+         彭于晏 {{wlInfo.post_name}}</view>
+                </view>
+					<view class="text2">浙江省 杭州市 余杭区 高教路浙江丽水数字大厦A座6楼杭州
+弥点定制{{wlInfo.exp_phone}}</view>
+				</view>
+			</view>
+			<!-- <view class="right">
+				<view class="text">{{wlInfo.post_name}} {{wlInfo.post_no}}</view>
+			</view> -->
+		</view>
+
+		<!-- 圆通快递 -->
+		<!-- <view class="express">
+			<view class="top ali-c">
+				<view class="picture">
+					<image class="img" mode="aspectFill" :src="wlInfo.logo"></image>
+				</view>
+				<view class="text">
+					<view class="text1">{{wlInfo.post_name}}</view>
+					<view class="text2">官方电话 {{wlInfo.exp_phone}}</view>
+				</view>
+			</view>
+			<view class="right">
+				<view class="text">{{wlInfo.post_name}} {{wlInfo.post_no}}</view>
+			</view>
+		</view> -->
+
+		<!-- 收货地址 -->
+		<view class="content bgf">
+           <view class="loca">
+            <view class="left">订单跟踪</view>
+              <view class="right">
+                 <input placeholder="圆通速递：956957655965988987" selectable="true" bindtap="textPaste"  disabled class="inp" >
+                 <image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597038762190.gif"></image>
+                 </input>
+              </view>
+          </view>
+			<view>
+				<view class="flex list">
+					<view class="info flex1">
+						<view class="title address">[收货地址]{{wlInfo.addr}}</view>
+            	<view class="timeOver">订单完成</view>
+            	<view class="time">2020/12/12</view>
+					</view>
+				</view>
+				<view class="flex list" :class="{one: index == 0 && wlInfo.delivery_status == 1}" v-for="{{list}}" wx:key="index">
+               
+              <view class="time">
+                  <view class="go">订单交易完成</view>
+                            <!-- {{item.timeArr[0]}} -->
+                  <view class="day">2020-12-12</view>
+                          <!-- {{item.timeArr[1]}} -->
+                <view class="ti">16:58</view>
+              </view>
+					<view class="info flex1">
+						<view class="title">{{index == 0 && wlInfo.delivery_status == 1 ? '已签收' : '配送中'}}</view>
+						<view class="text">{{item.context}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+

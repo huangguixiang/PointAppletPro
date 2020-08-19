@@ -1,25 +1,24 @@
 <view>
 	<view class="top">
-		<view class="user">
-			<view>
-				<image class="user_img" src="/img/me/img.jpg"></image>
-			</view>
-			<view class="f32" style="color:#fff">
-				Despair
-			</view>
-
+		<view class="user" wx:for="{{user}}" wx:key="index">
+								<view>
+									<image class="user_img" src="{{item.avatar}}"></image>
+								</view>
+						<view class="f32" style="color:#fff">
+							{{item.nickname}}
+						</view>
 			<view class="tishi_text   ">
-				<view class="view " bindtap="navto" data-name="Distribution">
+				<view class="view " bindtap="Distribution">
 					<view class="left">
-						<image src="/img/me/top.png" style="margin-right:10rpx"></image>分销中心
+						<image src="/images/user/top.png" style="margin-right:10rpx"></image>分销中心
 					</view>
 					<view class="right">
-						推荐好友享收益<image src="/img/me/r.png"></image>
+						推荐好友享收益<image src="/images/user/r.png"></image>
 					</view>
 				</view>
 			</view>
 		</view>
-		<image src="/img/me/bj.png" class="bj"></image>
+		<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_70e2fa2a6f64e4b333e76c4e0b3ccdec.png" class="bj"></image>
 	</view>
 
 
@@ -27,38 +26,38 @@
 		<view class="order">
 			<view class="order_top">
 				我的订单
-				<view bindtap="navto" data-name="order">查看全部订单
-					<image src="/img/me/r.png"></image>
+				<view bindtap="navto" data-name="order" data-index="0">查看全部订单
+					<image src="/images/userIcon/icn-right.png"></image>
 				</view>
 			</view>
 			<view class="list p30">
-				<view>
-					<view class="list_top">
-						<image src="/img/me/2.png"></image>
+				<view class="tb" bindtap="order" data-index="0">
+					<view class="list_top" >
+						<image src="/images/userIcon/obligation.svg "></image>
 						<view>1</view>
 					</view>
-					<view class="f26">待付款</view>
+					<view class="f26 use" hover-class="useBg" >待付款</view>
 				</view>
-				<view>
+				<view  class="tb"  bindtap="order" data-index="1">
 					<view class="list_top">
-						<image src="/img/me/1.png"></image>
+						<image src="/images/userIcon/rec.svg"></image>
 						<view>1</view>
 					</view>
-					<view class="f26">待发货</view>
+					<view class="f26 use" hover-class="useBg" >待发货</view>
 				</view>
-				<view>
-					<view class="list_top">
-						<image src="/img/me/3.png"></image>
+				<view  class="tb" bindtap="order" data-index="2">
+					<view class="list_top" >
+						<image src="/images/userIcon/track.svg"></image>
 						<view>1</view>
 					</view>
-					<view class="f26">待收货</view>
+					<view class="f26 use" hover-class="useBg" >待收货</view>
 				</view>
-				<view>
-					<view class="list_top">
-						<image src="/img/me/4.png"></image>
+				<view  class="tb" bindtap="order" data-index="3">
+					<view class="list_top" >
+						<image src="/images/userIcon/eva.svg"></image>
 						<view>1</view>
 					</view>
-					<view class="f26">待评价</view>
+					<view class="f26 use" hover-class="useBg" >待评价</view>
 				</view>
 			</view>
 		</view>
@@ -66,21 +65,32 @@
 
 
 	<view class="k_list">
-		<view>
-			<image src="/img/me/11.png"></image>
-			<view>创作历史</view>
+		<view bindtap="creation" class="tbs">
+		  <view class="item" >
+			<image src="/images/userIcon/past.svg" class="itemImg1" mode="aspectFill"></image>
+			</view>
+			<view hover-class="useBg" class="padd">创作历史</view>
 		</view>
-		<view bindtap="navto" data-name="AddressGl">
-			<image src="/img/me/22.png"></image>
-			<view>地址管理</view>
+		<view bindtap="navtos" class="tbs">
+		<view class="item">
+			<image src="/images/userIcon/address.svg" class="itemImg2" mode="aspectFill"></image>
+			</view>
+			<view hover-class="useBg" class="padd" >地址管理</view>
 		</view>
-		<view>
-			<image src="/img/me/33.png"></image>
-			<view>在线客服</view>
+
+		<view class="tbs">
+       <view class="item">
+			 			<image src="/images/userIcon/service.svg " class="itemImg3" mode="aspectFill"></image>
+			 </view>
+			 <button open-type='contact' bindcontact="handleContact"  type="text" hover-class="useBg" class="padd" >在线客服</button>
+			 <!-- <view open-type='contact' bindcontact="handleContact" id="button">在线客服</view> -->
 		</view>
-		<view bindtap="navto" data-name="conList">
-			<image src="/img/me/44.png"></image>
-			<view>优惠券</view>
+
+		<view bindtap="discount" class="tbs">
+			<view class="item">
+			   	<image src="/images/userIcon/coupon.svg " class="itemImg4" mode="aspectFill"></image>
+			</view>
+			<view hover-class="useBg" class="padd" >优惠券</view>
 		</view>
 	</view>
 
@@ -90,10 +100,10 @@
 		<view class="title">优惠活动</view>
 		<view class="img_list">
 			<view>
-				<image src="/img/me/bottom.png"></image>
+				<image src=""></image>
 			</view>
 			<view>
-				<image src="/img/me/bottom.png"></image>
+				<image src=""></image>
 			</view>
 		</view>
 	</view>

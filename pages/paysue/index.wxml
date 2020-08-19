@@ -1,10 +1,10 @@
 <view>
 	<view class="pay_top">
-		<image src="/img/bj.png" class="beijing"></image>
+		<!-- <image src="https://shop.io.mi-img.com/app/shop/img?id=shop_70e2fa2a6f64e4b333e76c4e0b3ccdec.png" class="beijing"></image> -->
 		<view class="icons">
-			<image src="/img/11.png"></image>
-			<image src="/img/22.png"></image>
-			<image src="/img/33.png"></image>
+			<!-- <image src="/images/user/11.png"></image>
+			<image src="/images/user/22.png"></image>
+			<image src="/images/user/33.png"></image> -->
 		</view>
 	</view>
 
@@ -14,62 +14,149 @@
 
 
 	<view class="ta f40" style="margin-top:96rpx;color:#C28E90">
-		<text class="f24">￥</text>160
+		<text class="f24">￥</text>{{price}}
 	</view>
 	<view class="ta f24">
-		已优惠 <text  style="color:#C28E90">￥20.00</text>
+		已优惠 <text  style="color:#C28E90">￥{{discount}}</text>
 	</view>
 
 
 	<view class="btns">
-		<view>查看订单</view>
-		<view>回到首页</view>
+		<view bindtap="goShop">查看订单</view>
+		<view bindtap="goHome">回到首页</view>
 	</view>
 
-  <view class="hui"></view>
-
-
-  	<view class="box  p20">
-		<view class="f36 title">为您推荐</view>
-		<view class="tabs">
-			<view class="f28 active">手机壳</view>
-			<view class="f28">保温杯</view>
-			<view class="f28">T恤</view>
-		</view>
-		<view class="flex">
-			<view class="list">
-				<view>
-					<image src="/img/1.png"></image>
-				</view>
-				<view class="f28">
-					玻璃手机壳
-				</view>
-				<view class="f24">
-					原创插画
-				</view>
-			</view>
-			<view class="list">
-				<view>
-					<image src="/img/1.png"></image>
-				</view>
-				<view class="f28">
-					玻璃手机壳
-				</view>
-				<view class="f24">
-					原创插画
-				</view>
-			</view>
-			<view class="list">
-				<view>
-					<image src="/img/1.png"></image>
-				</view>
-				<view class="f28">
-					玻璃手机壳
-				</view>
-				<view class="f24">
-					原创插画
-				</view>
-			</view>
-		</view>
-	</view>
 </view>
+	<view class="box">
+		<view style="margin:0 20rpx">
+			<view class="f36 title">为您推荐</view>
+			<van-tabs animated>
+				<van-tab title="手机壳">
+		
+						<view class="list">
+							<view>
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+						<view class="list">
+							<view>
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+						<view class="list">
+							<view>
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+				</van-tab>
+				<van-tab title="保温杯">
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+
+				</van-tab>
+				<van-tab title="T恤">
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+					<view class="list">
+						<view>
+							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+						</view>
+						<view class="bottom">
+							<view class="f28">
+								玻璃手机壳
+							</view>
+							<view class="f24">
+								原创插画
+							</view>
+						</view>
+					</view>
+				</van-tab>
+
+			</van-tabs>
+		</view>
+	</view>

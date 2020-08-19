@@ -24,6 +24,30 @@ Page({
       active: event.detail.name
     })
   },
+  
+  // async info() {
+  //   let _that=this
+  //   try {
+  //     const res = await post({
+  //       url: ':8000/midianuserserver/bank/bankList',
+  //       header: {
+  //         "Content-Type": "application/json",
+  //         "token": "5a4c24f9608d455181e37b5a81a67177",
+  //       },
+  //     })  
+  //     console.log(res.data.data)
+ 
+  //    } catch (error) {
+  //      if(error.errMsg=="request:fail "){
+  //       wx.showToast({
+  //         title: "无网络链接",
+  //         icon:'none',
+  //         duration:1000
+  //       }) 
+  //      }  
+  //    }
+  //  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

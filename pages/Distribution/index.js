@@ -1,4 +1,5 @@
 // pages/Distribution/index.js
+import {post,get  } from "../../request/request.js";
 Page({
 
   /**
@@ -6,6 +7,32 @@ Page({
    */
   data: {
     show: false,
+  },
+  async user (){
+    let _that = this
+    let id = Number (_that.data.id)
+    // console.log( Number (id))
+    try {
+      const res = await get({
+        url: "/user"
+      })
+      let user=[]
+      user.push(res.data.data)
+      console.log(res.data.data)
+      if (res.data.status==200) {
+         _that.setData({
+          user
+         })
+      }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
   },
 
   /**
@@ -40,7 +67,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.user()
   },
 
   /**

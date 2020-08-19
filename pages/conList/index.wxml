@@ -1,37 +1,51 @@
 <view>
+<view wx:if="{{coupon!=null?true:false}}">
 	<view style="padding-bottom:34rpx">
-		<van-tabs color="#C28E90" active="{{ active }}" bind:change="onChange">
-			<van-tab title="可用优惠券（2）"></van-tab>
-			<van-tab title="不可用优惠券（0）"></van-tab>
-		</van-tabs>
-	</view>
-	<view class="list">
+		<van-tabs color="#C28E90" active="{{ 0 }}" bind:change="onChange">
+			<van-tab title="可用优惠券（2）">
+				<view class="list" wx:for="{{coupon}}" wx:key="index">
 		<view class="con_list">
 			<view class="left">
-				<view class="f28">
+	       <view class="cc">
+				 			<view class="f28 ">
 					<text>13</text>张
 				</view>
-				<view class="f24">5寸照片抵扣券</view>
+				<view class="f24">{{item.couponsName}}</view>
+				 </view>
 			</view>
 			<view class="conter">
-				<view class="f28">5寸照片抵扣券13张</view>
-				<view class="f24" style="margin-top:34rpx">无门槛</view>
-				<view class="f24 tiems" style="margin-top:16rpx">有效期至：2020.03.31
-					<text>即将过期</text>
+				<view class="f28">{{item.couponsDescr}}</view>
+				<view class="f24" style="margin-top:34rpx ;color: #BABABA;">无门槛</view>
+				<view class="f24 tiems" style="margin-top:16rpx">
+				<view>有效期至：{{item.useEndDate}}</view>
+					<text  wx:if="{{item.state==1?true:false}}">可用</text>
+					<text wx:if="{{item.state==2?true:false}}">使用中</text>
+					<text wx:if="{{item.state==3?true:false}}">已使用</text>
+					<text wx:if="{{item.state==4?true:false}}">已过期</text>
+
 				</view>
 			</view>
 			<view class="right">
-				<van-radio-group value="{{ radio }}" bind:change="onChanges">
-					<van-radio name="1"></van-radio>
-				</van-radio-group>
+					<radio-group  value="{{ radio }}" bindtap="onChanges">
+	     <radio class="checked" checked="{{Change}}" color="#C28E90" style="background:rgba(255,255,255,1);">
+			 </radio>
+	</radio-group>
 			</view>
 		</view>
+		<view class="yuan"></view>
+				<view class="yuan1"></view>
+	</view>
+			</van-tab>
+			<van-tab title="不可用优惠券（0）"></van-tab>
+		</van-tabs>
 	</view>
 
+</view>
 
-	<view class="kong">
+
+	<view class="kong" wx:if="{{coupon==null?true:false}}">
 		<view class="ta">
-			<image src="/img/k.png"></image>
+			<image src="http://graph.baidu.com/resource/1223b98fabfcfbe87677c01596762740.jpg"></image>
 		</view>
 		<view class="f30 ta" style="margin-top:74rpx">
 			很遗憾地说

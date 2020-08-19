@@ -7,12 +7,25 @@ Page({
   data: {
 
   },
-
+  goShop(){
+wx.navigateTo({
+  url: '../order/index',
+})
+  },
+  goHome(){
+    wx.navigateTo({
+      url: '../home/home',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      price:options.newtotalPrice,
+      discount:options.discount,
+    })
   },
 
   /**

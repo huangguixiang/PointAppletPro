@@ -87,6 +87,46 @@ page {
 .order_top view {
   font-size: 26rpx;
 }
+.tb{
+  width: 100rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+
+}
+.tb .use{
+  width: 100rpx;
+  height: 30rpx;
+  text-align: center;
+  padding: 5rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tbs{
+  width: 120rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+
+}
+.tbs .padd{
+  padding: 0 5rpx;
+  text-align: center;
+  width: 120rpx;
+  margin-top: 20rpx;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .order_top image {
   width: 12rpx;
@@ -104,7 +144,31 @@ page {
   display: flex;
   justify-content: space-between;
 }
-
+/* #button{
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  border: none;
+  outline: none !important;
+  display: block;
+  background-color: white;
+} */
+button::after {
+  border: none;
+  }
+  .useBg{
+    background-color: #F5F5F5;
+    border-radius: 5rpx;
+    padding: 5rpx 0;
+  }
+  button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height:inherit;
+  outline: none;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  }
 .list image {
   width: 48rpx;
   height: 45rpx;
@@ -125,13 +189,14 @@ page {
   color: #C79799;
   font-size: 24rpx;
   top: 10px;
-  right: -11rpx;
+  right: -22rpx;
+background:rgba(255,255,255,1);
 }
 
-.list>view>view:last-child {
+/* .list>view>view:last-child {
   padding-bottom: 40rpx;
   margin-top: 20rpx;
-}
+} */
 
 .k_list {
   background: rgba(255, 255, 255, 1);
@@ -150,11 +215,50 @@ page {
   height: 88rpx;
 }
 
-.k_list view {
+/* .k_list view {
   font-size: 26rpx;
   margin-top: 20rpx;
+} */
+.item{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background-color: #EDEAEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.item .itemImg1{
+  /* width: 40rpx;
+  height: 58rpx; */
+  width: 88rpx;
+height: 88rpx;
+
+
+}
+.item .itemImg2{
+  /* width: 54rpx;
+  height: 55rpx; */
+  width: 88rpx;
+height: 88rpx;
+
+}
+.item .itemImg3{
+  /* width: 56rpx;
+  height: 45rpx; */
+  width: 88rpx;
+height: 88rpx;
+
+
+}
+.item .itemImg4{
+  /* width: 52rpx;
+  height: 52rpx; */
+  width: 88rpx;
+height: 88rpx;
+
+}
 
 .title {
   font-size: 36rpx;
@@ -166,6 +270,14 @@ page {
   flex-wrap: nowrap;
   margin-top: 40rpx;
   padding-bottom: 100rpx;
+}
+/* 
+清除默认滚动条
+*/
+.img_list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .img_list image{

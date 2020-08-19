@@ -33,8 +33,7 @@
   <view
     class="van-picker__columns"
     style="height: {{ itemHeight * visibleItemCount }}px"
-    catch:touchmove="noop"
-  >
+    catch:touchmove="noop">
     <picker-column
       class="van-picker__column"
       wx:for="{{ isSimple(columns) ? [columns] : columns }}"

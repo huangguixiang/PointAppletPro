@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "van-field": "/dist/field/index"
+    "van-field": "/dist/field/index",
+    "van-picker": "/dist/picker/index",
+    "van-popup": "/dist/popup/index"
   },
   "navigationBarTitleText": "绑定银行卡"
 }

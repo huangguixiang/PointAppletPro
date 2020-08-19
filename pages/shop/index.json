@@ -5,7 +5,9 @@
     "van-swipe-cell": "/dist/swipe-cell/index",
     "van-cell": "/dist/cell/index",
     "van-stepper": "/dist/stepper/index",
-    "van-cell-group": "/dist/cell-group/index"
+    "van-cell-group": "/dist/cell-group/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index"
   },
   "navigationBarTitleText": "购物车"
 }

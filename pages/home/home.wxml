@@ -2,85 +2,92 @@
 <view id="swiper">
 	<swiper class="swiperOne" autoplay interval="2000" circular current indicator-dots>
 		<swiper-item wx:for="{{banner}}" wx:key="index">
-			<image src="{{item.img}}" class="img1" mode="widthFix" ></image>
+			<image src="{{item.pic}}" class="img1" mode="widthFix"></image>
 		</swiper-item>
 	</swiper>
 </view>
 <!-- 轮播 结束-->
-<!-- 导航开始 -->
+<!-- 手机壳 -->
 <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
 	<view class="out">
-		<view class="box" wx:for="{{nav}}" wx:key="index" data-id="{{item.id}}" data-title="{{item.name}}" bindtap="toDetail">
-	    <view class="navImg-size">
-					<image class="navImg" src="{{item.img}}" />
+	<!-- hover-class="feedBack" -->
+			<!-- <scroll-view scroll-left="{{scrollLeft}}"> -->
+		<view class="box" wx:for="{{nav}}" wx:key="index" data-id="{{item.id}}" data-title="{{item.store_name}}" bindtap="toDetail" >
+			<view class="navImg-size">
+				<image class="navImg" src="{{item.image}}" data-index="{{index}}"   />
 			</view>
-			<view class="name">{{item.name}}</view>
-			<view class="price">{{item.price}}</view>
+			<view class="name">{{item.store_name}}</view>
+			<view class="price">￥{{item.price}}</view>
 		</view>
+				<!-- </scroll-view> -->
 	</view>
-	<view class="prev">
-		<scroll-view scroll-left="{{scrollLeft}}">
-		<image class="NImg" src="../../images/home/icn-left2.png" bindtap="goLeft" mode="widthFix"></image>
-</scroll-view>
-</view>
-<view class="next">
-	<scroll-view scroll-left="{{scrollLeft}}">
-		<image class="NImg" src="../../images/home/icn-right.png" bindtap="goRight"  mode="widthFix"></image>
-	</scroll-view>
-</view>
+	<view class="prev" wx:if="{{nav.length<4?false:true}}">
+
+			<image class="NImg" src="../../images/home/icn-left2.png" bindtap="goLeft" mode="widthFix"></image>
+
+	</view>
+	<view class="next"  wx:if="{{nav.length<4?false:true}}">
+
+			<image class="NImg" src="../../images/home/icn-right.png" bindtap="goRight" mode="widthFix"></image>
+
+	</view>
 </scroll-view>
 
 <!-- 导航结束 -->
-
-<!-- 主体开始 -->
 <view class="content">
-	<image class="" src="{{item}}" wx:for="{{content}}" wx:key="index" mode="widthFix"></image>
+	<image class="" src="{{contentOne}}" mode="widthFix"></image>
 </view>
+<!-- 保温杯 -->
+
+
 <scroll-view scroll-x class="nav" scroll-left="{{scrollLeft}}" scroll-with-animation>
 	<view class="out">
 		<view class="box" wx:for="{{nav1}}" wx:key="index" data-id="{{item.id}}" bindtap="cupdetail">
-	    <view class="navImg-size">
-					<image class="navImg" src="{{item.img}}" />
+			<view class="navImg-size">
+				<image class="navImg" src="{{item.image}}" />
 			</view>
-			<view class="name">{{item.name}}</view>
-			<view class="price">{{item.price}}</view>
+			<view class="name">{{item.store_name}}</view>
+			<view class="price">￥{{item.price}}</view>
 		</view>
 	</view>
-		<view class="prev">
-		<scroll-view scroll-left="{{scrollLeft}}">
-		<image class="NImg" src="../../images/home/icn-left2.png" bindtap="goLeft" mode="widthFix"></image>
-</scroll-view>
-</view>
-<view class="next">
-	<scroll-view scroll-left="{{scrollLeft}}">
-		<image class="NImg" src="../../images/home/icn-right.png" bindtap="goRight"  mode="widthFix"></image>
-	</scroll-view>
-</view>
+	
+	<!-- <view class="prev" wx:if="{{prev}}"> -->
+<view class="prev"  wx:if="{{nav1.length<4?false:true}}">
+
+			<image class="NImg" src="../../images/home/icn-left2.png" bindtap="goLeft" mode="widthFix"></image>
+
+	</view>
+	<view class="next"  wx:if="{{nav1.length<4?false:true}}">
+
+			<image class="NImg" src="../../images/home/icn-right.png" bindtap="goRight" mode="widthFix"></image>
+
+	</view>
 </scroll-view>
 <!-- 主体结束-->
-<!-- 主体开始 -->
 <view class="content">
-	<image class="" src="{{item}}" wx:for="{{content1}}" wx:key="index"  mode="widthFix"/>
+	<image class="" src="{{contentTwo}}"  mode="widthFix" />
 </view>
+<!-- T恤 -->
+
 <scroll-view scroll-x class="nav" scroll-left="{{scrollLeft}}" scroll-with-animation>
 	<view class="out">
 		<view class="box" wx:for="{{nav2}}" wx:key="index" data-id="{{item.id}}" bindtap="shirt">
-		    <view class="navImg-size">
-					<image class="navImg" src="{{item.img}}" />
+			<view class="navImg-size">
+				<image class="navImg" src="{{item.image}}"/>
 			</view>
-			<view class="name">{{item.name}}</view>
-			<view class="price">{{item.price}}</view>
+			<view class="name">{{item.store_name}}</view>
+			<view class="price">￥{{item.price}}</view>
 		</view>
 	</view>
-		<view class="prev">
-		<scroll-view scroll-left="{{scrollLeft}}">
-		<image class="NImg" src="../../images/home/icn-left2.png" bindtap="goLeft" mode="widthFix"></image>
-</scroll-view>
-</view>
-<view class="next">
-	<scroll-view scroll-left="{{scrollLeft}}">
-		<image class="NImg" src="../../images/home/icn-right.png" bindtap="goRight"  mode="widthFix"></image>
-	</scroll-view>
-</view>
+	<view class="prev"  wx:if="{{nav2.length<4?false:true}}">
+
+			<image class="NImg" src="../../images/home/icn-left2.png" bindtap="goLeft" mode="widthFix"></image>
+
+	</view>
+	<view class="next"  wx:if="{{nav2.length<4?false:true}}">
+
+			<image class="NImg" src="../../images/home/icn-right.png" bindtap="goRight" mode="widthFix"></image>
+
+	</view>
 </scroll-view>
 <!-- 主体结束-->

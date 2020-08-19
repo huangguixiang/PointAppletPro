@@ -1,0 +1,24 @@
+<view class="creation">
+	<view class="creationItem" bindtap="innovate">
+		<view class="creationItemSonOne">
+			<view class="creationItem_Ti">
+				<view class="time">创作时间：2020/05/08 15:23</view>
+				<view class="genre">手机壳</view>
+			</view>
+		</view>
+		<view class="creationItemSonTwo">
+	   <view class="creationItemSonTwoFather">
+				<view class="imgFather">
+              <image class="img" src="/images/detail/sp1.jpg" ></image>
+            </view>
+				<view class="creationItemSonTwoParameter">
+			       <view class="NameM">
+             		<view class="Name">PVC材质手机壳定制...</view>
+				        	<view class="Model">iPhonex</view>
+             </view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+</view>
