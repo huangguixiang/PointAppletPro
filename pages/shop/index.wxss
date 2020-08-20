@@ -67,6 +67,19 @@ page{
   margin-top: 44rpx;
   padding-bottom: 160rpx;
 }
+.listFa{
+  width: 700rpx;
+  display: flex;
+  margin-bottom: 40rpx;
+  overflow: auto;
+  white-space: nowrap;
+  height: 584rpx;
+  /* outline: none; */
+}
+.listFa::-webkit-scrollbar{
+  display:none;
+}
+
 .box{
   width: 100%;
   background-color: white;
@@ -81,17 +94,16 @@ page{
   align-items: center;
 
 }
-.list {
-  float: left;
-  width: 50%;
-  /* margin-right: 20rpx; */
-  margin-top: 58rpx;
+ .listFa .list {
+  margin: 0 20rpx;
+  width: 328rpx;
+  height: 428rpx;  
   
 }
 .van-tabs__line{
   background-color: white !important;
 }
-.list .bottom {
+.listFa .list .bottom {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -104,13 +116,17 @@ width: 100% !important;
 }
 
 
-.list image {
+.listFa .list .listImg {
   width: 328rpx;
   height: 428rpx;
   border-radius: 8px;
 }
+.listFa .list .listImg image {
+  width: 100%;
+  height: 100%;
+}
 
-.list .f24 {
+.listFa .list .f24 {
   color: #999999;
   margin-top: 16rpx;
 }
@@ -118,6 +134,13 @@ width: 100% !important;
 
 .goods {
   background: #F5F5F5;
+  height: 150rpx;
+  width: 750rpx;
+}
+.goods .title {
+  margin: 0 30rpx;
+  height: 150rpx;
+  width: 690rpx;
 }
 
 .home {
@@ -267,10 +290,10 @@ border-radius: 10rpx;
 }
 .box_right {
   width: 80px;
-display: flex;
-height: 208rpx;
-justify-content: center;
-align-items: center;
+  display: flex;
+  height: 250rpx;
+  justify-content: center;
+  align-items: center;
 
 }
 #shop .shop-item .img {

@@ -42,14 +42,14 @@ border-radius: 10rpx;
   margin: 20rpx 0;
 }
 .list .content .right .site{
-width: 85%;
+width: 80%;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis
 
 }
 .list .content .goEit{
-  width: 5%;
+  width: 10%;
  height: 200rpx;
  display: flex;
  justify-content: center;
@@ -71,6 +71,8 @@ height: 40rpx;
   justify-content: center;
   align-items: center;
   height: 200rpx;
+  margin-left: 50rpx;
+
 }
 .addbtn{
   width: 690rpx;

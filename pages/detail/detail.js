@@ -27,7 +27,8 @@ Page({
     bgc: '',
     bgcs: '',
     // price:'',
-    unique:''
+    unique:'',
+    img:''
   },
   //预览图片，放大预览
   preview(event) {
@@ -193,7 +194,7 @@ async jixins(e) {
         productValue,
         image:productValue[0].data.image,
         // price:productValue[0].data.price,
-        unique:productValue[0].data.unique
+        unique:productValue[0].data.unique,
        })
        console.log(productValue[0].data.image)
       }
@@ -223,7 +224,7 @@ async jixins(e) {
       goBrandOne
     } = this.data
      console.log(this.data.price)
-    let brands = id + ',' + this.data.unique 
+    let brands = id + ',' + this.data.unique +','+this.data.image
     console.log(brands)
     if (goBrandOne == "undefined" || goBrandOne == null || goBrandOne == "" ||goBrandtwo == "undefined" || goBrandtwo == null || goBrandtwo == "") {
       wx.showToast({

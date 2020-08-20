@@ -5,21 +5,27 @@
 		<view class="f24">非常难为情地说，您的购物车里空空如也...</view>
 		<navigator url="/pages/home/home" open-type="switchTab" class="btns  f28">去逛逛</navigator>
 	</view>
-
-	<view class="goods p30" wx:if="{{sum>0}}">
-		<view class="f36 title" style="padding-bottom:60rpx">
-			共{{sum}}件商品
-		</view>
-	</view>
-
 	<view class="box">
 		<view style="margin:0 20rpx">
 			<view class="f36 title">为您推荐</view>
 			<van-tabs animated>
 				<van-tab title="手机壳">
-		
+		     <view class="listFa"  style="flex-direction:row;">
+				 				<view class="list">
+										<view class="listImg">
+											<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+										</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
 						<view class="list">
-							<view>
+							<view  class="listImg">
 								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
 							</view>
 							<view class="bottom">
@@ -32,7 +38,7 @@
 							</view>
 						</view>
 						<view class="list">
-							<view>
+							<view  class="listImg">
 								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
 							</view>
 							<view class="bottom">
@@ -44,104 +50,96 @@
 								</view>
 							</view>
 						</view>
-						<view class="list">
-							<view>
-								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-							</view>
-							<view class="bottom">
-								<view class="f28">
-									玻璃手机壳
-								</view>
-								<view class="f24">
-									原创插画
-								</view>
-							</view>
-						</view>
+				 </view>
 				</van-tab>
 				<van-tab title="保温杯">
-					<view class="list">
-						<view>
-							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-						</view>
-						<view class="bottom">
-							<view class="f28">
-								玻璃手机壳
-							</view>
-							<view class="f24">
-								原创插画
-							</view>
-						</view>
-					</view>
-					<view class="list">
-						<view>
-							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-						</view>
-						<view class="bottom">
-							<view class="f28">
-								玻璃手机壳
-							</view>
-							<view class="f24">
-								原创插画
+           <view class="listFa"  style="flex-direction:row;">
+				 				<view class="list">
+										<view class="listImg">
+											<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+										</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
 							</view>
 						</view>
-					</view>
-					<view class="list">
-						<view>
-							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-						</view>
-						<view class="bottom">
-							<view class="f28">
-								玻璃手机壳
+						<view class="list">
+							<view  class="listImg">
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
 							</view>
-							<view class="f24">
-								原创插画
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
 							</view>
 						</view>
-					</view>
-
+						<view class="list">
+							<view  class="listImg">
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+				 </view>
 				</van-tab>
 				<van-tab title="T恤">
-					<view class="list">
-						<view>
-							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-						</view>
-						<view class="bottom">
-							<view class="f28">
-								玻璃手机壳
-							</view>
-							<view class="f24">
-								原创插画
-							</view>
-						</view>
-					</view>
-					<view class="list">
-						<view>
-							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-						</view>
-						<view class="bottom">
-							<view class="f28">
-								玻璃手机壳
-							</view>
-							<view class="f24">
-								原创插画
+     <view class="listFa"  style="flex-direction:row;">
+				 				<view class="list">
+										<view class="listImg">
+											<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+										</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
 							</view>
 						</view>
-					</view>
-					<view class="list">
-						<view>
-							<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
-						</view>
-						<view class="bottom">
-							<view class="f28">
-								玻璃手机壳
+						<view class="list">
+							<view  class="listImg">
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
 							</view>
-							<view class="f24">
-								原创插画
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
 							</view>
 						</view>
-					</view>
+						<view class="list">
+							<view  class="listImg">
+								<image src="https://cunjifen.oss-cn-beijing.aliyuncs.com/userImg/1597024387016.png"></image>
+							</view>
+							<view class="bottom">
+								<view class="f28">
+									玻璃手机壳
+								</view>
+								<view class="f24">
+									原创插画
+								</view>
+							</view>
+						</view>
+				 </view>
 				</van-tab>
 
+		
 			</van-tabs>
 		</view>
 	</view>
@@ -150,41 +148,45 @@
 <!-- 没有商品时候显示 结束 -->
 <!-- 有商品 开始 -->
  <!-- wx:if="{{cart.length!==0}}" -->
-<view id="shop" wx:if="{{sum>0}}"  wx:for="{{cart[0]}}"  wx:for-item='p_item' wx:for-index='p_index' wx:key="p_index" >
+ 	<view class="goods" wx:if="{{sum>0}}">
+		<view class="f36 title" style="padding-bottom:60rpx">
+			共{{sum}}件商品
+		</view>
+	</view>
+<view id="shop" wx:if="{{sum>0}}" >
 	<view style="padding-bottom:32rpx" class="shp">
 		<radio-group value="{{ result }}" bind:change="onChange" style="  margin: 0rpx 30rpx;">
 			<radio class="checked" checked="true" color="#C28E90" style="background:rgba(255,255,255,1);">
 				<image src="/images/user/img.png" class="home"></image>
-				<text> {{p_index}}</text>
+				<text> 购物车</text>
 			</radio>
 		</radio-group>
 	</view>
-	<view  wx:for="{{p_item}}" wx:for-item='c_item' wx:key="c_index">
+	<view  wx:for="{{cart}}" wx:key="index">
 		<van-swipe-cell right-width="{{ 65 }}">
 			<van-cell-group>
 				<view class="shop-item">
 					<view class="pd">
-						<radio-group bindtap="handleItemChange" data-id="{{c_item.cate_id}}" data-istrue="{{c_item.istrue}}"  data-index="{{index}}"  data-item="{{p_item}}" data-price="{{c_item.productInfo.price}}"  data-num="{{c_item.cart_num}}"> 
-							<radio class="checked" checked="{{c_item.istrue}}" color="#C28E90" style="background:rgba(255,255,255,1);"></radio>
+						<radio-group bindtap="handleItemChange" data-id="{{item.cate_id}}" data-istrue="{{item.istrue}}"  data-index="{{index}}"   data-price="{{item.productInfo.price}}"  data-num="{{item.cart_num}}"> 
+							<radio class="checked" checked="{{item.istrue}}" color="#C28E90" style="background:rgba(255,255,255,1);"></radio>
 						</radio-group>
-						
 						<view class="img">
-							<image src="{{c_item.img}}"></image>
+							<image src="{{item.img}}"></image>
 						</view>
 						<view class="shuju">
 							<view class="left">
-								<view class="name">{{c_item.productInfo.store_name}}</view>
-								<view class="xh">{{c_item.productInfo.attrInfo.suk}}</view>
+								<view class="name">{{item.productInfo.store_name}}</view>
+								<view class="xh">{{item.productInfo.attrInfo.suk}}</view>
 							</view>
 							<view class="right">
 								<view class="price">
-									<block>￥</block> {{c_item.productInfo.price}}
+									<block>￥</block> {{item.productInfo.price}}
 								</view>
 								<view class="count">
 									<view bindtap="handleEdit" data-index="{{index}}" data-id="{{item.id}}" data-operation="{{-1}}" class="buttomOne">
 										<view>-</view>
 									</view>
-									<text class="input">{{c_item.cart_num}}</text>
+									<text class="input">{{item.cart_num}}</text>
 									<view bindtap="handleEdit" data-index="{{index}}" data-id="{{item.id}}" data-operation="{{1}}" class="buttomTwo">
 										<view>+</view>
 									</view>
@@ -195,7 +197,7 @@
 				</view>
 			</van-cell-group>
 			<view slot="right">
-				<view class="box_right" bindtap="dele" data-id="{{c_item.id}}" data-index="{{index}}">
+				<view class="box_right" bindtap="dele" data-id="{{item.id}}" data-index="{{index}}">
 					<image src="/images/user/btns.png" style="width:60rpx;height:60rpx"></image>
 				</view>
 			</view>

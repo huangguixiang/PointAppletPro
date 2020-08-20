@@ -32,6 +32,7 @@ Page({
     img: '',
     activ: '',
     cartTotalCounts: '',
+    image:"",//商品图片
     goodsId:'',//商品ID
     unique:'',//品牌
     //储存信息传送给后端
@@ -656,10 +657,12 @@ nextKnows(){
     let  newBrands=brands.split(",")
     console.log(newBrands[0])//id
     console.log(newBrands[1])//unique
+    console.log(newBrands[2])//image
     this.setData({
       show: true,
       goodsId:newBrands[0],
       unique:newBrands[1],
+      image:newBrands[2],
     });
    this.polygon()
     // 在页面中定义插屏广告

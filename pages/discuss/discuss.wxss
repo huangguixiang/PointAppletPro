@@ -70,6 +70,10 @@ page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx .userInfo-pin {
 
   
 }
+page .pin .All .All-item .userInfo-pinx .van-icon  {
+  color: #C17372;
+  font-size: 25rpx;
+}
 
 page .pin .All .All-item .userInfo .tui {
   width: 710rpx;

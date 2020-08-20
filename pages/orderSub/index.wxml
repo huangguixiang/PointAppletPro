@@ -1,35 +1,35 @@
 <view>
 	<view class="p30">
 		<view class="address" bindtap="changeaddress">
-			<view class="address_top">
-				<view>
+			<view class="address_top" wx:if="{{site.length!=0?false:true}}">
+				<view >
 					<image src="/images/user/dz.png" class="left"></image>
 					请选择收货地址
 				</view>
 				<image src="/images/user/r.png" class="right"></image>
 			</view>
 			<view class="names" wx:for="{{site}}" wx:key="index">
-				<text class="bt">{{item.pccName}}{{item.address}}</text>
-				<text>{{item.consigneeName}}</text>
-			 {{item.phoneNo}}
+				<text class="bt">{{item.province}}{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
+				<text>{{item.real_name}}</text>
+			 {{item.phone}}
 			</view>
 		</view>
 
 		<view class="goods">
 			<view class="goods_title f28">
 				<view style="color:#333333">
-					<image src="/images/user/img.png"></image>手机壳
+					<image src="/images/user/img.png"></image>{{totalNums.cate_name}}
 				</view>
 				共{{totalnum}}件
 			</view>
 			<view class="goodlist" wx:for="{{totalNums}}" wx:key="index">
 			<view class="img">
-				<image src="{{item.goodsPic}}" ></image>
+				<image src="{{item.productInfo.image}}" ></image>
 			</view>
 				<view>
-					<view class="f32">{{item.goodsName}}</view>
-					<view class="f26" style="color:#999999;margin-top:17rpx">{{item.goodsAttributeValues}}</view>
-					<view style="color:#C28E90;margin-top:35rpx">￥{{item.goodsAmount}}</view>
+					<view class="f32">{{item.productInfo.store_name}}</view>
+					<view class="f26" style="color:#999999;margin-top:17rpx">{{item.productInfo.attrInfo.suk}}</view>
+					<view style="color:#C28E90;margin-top:35rpx">￥{{item.productInfo.price}}</view>
 				</view>
 			</view>
 		</view>
@@ -37,7 +37,7 @@
 		<view class="order">
 			<view class="list">
 				商品金额
-				<view>￥{{totalprice}}
+				<view>￥{{newtotalPrice}}
 					<image src="/images/user/r.png"></image>
 				</view>
 			</view>
@@ -49,15 +49,15 @@
 			</view>
 			<view class="list">
 				运费
-				<view>免运费
-				</view>
+				<view wx:if="{{priceGroup==0?true:false}}">免运费</view>
+				<view wx:if="{{priceGroup!=0?true:false}}">运费：{{priceGroup}}元</view>
 			</view>
 			<view class="list">
 				留言		<input style="color:#999999" class="f24 " placeholder="建议留言前先与商家沟通确认" bindblur="input" style="z-index: 0;"></input>		
 			</view>
 			<view class="list">
 				合计：
-				<view style="color:#C28E90">￥{{newtotalPrice}}
+				<view style="color:#C28E90">￥{{subPrice}}
 				</view>
 			</view>
 		</view>

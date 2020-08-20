@@ -14,11 +14,10 @@ Page({
     active: 0,
     radio:1,
     discount :29.93,
-    openId:'',
-    token:'',
-    orderSn:'',
     newtotalPrice:'',
-    site:''
+    site:'',
+    id:'',
+    orderKey:""
   },
 
   /**
@@ -52,7 +51,6 @@ Page({
       url: '/pages/AddressGl/index',
     })
 
-
   },
   //备注
   input(e){
@@ -67,96 +65,43 @@ Page({
   async navto(){
     var _that=this
     if (_that.data.site!=null) {
-      for (var j = 0; j < _that.data.site.length; j++) {
-        var elementOne = _that.data.site[j]; 
-      }
-      // console.log(elementOne)
-      for (var i = 0; i < _that.data.totalNums.length; i++) {
-        var element = _that.data.totalNums[i];
-      }
-      // console.log(element)
-          let newpccName= elementOne.pccName.split(' ')
-          // console.log(_that.data.token)
-          // console.log(_that.data.openId)
-
             try {
                 const res = await post({
-                  url: '/midiangoodsorderserver/order/add',
-                //   header: {
-                //    "Content-Type": "application/json;charset=UTF-8",
-                //    "token":_that.data.token
-                //  },
-                 data:{
-                "totalAmount":_that.data.totalprice, //订单总价18
-                "payAmount":_that.data.totalpriceCount, //实际支付价格12
-                "freightAmount":0,  //运费2
-                "payType":2,   //支付方式：0->未支付；1->支付宝；2->微信,13
-                "receiverName": elementOne.consigneeName,//收件人15
-                "receiverPhone":elementOne.phoneNo,//手机号16
-                "receiverProvince": newpccName[0],//省17
-                "receiverCity": newpccName[1],//市18
-                "receiverRegion":newpccName[2],//区19
-                "receiverDetailAddress": elementOne.address,//详细地址14
-                "note":this.data.remark,//备注20
-                "goodsId":element.goodsId,//商品id5
-                "goodsName":element.goodsName,//商品名字8
-                "goodsPic":element.goodsPic,//图片9
-                "goodsPrice":element.goodsAmount,//商品价格10
-                "goodsQuantity":element.number,//商品数量11
-                "goodsCategoryId":2,//element.goodsName商品fenl4
-                "goodsAttr":element.goodsAttributeValues,//商品参数3
-                "goodsItemId":1,//升级商品ID6
-                "goodsItemPrice":10,//element.goodsItemPrice升级商品价格7
-                "cartId":1// element.cartId购物车id  1
-                 }
+                  url: '/order/create/'+_that.data.orderKey,
+                data:{
+                  "addressId":'2',
+                  "from":"routine",
+                  "payType":"weixin",
+                  "shipping_type":1
+                }
+
                 }) 
+                console.log(res)
                 if (res.data.status==200) {
                   // console.log(res.data.data)
-                  _that.setData({
-                  orderSn:res.data.data.orderSn
-                  })
-         
-                  wx.request({
-                    url: 'https://api.midiandz.com/midiangoodsorderserver/order/payOrder',
-                    method: 'POST',
-                    data: {
-                      "orderSn":_that.data.orderSn,
-                      "payAmount":_that.data.newtotalPrice,
-                      "openId":_that.data.openId
-                    },
-                    header: {
-                      "Content-Type": "application/json;charset=UTF-8",
-                      "token":_that.data.token
-                    },
-                    success(res) {
-                      console.log("单号",  _that.data.orderSn)
-                      console.log("openid", _that.data.openId)
-                      console.log("价格", _that.data.newtotalPrice)
-                      console.log("token", _that.data.token)
-                     
-                      if (res.data.status==200) {
-                        //  console.log(res.data.data)
-                        //  console.log(res.data.data.timestamp)
-                        //  console.log(res.data.data.noncestr)
-                        //  console.log(res.data.data.mini_package)
-                        //  console.log(res.data.data.signType)
-                        //  console.log(res.data.data.sign)
-                        //  console.log(res.data.data.mini_appId)
-             
-
-                         wx.requestPayment({
-                          timeStamp: res.data.data.timestamp,
-                          nonceStr: res.data.data.noncestr,
-                          package: res.data.data.mini_package,
-                          signType:res.data.data.signType,
-                          paySign: res.data.data.sign,
-                          appId:res.data.data.mini_appId,
+                  const respay = await post({
+                    url: '/order/pay',
+                  data:{
+                         "from":"routine",
+                          "paytype":"weixin",
+                          "uni":res.data.data.result.orderId
+                  }
+                  }) 
+                     console.log(respay)
+                     if (respay.data.status==200) {
+                        wx.requestPayment({
+                          timeStamp:respay.data.data.result.jsConfig.timestamp,
+                          nonceStr: respay.data.data.result.jsConfig.nonceStr,
+                          package: respay.data.data.result.jsConfig.package,
+                          signType:respay.data.data.result.jsConfig.signType,
+                          paySign:respay.data.data.result.jsConfig.paySign,
+                          appId:respay.data.data.result.jsConfig.appId,
                           success: function (res) { 
                             // // success
                             console.log(res);
-                          wx.navigateTo({
-                                url: '../paysue/index?Price='+'&newtotalPrice='+_that.data.newtotalPrice+'&discount='+_that.data.discount,
-                            })
+                          // wx.navigateTo({
+                          //       url: '../paysue/index?Price='+'&newtotalPrice='+_that.data.newtotalPrice+'&discount='+_that.data.discount,
+                          //   })
                           },
                           fail: function (res) {
                             // fail
@@ -166,21 +111,14 @@ Page({
                               icon:'none',
                               duration:1500
                             })
-                            wx.switchTab({
-                              url: '../shop/index',
-                          })
+                          //   wx.switchTab({
+                          //     url: '../shop/index',
+                          // })
                           },
                         })
+                     }
+
                       
-             
-                      }else{
-                          wx.showToast({
-                            title: res.data.message,
-                          })
-                      }
-  
-                    }
-                  })
                 }
            
              } catch (error) {
@@ -211,6 +149,7 @@ Page({
         })
       },
     })
+    // subPrice
     try {
         // console.log(_that.data.openId)
      const res = await post({
@@ -263,6 +202,52 @@ Page({
       },
     })
   },
+  //结算
+  async  showNavtos(e) {
+let _that=this
+      try {
+        const res = await post({
+          url: '/order/confirm' ,
+        data:{
+          "cartId":_that.data.id
+        }
+        })
+        console.log(res.data.data.orderKey)
+        console.log(res.data.data.addressInfo)
+        console.log(res.data.data)
+        console.log(res.data.data.priceGroup.storePostage)
+        let site=[]
+        site.push(res.data.data.addressInfo)
+        if (res.data.status == 200) {
+          _that.setData({
+            totalNums:res.data.data.cartInfo,
+            site:site,
+            orderKey:res.data.data.orderKey,
+            priceGroup:res.data.data.priceGroup.storePostage
+          })
+
+        } 
+        else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+          })
+        }
+        //获取缓存中购物车数据
+        // const cart=wx.getStorageSync('cart')||[];
+        // this.setCart(cart);
+  
+      } catch (error) {
+        if (error.errMsg == "request:fail ") {
+          wx.showToast({
+            title: "无网络链接",
+            icon: 'none',
+            duration: 1000
+          })
+        }
+      }
+
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -273,19 +258,25 @@ Page({
 
 
   onLoad:function(options){
-    // console.log(options.totalnum)
-    // console.log(options.totalprice)
-    console.log(JSON.parse(options.totalNums))
-    let totalNums=JSON.parse(options.totalNums)
-    let totalpriceCount=options.totalprice-this.data.discount
+    console.log(options)
+       this.setData({
+        id:options.id,
+       })
+    let totalpriceCount=options.totalprice
+    let totalnum=options.totalnum
     let newtotalPrice= Math.floor(totalpriceCount * 100) / 100 //设置为两位数
+        console.log(totalpriceCount)
+        console.log(newtotalPrice)
+
     if (totalpriceCount<=0) {
        this.setData({
         newtotalPrice:0,
+        totalnum
        })
     }else{
          this.setData({
-          newtotalPrice
+          newtotalPrice,
+          totalnum
          })
          
     }
@@ -293,7 +284,7 @@ Page({
     this.setData({
       totalnum:options.totalnum,
       totalprice:options.totalprice,
-       totalNums
+  
     })
   },
   /**
@@ -301,6 +292,7 @@ Page({
    */
   onShow: function () {
    this.user()
+   this.showNavtos()
 
   },
 

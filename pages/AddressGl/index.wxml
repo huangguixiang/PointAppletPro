@@ -1,6 +1,6 @@
 <view>
 	<view class="list" wx:for="{{address}}" wx:key="index">
-		<van-swipe-cell right-width="{{ 65 }}">
+		<van-swipe-cell right-width="{{ 85 }}">
 			<van-cell-group>
            <view class="content"  data-id="{{item.id}}"  bindtap="sele" >
 					 	   <view class="left"  >
@@ -11,8 +11,8 @@
 									<view class="f32 ph">{{item.phone}}</view>
 									<view class="f24  site" >{{item.city}}{{item.province}}{{item.district}}{{item.detail}}</view>
 						</view>
-           <view class="goEit">
-					    <view catchtap="editAddress" data-addressid="{{item.addressId}}"  data-consigneename="{{item.consigneeName}}"  data-phoneno="{{item.phoneNo}}" data-address="{{item.address}}" > 
+           <view class="goEit"  catchtap="editAddress" data-addressid="{{item.addressId}}"  data-consigneename="{{item.consigneeName}}"  data-phoneno="{{item.phoneNo}}" data-address="{{item.address}}">
+					    <view> 
 						   	<image src="/images/home/icn-right.png" mode="aspectFill" ></image>
 							</view>
 					 </view>

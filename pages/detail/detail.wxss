@@ -150,6 +150,12 @@ page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx {
   height: 46rpx;
 
 }
+page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx .van-icon  {
+  color: #C17372;
+  font-size: 25rpx;
+  
+
+}
 page .pin .All .All-item .userInfo .userInfo-all .userInfo-pinx .userInfo-pin {
   width: 20rpx;
   height: 20rpx;
