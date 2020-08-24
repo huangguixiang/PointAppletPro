@@ -28,6 +28,7 @@
   color: #fff;
 }
 
+
 .amout {
   margin: 0 30rpx 40rpx 30rpx;
   background: rgba(255, 255, 255, 1);
@@ -96,7 +97,11 @@
   font-size: 32rpx;
   line-height: 70rpx;
 }
+  .tx .bg{
+  background: #F5F5F5;
+  color: black;
 
+}
 page {
   height: 100%;
   background: #F5F5F5;

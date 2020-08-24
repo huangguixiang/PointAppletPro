@@ -13,6 +13,7 @@ Page({
     allchecked: false,
     totalPrice: 0,
     totalNum: 0,
+    sum:0
   },
   navto() {
     wx.navigateTo({
@@ -32,6 +33,12 @@ Page({
         _that.setData({
           cart:res.data.data.valid,
           sum:res.data.data.valid.length
+        })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon:'none',
+          duration:3000
         })
       }
 

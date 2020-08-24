@@ -8,20 +8,19 @@
 			<view class="left">
 	       <view class="cc">
 				 			<view class="f28 ">
-					<text>13</text>张
+					<text>3</text>元
 				</view>
-				<view class="f24">{{item.couponsName}}</view>
+				<view class="f24">{{item.title}}</view>
 				 </view>
 			</view>
 			<view class="conter">
-				<view class="f28">{{item.couponsDescr}}</view>
-				<view class="f24" style="margin-top:34rpx ;color: #BABABA;">无门槛</view>
+				<view class="f28">{{item.title}}</view>
+				<view class="f24" style="margin-top:34rpx ;color: #BABABA;">{{item.use_min_price}}</view>
 				<view class="f24 tiems" style="margin-top:16rpx">
-				<view>有效期至：{{item.useEndDate}}</view>
-					<text  wx:if="{{item.state==1?true:false}}">可用</text>
-					<text wx:if="{{item.state==2?true:false}}">使用中</text>
-					<text wx:if="{{item.state==3?true:false}}">已使用</text>
-					<text wx:if="{{item.state==4?true:false}}">已过期</text>
+				<view>有效期：{{item.end_time}}</view>
+					<text  wx:if="{{item.state==1?true:false}}">可使用</text>
+					<text wx:if="{{item.state==2?true:false}}">已使用</text>
+
 
 				</view>
 			</view>

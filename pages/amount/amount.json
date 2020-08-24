@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-stepper": "/dist/stepper/index",
+    "van-field": "/dist/field/index",
+    "van-steps": "/dist/steps/index"
+  },
+  "navigationBarTitleText": "订单详情"
+}

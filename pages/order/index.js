@@ -6,46 +6,38 @@ Page({
    * 页面的初始数据
    */
   data: {
+    active: 0,
   },
 
 
-    async showEvaluate() {
+    async showEvaluate(e) {
       let _that=this
       try {
        const res = await get({
-         url: '/midiangoodsorderserver/order/getall',
-         data:{ 
-
-         },
-        //  header: {
-        //   "Content-Type": "application/json;charset=UTF-8",
-        //   'token':'8c0c174bab6c4c64abe18d0028acedc3'
-        // },
+         url: '/order/list?&page=1&limit=999',
        })  
-       console.log(res.data)
-      //  订单状态：0->待付款；1->已支付:待发货；2->已发货；3->已收货 4 退货中 5 ->退货成功；6->已完成；7->退款成功,
-       let payment=res.data.result.filter(item => item.status==0)
-       let paymentOne=res.data.result.filter(item => item.status==1)
-       let paymentTwo=res.data.result.filter(item => item.status==2)
-       let paymentThree=res.data.result.filter(item => item.status==3)
-       let paymentFour=res.data.result.filter(item => item.status==4)
-       let paymentFive=res.data.result.filter(item => item.status==5)
-       let paymentSex=res.data.result.filter(item => item.status==6)
-       let paymentSeven=res.data.result.filter(item => item.status==7)
-      //  console.log(paymentOne)
-      //  console.log(paymentOne)
-      //  console.log(paymentTwo)
-      //  console.log(paymentThree)
+       console.log(res)
+       console.log(res)
+      // 0未付款 1待发货 2待收货 3待评价 4已完成
+       let paymentAll=res.data.data
+       let payment=res.data.data.filter(item => item._status._type==0)
+       let paymentOne=res.data.data.filter(item => item._status._type==1)
+       let paymentTwo=res.data.data.filter(item => item._status._type==2)
+       let paymentThree=res.data.data.filter(item => item._status._type==3)
+       let paymentFour=res.data.data.filter(item => item._status._type==4)
+       console.log(paymentAll)
+       console.log(payment)
+       console.log(paymentOne)
+       console.log(paymentTwo)
+       console.log(paymentThree)
+       console.log(paymentFour)
        _that.setData({
-        All:res.data.result,
+        paymentAll,
         payment,
-       paymentOne,
+        paymentOne,
         paymentTwo,
         paymentThree,
-        // paymentFour,
-        // paymentFive,
-        paymentSex,
-        // paymentSeven,
+        paymentFour,
        })
   
       } catch (error) {
@@ -58,17 +50,35 @@ Page({
         }  
       }
      },
-
      //物流
      logistics(){
        wx.navigateTo({
          url: '/pages/logistics/logistics',
        })
      },
-     //取消订单
-     material(){
+     //提醒发货
+     remind(){
+       wx.showToast({
+         title: '以提醒卖家',
+         icon:'success'
+       })
+     },
+     //未付款取消订单
+     cancel(e){
+      // let {ordeid}=e.currentTarget.dataset
+      let {item}=e.currentTarget.dataset
+      console.log(item)
        wx.navigateTo({
-         url: '/pages/material/material',
+         url: '/pages/material/material?ordeid='+JSON.stringify(item),
+       })
+     },
+     //购买后取消订单
+     chargeback(e){
+      // let {ordeid}=e.currentTarget.dataset
+      let {item}=e.currentTarget.dataset
+      console.log(item)
+       wx.navigateTo({
+         url: '/pages/chargeback/chargeback?ordeid='+JSON.stringify(item),
        })
      },
   /**
@@ -82,6 +92,8 @@ Page({
       active:index
     })
   },
+
+
 //售后
   navtoAftersale(){
     wx.navigateTo({
@@ -89,14 +101,66 @@ Page({
     })
   },
 //继续支付
-goShop(){
-    // wx.navigateTo({
-    //   url: '/pages/Aftersale/index',
-    // })
-   wx.showToast({
-     title: '还没有流程',
-     icon:'none'
-   })
+async goShop(e){
+  let {ordeid}=e.currentTarget.dataset
+    let _that=this
+    // subPrice
+    try {
+     const res = await post({
+       url: '/order/pay',
+       data:{
+        "from":"routine",
+         "paytype":"weixin",
+         "uni":ordeid,
+       }
+     })  
+     console.log(res)
+     console.log(res.data.status)
+          if (res.data.status==200) {
+            wx.requestPayment({
+              timeStamp:res.data.data.result.jsConfig.timestamp,
+              nonceStr: res.data.data.result.jsConfig.nonceStr,
+              package: res.data.data.result.jsConfig.package,
+              signType:res.data.data.result.jsConfig.signType,
+              paySign:res.data.data.result.jsConfig.paySign,
+              appId:res.data.data.result.jsConfig.appId,
+              success: function (res) { 
+                // // success
+                console.log(res);
+                console.log(_that.data.orderId)
+              wx.navigateTo({
+                    url: '../paysue/index?orderId='+_that.data.orderId,
+                })
+              },
+              fail: function (res) {
+                // fail
+                console.log(res);
+                console.log(_that.data.orderId)
+                wx.showToast({
+                  title: '支付失败',
+                  icon:'none',
+                  duration:1500
+                })
+                wx.navigateTo({
+                  url: '/pages/order/index'
+              })
+              },
+            })
+          }else{
+            wx.showToast({
+              title: res.data.msg,
+              icon:"none"
+            })
+          }
+    } catch (error) {
+      if(error.errMsg=="request:fail "){
+       wx.showToast({
+         title: "无网络链接",
+         icon:'none',
+         duration:1000
+       }) 
+      }  
+    }
   },
   navto(){
     wx.navigateTo({
@@ -114,7 +178,7 @@ goShop(){
     let {index}= options
     console.log(index)
     this.setData({
-      active:index
+      active:Number(index)
     })
   },
   /**

@@ -78,11 +78,26 @@ discount() {
       })
       let user=[]
       user.push(res.data.data)
+      console.log(res.data.data.orderStatusNum)
       console.log(res)
       if (res.data.status==200) {
          _that.setData({
-          user
+          user,
+          // complete_count:res.data.data.orderStatusNum.complete_count,//订单已完成 数量
+          evaluated_count:res.data.data.orderStatusNum.evaluated_count,//订单待评价 数量
+          // order_count:res.data.data.orderStatusNum.order_count,//订单支付没有退款 数量
+          received_count:res.data.data.orderStatusNum.received_count,//订单待收货 数量
+          // refund_count:res.data.data.orderStatusNum.refund_count,//订单退款
+          // sum_price:res.data.data.orderStatusNum.sum_price,//订单支付没有退款 支付总金额
+          unpaid_count:res.data.data.orderStatusNum.unpaid_count,//订单待支付 数量
+          unshipped_count:res.data.data.orderStatusNum.unshipped_count,//订单待发货 数量
          })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon:'none',
+          duration:3000
+        })
       }
     } catch (error) {
       if (error.errMsg == "request:fail ") {
@@ -106,7 +121,7 @@ discount() {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-this.user()
+    this.user()
   },
 
   /**

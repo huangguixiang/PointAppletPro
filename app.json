@@ -24,17 +24,18 @@
     "pages/orderdel/index",
     "pages/paysue/index",
     "pages/material/material",
+    "pages/chargeback/chargeback",
     "pages/creation/creation",
     "pages/innovate/innovate",
     "pages/recording/index",
     "pages/logistics/logistics",
+    "pages/amount/amount",
     "pages/shop/index",
     "pages/conList/index",
     "pages/withdraw/index",
     "pages/discuss/discuss",
     "pages/editAddress/editAddress",
     "components/cropper/cropper",
-    "components/canvas/canvas",
     "components/inputs/inputs"
 
 

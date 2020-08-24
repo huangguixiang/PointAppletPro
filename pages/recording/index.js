@@ -1,4 +1,5 @@
 // pages/recording/index.js
+import {post,get  } from "../../request/request.js";
 Page({
 
   /**
@@ -6,6 +7,31 @@ Page({
    */
   data: {
 
+  },
+  //提现
+  async userDeposit (){
+    let _that = this
+    // console.log( Number (id))
+    try {
+      const res = await get({
+        url: "/extract/bank"
+      })
+
+      console.log(res)
+      // if (res.data.status==200) {
+      //    _that.setData({
+      //     user
+      //    })
+      // }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
   },
 
   /**
@@ -26,7 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.userDeposit()
   },
 
   /**

@@ -16,27 +16,29 @@ Page({
     particulars:'',
     id: "",
     goBrandOne: '',
+    goBrandtwo: '',
     brand:'',//品牌
     model:'',//型号
-    pinj:[],
+    value: '',
     //预览照片
-    "imgList": [
-      "https://oimagea5.ydstatic.com/image?id=-5285314247220546696&product=adpublish&w=520&h=347",
-      "https://iknow-base.cdn.bcebos.com/540X230.jpg",
-    ],
     showdown: false,
     show: false,
     id: '',
     bgc: '',
     bgcs: '',
+    // price:'',
+    unique:'',
+    img:''
   },
   //预览图片，放大预览
   preview(event) {
     // console.log(event.currentTarget.dataset.src)
     let currentUrl = event.currentTarget.dataset.src
+    let {img} = event.currentTarget.dataset
+    console.log(img)
     wx.previewImage({
       current: currentUrl, // 当前显示图片的http链接
-      urls: this.data.imgList // 需要预览的图片http链接列表
+      urls: img // 需要预览的图片http链接列表
     })
   },
   showPopup() { //后端拿到的牌子和型号分别复制给bgc和bgcs 实现点击定制改变背景颜色
@@ -48,72 +50,52 @@ Page({
     });
   },
 
+  //评论跳转
+  discuss(){
+    let _that=this
+    let id = _that.data.id
+    wx.navigateTo({
+      url: '/pages/discuss/discuss?id='+id,
+    })
+  },
   onClose() {
     this.setData({
       show: false
     });
   },
-
-  //跳转定制
-  next() {
-    let id = this.data.id
-    let {
-      goBrandOne
-    } = this.data
-
-    for (let i = 0; i < this.data.text.length; i++) {
-      var element = this.data.text[i].goodsAmount;
-      
-    }
-    let brands = id + ',' + goBrandOne + ','+element
-    if (goBrandOne == "undefined" || goBrandOne == null || goBrandOne == "" ) {
-      wx.showToast({
-        title: "请先选择商品", // 提示的内容
-        icon: "none", // 图标，默认success
-      })
-    } else {
-      wx.navigateTo({
-         url: '/pages/customization/customization?brands= ' + brands,
-      })
-
-    }
-  },
-
-      jixin(e) {
-    // console.log(e)
-    // let relatedid = e.currentTarget.dataset.relatedid
-    // let id = e.currentTarget.dataset.id
-    // console.log(relatedid )
-    let {index} = e.currentTarget.dataset
+  //评论
+  async comment (){
     let _that = this
-    // console.log(id)
-    _that.setData({
-      bgc: index,
-      goBrandOne: index,
-      brand: index
-    })
+    let id = Number (_that.data.id)
+    // console.log( Number (id))
+    try {
+      const res = await get({
+        url: "/reply/list/"+id+"?page="+1+"&limit="+999999+"&type="+0
+      })
+      console.log(res.data.data)
+       let evaluate=[]
+       let pinj=[]
+       let evaluateImg="/images/detail/pl-star.png"
+       evaluate.push(res.data.data[0],res.data.data[1],res.data.data[2])
+      if (res.data.status==200) {
+        _that.setData({
+          evaluate,//显示条数
+          pin:res.data.data//判断是否显示更多
+        }) 
 
-
-
+      }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
   },
 
 
-
-
-  // jixins(e) {
-  //   // console.log(e)
-  //   let {
-  //     items
-  //   } = e.currentTarget.dataset
-  //   let {
-  //     innhtml
-  //   } = e.currentTarget.dataset
-  //   this.setData({
-  //     bgcs: items,
-  //     goBrandtwo: items,
-  //     innhtml: innhtml,
-  //   })
-  // },
 
   //品牌
   async showBrand() {
@@ -125,22 +107,21 @@ Page({
         url: '/product/detail/' + Number (id),
       })
       console.log(res)
-      console.log(res.data.data.storeInfo.slider_image)
-      // console.log(res.data.data.productAttr[1].attr_value)
-      console.log(res.data.status)
+      // console.log(res.data.msg)
       let particulars=[]
       particulars.push(res.data.data.storeInfo)
-      // console.log(particulars)
+      console.log(particulars)
       if (res.data.status==200) {
-        console.log(particulars)
-        console.log(res.data.data.storeInfo.slider_image)
-        console.log(res.data.data.storeInfo.slider_image)
-        console.log(res.data.data.productAttr[1].attr_value)
         _that.setData({
           particulars,//价格
           goodsDescImg:res.data.data.storeInfo.slider_image,//详情底部图片
           banner:res.data.data.storeInfo.slider_image,//轮播
-          // pinpai:res.data.data.productAttr[1].attr_value//品牌
+          pinpai:res.data.data.shouji
+        })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon:'none'
         })
       }
     } catch (error) {
@@ -158,6 +139,106 @@ Page({
       show: false
     })
   },
+  //选择品牌
+  jixin(e) {
+    // console.log(e)
+    // let relatedid = e.currentTarget.dataset.relatedid
+    // let id = e.currentTarget.dataset.id
+    // console.log(relatedid )
+    let {index} = e.currentTarget.dataset
+    let {relatedid} = e.currentTarget.dataset
+    let _that = this
+    console.log(index)
+    _that.setData({
+      bgc: index,
+      goBrandOne: index,
+      brand: index,
+      xin:relatedid,
+      model:"aa"//清除默认
+    })
+
+
+
+  },
+
+
+
+//选择型号
+async jixins(e) {
+    // console.log(e)
+    let {
+      items
+    } = e.currentTarget.dataset
+    let {
+      innhtml
+    } = e.currentTarget.dataset
+    // let contrast=this.data.goBrandOne+','+items
+    let _that = this
+    let id = _that.data.id
+    console.log(items)
+    try {
+      const res = await get({
+        url: '/product/detail/' + Number (id),
+      })
+      console.log(res.data.data.productValue)
+
+      if (res.data.status==200) {
+        let shouji_childs=res.data.data.shouji_child.filter(item=>item.name==items)
+        console.log(shouji_childs[0].value)
+        let value=shouji_childs[0].value
+        let productValue=res.data.data.productValue.filter(item=>item.name==value)
+        console.log(productValue)
+      
+        console.log(items)
+       _that.setData({
+        productValue,
+        image:productValue[0].data.image,
+        // price:productValue[0].data.price,
+        unique:productValue[0].data.unique,
+       })
+       console.log(productValue[0].data.image)
+      }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
+    this.setData({
+      bgcs: items,
+      goBrandtwo: items,
+      innhtml: innhtml,
+    })
+  },
+  
+  //跳转定制
+  next() {
+    let id = this.data.id
+    let {
+      goBrandtwo
+    } = this.data
+    let {
+      goBrandOne
+    } = this.data
+     console.log(this.data.price)
+    let brands = id + ',' + this.data.unique +','+this.data.image
+    console.log(brands)
+    if (goBrandOne == "undefined" || goBrandOne == null || goBrandOne == "" ||goBrandtwo == "undefined" || goBrandtwo == null || goBrandtwo == "") {
+      wx.showToast({
+        title: "请先选择商品", // 提示的内容
+        icon: "none", // 图标，默认success
+      })
+    } else {
+      wx.navigateTo({
+         url: '/pages/customization/customization?brands= ' + brands,
+      })
+
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -171,8 +252,8 @@ Page({
     })
     wx.getSystemInfo({
       success: function (res) {
-        console.log('品牌',res.brand)//品牌
-        console.log('型号',res.model)//型号
+        console.log(res.brand)//品牌
+        console.log(res.model)//型号
         _that.setData({
           brand:res.brand,
           model:res.model
@@ -209,6 +290,7 @@ Page({
    */
   onShow: function () {
     this.showBrand();
+    this.comment();
     // this.showEvaluate()
   },
 

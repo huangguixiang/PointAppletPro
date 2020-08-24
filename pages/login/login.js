@@ -19,7 +19,6 @@ Page({
         wx.getUserInfo({
           success(res) {
             console.log(res)
-
             wx.request({
               url: 'https://api.midiandz.com/api/wechat/mp_auth',
               method: 'POST',
@@ -84,6 +83,7 @@ Page({
       }
     })
   },
+  
   // //去手机号绑定页
   // goPhone() {
   //   wx.navigateTo({

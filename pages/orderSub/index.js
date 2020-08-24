@@ -13,11 +13,13 @@ Page({
     show:false,
     active: 0,
     radio:1,
-    discount :29.93,
+    // discount :29.93,
     newtotalPrice:'',
     site:'',
     id:'',
-    orderKey:""
+    orderKey:"",
+    orderId:'',
+    dizhiId:''
   },
 
   /**
@@ -64,12 +66,12 @@ Page({
   // 提交订单
   async navto(){
     var _that=this
-    if (_that.data.site!=null) {
+    if (_that.data.site!=null||_that.data.sites!=null) {
             try {
                 const res = await post({
                   url: '/order/create/'+_that.data.orderKey,
                 data:{
-                  "addressId":'2',
+                  "addressId":_that.data.dizhiId,
                   "from":"routine",
                   "payType":"weixin",
                   "shipping_type":1
@@ -78,6 +80,9 @@ Page({
                 }) 
                 console.log(res)
                 if (res.data.status==200) {
+                  _that.setData({
+                    orderId:res.data.data.result.orderId
+                  })
                   // console.log(res.data.data)
                   const respay = await post({
                     url: '/order/pay',
@@ -99,21 +104,23 @@ Page({
                           success: function (res) { 
                             // // success
                             console.log(res);
-                          // wx.navigateTo({
-                          //       url: '../paysue/index?Price='+'&newtotalPrice='+_that.data.newtotalPrice+'&discount='+_that.data.discount,
-                          //   })
+                            console.log(_that.data.orderId)
+                          wx.redirectTo({
+                                url: '../paysue/index?orderId='+_that.data.orderId,
+                            })
                           },
                           fail: function (res) {
                             // fail
                             console.log(res);
+                            console.log(_that.data.orderId)
                             wx.showToast({
                               title: '支付失败',
                               icon:'none',
                               duration:1500
                             })
-                          //   wx.switchTab({
-                          //     url: '../shop/index',
-                          // })
+                            wx.redirectTo({
+                              url: '../orderdel/index?orderId='+_that.data.orderId,
+                          })
                           },
                         })
                      }
@@ -151,7 +158,7 @@ Page({
     })
     // subPrice
     try {
-        // console.log(_that.data.openId)
+        console.log(_that.data.openId)
      const res = await post({
        url: '/midianuserserver/coupon/updateCouponState',
        data: {
@@ -159,12 +166,7 @@ Page({
           "userId":_that.data.openId,
           "state":1
         },
-      //  header: { 
-      //    'Content-Type': 'application/json',
-      //    "token":"01d56962a3804683911887d1d52eb617"
-      //  },
      })  
-    //  console.log(res)
   
      _that.setData({
       show:true
@@ -216,12 +218,18 @@ let _that=this
         console.log(res.data.data.addressInfo)
         console.log(res.data.data)
         console.log(res.data.data.priceGroup.storePostage)
-        let site=[]
-        site.push(res.data.data.addressInfo)
+        let sites=[]
+        let usableCoupon=[]
+        sites.push(res.data.data.addressInfo)
+        usableCoupon.push(res.data.data.usableCoupon)
         if (res.data.status == 200) {
           _that.setData({
             totalNums:res.data.data.cartInfo,
-            site:site,
+            sites,
+            usableCoupon,
+            dizhiId:res.data.data.addressInfo.id,
+            usableCouponleng:usableCoupon.length,
+            coupon_price:res.data.data.usableCoupon.coupon_price,
             orderKey:res.data.data.orderKey,
             priceGroup:res.data.data.priceGroup.storePostage
           })

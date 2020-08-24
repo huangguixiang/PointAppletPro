@@ -19,33 +19,41 @@
 
 	<view class="tx">
 		<van-tabs active="{{ active }}" color="#333333" bind:change="onChange">
-			<van-tab title="提现到支付宝"></van-tab>
-			<van-tab title="提现到银行卡"></van-tab>
-		</van-tabs>
-
-		<view wx:if="{{active==1}}">
-			<view class="blak_list">
-				<image src="/images/user/yh.png" class="icon"></image>
-				<view>中国建设银行
-					<text>8888 **** **** 8888</text>
-				</view>
-				<image src="/images/user/rr.png" class="rr" bindtap="morelist"></image>
-			</view>
-		</view>
-		<view wx:else style="padding:30rpx">
+			<van-tab title="提现到支付宝">
+			
+					<view style="padding:30rpx">
 			<van-field label="真实姓名" value="{{ value }}" placeholder="请输入您的真实姓名" border bind:change="onChange" />
 			<van-field label="支付宝账号" value="{{ value }}" placeholder="请输入您的支付宝账号" border bind:change="onChange" />
 			<van-field label="手机号码" value="{{ value }}" placeholder="请输入您的手机号码" border bind:change="onChange" />
-			<van-field label="验证码" value="{{ value }}" placeholder="请输入验证码" border bind:change="onChange">
+			<!-- <van-field label="验证码" value="{{ value }}" placeholder="请输入验证码" border bind:change="onChange">
 				<van-button slot="button" size="small" type="primary">发送验证码</van-button>
-			</van-field>
-			<view style="margin-top:80rpx">
+			</van-field> -->
+			<!-- <view style="margin-top:80rpx">
 				<view class="btns">确认</view>
-			</view>
+			</view> -->
+							<view class="ta f24" style="margin-top:58rpx;color:#999999">*现在申请提现，预计2个小时内到账，实际到账时间以落地行处理结果为准哦~</view>
+	        <view class="btns"  bindtap="Alipay" style="margin-top:100rpx;margin-bottom:50rpx" hover-class="bg">立即提现</view>
 		</view>
+			
+			
+			</van-tab>
+			<van-tab title="提现到银行卡">
+			
+			<view class="blak_list" wx:for="{{Pay}}" wx:key="index">
+				<image src="{{item.img}}" class="icon"></image>
+				<view>{{item.bankname}}
+					<text>{{item.cardnum}}</text>
+				</view>
+				<image src="/images/user/rr.png" class="rr" bindtap="morelist"></image>
+			</view>
+				<view class="ta f24" style="margin-top:58rpx;color:#999999">*现在申请提现，预计2个小时内到账，实际到账时间以落地行处理结果为准哦~</view>
+	     <view class="btns" bindtap="WeChatPay" style="margin-top:100rpx;margin-bottom:100rpx" hover-class="bg">立即提现</view>
+			
+			</van-tab>
+		</van-tabs>
+
+
 	</view>
 
-	<view class="ta f24" style="margin-top:58rpx;color:#999999">*现在申请提现，预计2个小时内到账，实际到账时间以落地行处理结果为准哦~</view>
 
-	<view class="btns" style="margin-top:100rpx;">立即提现</view>
 </view>

@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -285,6 +285,41 @@
 					"id": -1,
 					"name": "components/canvas/canvas",
 					"pathName": "components/canvas/canvas",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/defeated/defeated",
+					"pathName": "pages/defeated/defeated",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/amount/amount",
+					"pathName": "pages/amount/amount",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/recording/index",
+					"pathName": "pages/recording/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/withdraw/index",
+					"pathName": "pages/withdraw/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/share_image/share_image",
+					"pathName": "components/share_image/share_image",
 					"scene": null
 				}
 			]

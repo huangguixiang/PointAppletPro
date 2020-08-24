@@ -8,7 +8,7 @@
 	<view class="box">
 		<view style="margin:0 20rpx">
 			<view class="f36 title">为您推荐</view>
-			<van-tabs animated>
+			<van-tabs animated >
 				<van-tab title="手机壳">
 		     <view class="listFa"  style="flex-direction:row;">
 				 				<view class="list">

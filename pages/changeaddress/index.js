@@ -58,11 +58,8 @@ console.log(this.data.isDefault)
  
     //拿到地址的每一项遍历数组
     // console.log(e.detail.values[0])
-    let provinceId=e.detail.values[0].code //省id
     let provinceName=e.detail.values[0].name //省
-    let cityId=e.detail.values[1].code  //市id
     let cityName=e.detail.values[1].name  //市
-    let countyId=e.detail.values[2].code  //区id
     let countyName=e.detail.values[2].name  //区
     let pccName=[]
     pccName.push(provinceName,cityName,countyName)
@@ -71,11 +68,8 @@ console.log(this.data.isDefault)
         value1:Elems,
         show:false,
         location:Elems,
-        provinceId:provinceId,
-        provinceName:provinceName,
-        cityId:cityId,
         cityName:cityName,
-        countyId:countyId,
+        provinceName:provinceName,
         countyName:countyName,
       }) 
 
@@ -87,7 +81,7 @@ console.log(this.data.isDefault)
     // console.log(event)
 
     this.setData({
-      address:event.detail.value
+      detail:event.detail.value
     });
   },
   onChange2(event) {
@@ -108,46 +102,42 @@ console.log(this.data.isDefault)
     console.log('详细地址',_that.data.address)
     console.log('手机号',_that.data.phoneNo)
     console.log('姓名',_that.data.consigneeName)
-    console.log('省id',_that.data. provinceId)
-    console.log('市id',_that.data.cityId)
-    console.log('区id',_that.data.countyId)
-    console.log('省id',_that.data.provinceName)
+    console.log('省名',_that.data.provinceName)
     console.log('市名',_that.data.cityName)
+    // address[city_id]
     console.log('区名',_that.data.countyName)
-
-    console.log('省市区全称',_that.data.location)
     console.log('是否默认',_that.data.isDefault)
-
+    let address={
+      "province":_that.data.provinceName,
+      "city":_that.data.cityName,
+      "district":_that.data.countyName,
+    }
+    console.log(address)
 try {
   const res = await post({
       url: '/address/edit',
       data: {
-        "real_name": _that.data.consigneeName,//姓名
-        "phone": _that.data.phoneNo,//手机号
-        "detail": _that.data.address,//详细地址
-        "address[city]": _that.data.cityId,//省
-        "address[province]": _that.data.cityName,//市
-        "address[district]": _that.data.countyName,//区
-        "is_default": _that.data.isDefault,//默认
-        "address[city_id]": _that.data.location//省市区
+        "phone":_that.data. phoneNo,//手机号
+        "real_name":_that.data.consigneeName,//姓名
+        "address":address,
+        "is_default":_that.data.isDefault,//默认地址是1  否0 
+        "detail": _that.data.detail,//详细地址
       },
   })  
   console.log(res)
-   if (res.data.code==200) {
+   if (res.data.status==200) {
     wx.showToast({
-      title: '加入成功！',  // 标题
+      title: '添加成功！',  // 标题
       icon: 'success',   // 图标类型，默认success
       duration: 1500   // 提示窗停留时间，默认1500ms
   })
   wx.redirectTo({
     //目的页面地址
     url: '/pages/AddressGl/index',
-    // success: function(res){},
-    // ...
 })
    }else{
     wx.showToast({
-      title: res.data.data.message,
+      title: res.data.msg,
       icon: 'none',
       duration: 1500
   })
@@ -168,9 +158,9 @@ try {
     })
   },
 //微信地址
-WeChatAvatar(){
-wx.chooseAddress({
-  success(res) {
+async WeChatAvatar(){
+    wx.chooseAddress({
+      success(res) {
         console.log(res)
         console.log(res.userName)//收货人姓名
         console.log(res.postalCode)//邮编
@@ -180,52 +170,52 @@ wx.chooseAddress({
         console.log(res.detailInfo)//详细收货地址信息
         console.log(res.nationalCode)//收货地址国家码
         console.log(res.telNumber)//收货人手机号码
+        let address={
+          "province":res.provinceName,
+          "city":res.cityName,
+          "district":res.countyName,
+        }
+        console.log(address)
+        let token=wx.getStorageSync('Authori-zation')
+        wx.request({
+          url: 'https://api.midiandz.com/api/address/edit', //仅为示例，并非真实的接口地址
+          data: {
+            "phone":res.telNumber,//手机号
+            "real_name":res.userName,//姓名
+            "address":address,
+            "is_default":0,//默认地址是1  否0 
+            "detail":res.detailInfo,//详细地址
+            "type":1,//微信地址
+          },
+          method:"POST",
+          header: {
+            'content-type': 'application/json' ,// 默认值
+            "Authori-zation":token
+          },
+          success (res) {
+            if (res.data.status==200) {
+              wx.showToast({
+                title: '添加成功！',  // 标题
+                icon: 'success',   // 图标类型，默认success
+                duration: 1500   // 提示窗停留时间，默认1500ms
+            })
+            wx.redirectTo({
+              //目的页面地址
+              url: '/pages/AddressGl/index',
+          })
+             }else{
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none',
+                duration: 1500
+            })
+             }
+          }
+        })
+
   }
   })
 },
-
-  //新增地址
-  // async showLocation () {
-  //   let _that=this
-  //   // let id=_that.data.id
-  //   // console.log(id)
-  //   try {
-  //     const res = await post({
-  //       url: '/midianuserserver/address/addAddress',
-  //       data: {
-  //         "consigneeName": "hangliagn",
-  //         "phoneNo": "123",
-  //         "address": "dizhi",
-  //         "provinceId": "213",
-  //         "cityId": "358",
-  //         "countyId": "2580",
-  //         "isDefault": 0,
-  //         "pccName": "hefei"
-  //       },
-  //       header: {
-  //         "Content-Type": "application/json",
-  //         "token": "5a4c24f9608d455181e37b5a81a67177",
-  //       },
-  //     })  
-  //     // console.log(res)
-  //           //  let Banner=res.data.result.filter(item=>item.bannerId==id)
-  //     // console.log(Banner)
-  //        _that.setData({
-  //         pinpai:Banner
-  //        })
-     
- 
-  //    } catch (error) {
-  //      if(error.errMsg=="request:fail "){
-  //       wx.showToast({
-  //         title: "无网络链接",
-  //         icon:'none',
-  //         duration:1000
-  //       }) 
-  //      }  
-  //    }
-  //  },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -250,7 +240,7 @@ wx.chooseAddress({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-// this.showLocation()
+//
   },
 
   /**

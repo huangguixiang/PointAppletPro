@@ -7,7 +7,14 @@ Page({
    */
   data: {
     show: false,
+    motto: 'Hello World',
+    hidden: true,
+    userInfo: {},
+    hasUserInfo: false,
+    windowWidth: '',
+    posterHeight: '',
   },
+  //用户
   async user (){
     let _that = this
     let id = Number (_that.data.id)
@@ -24,6 +31,56 @@ Page({
           user
          })
       }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
+  },
+  //推广用户
+  async userPromotion (){
+    let _that = this
+    // console.log( Number (id))
+    try {
+      const res = await post({
+        url: "/spread/people"
+      })
+
+      console.log(res)
+      // if (res.data.status==200) {
+      //    _that.setData({
+      //     user
+      //    })
+      // }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
+  },
+  //推广订单
+  async userOrder (){
+    let _that = this
+    // console.log( Number (id))
+    try {
+      const res = await post({
+        url: "/spread/people"
+      })
+
+      console.log(res)
+      // if (res.data.status==200) {
+      //    _that.setData({
+      //     user
+      //    })
+      // }
     } catch (error) {
       if (error.errMsg == "request:fail ") {
         wx.showToast({
@@ -53,10 +110,33 @@ Page({
   onReady: function () {
 
   },
-  clickTg() {
+//推广海报
+  async clickTg (){
+    let _that = this
+    // console.log( Number (id))
     this.setData({
       show: true
     })
+    try {
+      const res = await post({
+        url: "/spread/people"
+      })
+
+      console.log(res)
+      // if (res.data.status==200) {
+      //    _that.setData({
+      //     user
+      //    })
+      // }
+    } catch (error) {
+      if (error.errMsg == "request:fail ") {
+        wx.showToast({
+          title: "无网络链接",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    }
   },
   onClickHide() {
     this.setData({
@@ -68,6 +148,8 @@ Page({
    */
   onShow: function () {
     this.user()
+    this.userPromotion()
+    this.userOrder()
   },
 
   /**
@@ -81,6 +163,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+
+  },
+  onload: function () {
 
   },
 

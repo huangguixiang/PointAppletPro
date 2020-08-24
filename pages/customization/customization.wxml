@@ -11,7 +11,7 @@
 					<!-- <image src="/images/detail/sjk-iPhoneX.png" class="muban " mode="aspectFill"></image> -->
 					<image src="{{image}}" class="muban " mode="aspectFill"></image>
 					<!-- 摄像头 -->
-					<!-- <image src="/images/detail/sjk-iPhoneX02.png" class="shext" style="z-index:{{touindex}}" mode="aspectFill"></image> -->
+					<image src="/images/detail/sjk-iPhoneX02.png" class="shext" style="z-index:{{touindex}}" mode="aspectFill"></image>
 					<!-- 相机 -->
 					<image src="{{benimg}}" catchTap="chooseImageTap" mode="aspectFill" class="tieImg" style="z-index:{{imgINp1}}" mode="aspectFill" wx:if="{{bg1}}" />
 					<!-- 网络图片 -->
@@ -77,6 +77,7 @@
 			<!-- 右侧图标结束 -->
 
 		<!-- 进来第一次的时候显示 -->
+		<view  wx:if="{{zdm}}">
 		<view class="remind" wx:if="{{polygon}}">
 		  <view class="polygonCutout">
 			   <view class="polygonCutout-angle">
@@ -118,6 +119,7 @@
 
 		<view class="indicate"  wx:if="{{recommend}}"> </view>
 		<!-- 进来第一次的时候结束 -->
+		</view>
 		</view>
 		<!-- 相机开始 -->
 

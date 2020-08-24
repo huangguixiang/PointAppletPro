@@ -11,13 +11,14 @@ Page({
   //订单选择地址
 sele(e){
 
-  let {addr}=e.currentTarget.dataset
-  let site = this.data.address.filter(item => item.addressId==addr) //地址
-  console.log(site)
+  let {item}=e.currentTarget.dataset
+  console.log(item)
+  let items =[];
+  items.push(item)
   let pages = getCurrentPages();
   let prevPage = pages[pages.length - 2];   //上一页面
    prevPage.setData({
-    site,
+    site:items,
          //上个页面数据赋值 
    });
    //返回上一级关闭当前页面
@@ -33,8 +34,7 @@ wx.navigateBack({
     try {
       const res = await get({
         url: '/address/list?page=1&limit=999',
-        data: {
-              
+        data: {         
         },
       })  
       console.log(res.data.data)
@@ -43,7 +43,6 @@ wx.navigateBack({
           address:res.data.data,
          })
      
- 
      } catch (error) {
        if(error.errMsg=="request:fail "){
         wx.showToast({
@@ -59,20 +58,17 @@ wx.navigateBack({
 async dele (e) {
   let _that=this
   let {id}=e.currentTarget.dataset
-  // let id=_that.data.id
-  console.log(addressid)
+  console.log(id)
   try {
     const res = await post({
       url: '/address/del',
       data: {
         id
       },
-      // header: {
-      //   "Content-Type": "application/json",
-      //   "token": "5a4c24f9608d455181e37b5a81a67177",
-      // },
+
     })  
-    if (res.data.code==200) {
+    console.log(res)
+    if (res.data.status==200) {
       wx.showToast({
         title: '删除成功',  // 标题
         icon: 'success',   // 图标类型，默认success
@@ -102,7 +98,18 @@ async dele (e) {
      }  
    }
  },
+ //修改地址
+ editAddress(e){
+  // console.log(e)
+  let { item }=e.currentTarget.dataset
 
+  // let info=[]
+  // info.push(addressid,consigneename,phoneno,address)
+  console.log(item)
+  wx.navigateTo({
+    url: '/pages/editAddress/editAddress?item=' +JSON.stringify(item),
+  })
+},
 
 
   /**
@@ -116,19 +123,7 @@ async dele (e) {
       url: '/pages/changeaddress/index',
     })
   },
-  editAddress(e){
-    // console.log(e)
-    let { addressid }=e.currentTarget.dataset
-    let { consigneename }=e.currentTarget.dataset
-    let { phoneno }=e.currentTarget.dataset
-    let { address }=e.currentTarget.dataset
-    let info=[]
-    info.push(addressid,consigneename,phoneno,address)
-    // console.log(info)
-    wx.navigateTo({
-      url: '/pages/editAddress/editAddress?info=' +JSON.stringify(info),
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

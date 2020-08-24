@@ -11,22 +11,13 @@ Page({
   async coupon() {
     let _that = this
     try {
-      const res = await post({
-        url: '/midianuserserver/coupon/couponList',
-        header: {
-          "Content-Type": "application/json;charset=UTF-8",
-          "token":"5a4c24f9608d455181e37b5a81a67177"
-        },
-         data:{
-          "state": 1,
-          "rows": 1,
-      },
-
+      const res = await get({
+        url: '/coupons?page=1&limit=20',
       })
-       console.log(res.data.data.data)
-       if (res.data.code==200) {
+       console.log(res)
+       if (res.data.status==200) {
            _that.setData({
-            coupon:res.data.data.data
+            coupon:res.data.data
            })
        }else{
          wx.showToast({

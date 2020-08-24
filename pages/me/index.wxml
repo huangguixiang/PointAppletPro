@@ -34,28 +34,28 @@
 				<view class="tb" bindtap="order" data-index="0">
 					<view class="list_top" >
 						<image src="/images/userIcon/obligation.svg "></image>
-						<view>1</view>
+						<view>{{unpaid_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待付款</view>
 				</view>
 				<view  class="tb"  bindtap="order" data-index="1">
 					<view class="list_top">
 						<image src="/images/userIcon/rec.svg"></image>
-						<view>1</view>
+						<view>{{unshipped_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待发货</view>
 				</view>
 				<view  class="tb" bindtap="order" data-index="2">
 					<view class="list_top" >
 						<image src="/images/userIcon/track.svg"></image>
-						<view>1</view>
+						<view>{{received_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待收货</view>
 				</view>
 				<view  class="tb" bindtap="order" data-index="3">
 					<view class="list_top" >
 						<image src="/images/userIcon/eva.svg"></image>
-						<view>1</view>
+						<view>{{evaluated_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待评价</view>
 				</view>

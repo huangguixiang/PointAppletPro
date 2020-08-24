@@ -1,4 +1,5 @@
 // pages/Aftersale/index.js
+import {post,get  } from "../../request/request.js";
 Page({
 
   /**
@@ -9,14 +10,10 @@ Page({
     // columns:['不想要了','发错货','商品损坏','质量问题','其他'],
     radio: '',
     fileList: [],
+    order:''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
   afterRead(event) {
     const { file } = event.detail;
     // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
@@ -33,6 +30,47 @@ Page({
       },
     });
   },
+
+ //取消取消订单
+ async cancel(e) {
+  let _that=this
+  // subPrice
+  let {ordeid}=e.currentTarget.dataset
+  console.log(ordeid)
+  try {
+  const res = await post({
+    url: '/order/cancel',
+    data:{
+      "id":_that.data.order
+    }
+  })  
+  console.log(res)
+  console.log(res.data.status)
+        if (res.data.status==200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon:"none"
+          })
+          wx.redirectTo({
+            url: '/pages/order/index',
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon:"none"
+          })
+        }
+  } catch (error) {
+    if(error.errMsg=="request:fail "){
+    wx.showToast({
+      title: "无网络链接",
+      icon:'none',
+      duration:1000
+    }) 
+    }  
+  }
+},
+
   onClose(){
     this.setData({
       show:false
@@ -57,6 +95,20 @@ Page({
     this.setData({
       radio: name,
     });
+  },
+    /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+   console.log(JSON.parse(options.ordeid))
+   let dat=[]
+   dat.push(JSON.parse(options.ordeid))
+       this.setData(
+         {
+           dat,
+           order:JSON.parse(options.ordeid).order_id
+         }
+       )
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

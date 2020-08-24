@@ -36,8 +36,8 @@ toogle(e){
   // console.log(e)
   let {tog}=e.currentTarget.dataset
   const { togtwo } = e.currentTarget.dataset;
-  // console.log(tog)
-  // console.log(togtwo)
+  console.log(tog)
+  console.log(togtwo)
   if (togtwo==1) {
     this.setData({
       isDefault:0,
@@ -83,12 +83,13 @@ toogle(e){
     // }
 
   },
+
   onChange1(event) {
     // console.log(event)
 
     this.setData({
       result: event.detail,
-      address:event.detail.value
+      detail:event.detail.value
     });
   },
   onChange2(event) {
@@ -114,37 +115,37 @@ toogle(e){
   //修改地址
   async Submit() {
     let _that=this
-//     console.log(_that.data.address)
-//     console.log(_that.data.addressId,)
-//     console.log(_that.data.phoneNo)
-//     console.log(_that.data.consigneeName)
-//     console.log(_that.data. provinceId)
-//     console.log(_that.data.cityId)
-//     console.log(_that.data.cityName)
-//  console.log(_that.data.countyId)
-//     console.log(_that.data.countyName)
-    console.log( _that.data.isDefault)
+    let prov=_that.data.value1.split(" ")
+
+    console.log(prov)
+    console.log(prov[0])//省
+    console.log(prov[1])//市
+    console.log(prov[2])//区
+    console.log(_that.data. phoneNo)//电话
+    console.log(_that.data.id)//id
+    console.log(_that.data.consigneeName)//姓名
+    console.log(_that.data.detail)//详细地址
+    let address={
+      "province":prov[0],
+      "city":prov[1],
+      "district":prov[2],
+    }
+    console.log(address)
     try {
       const res = await post({
-        url: '/midianuserserver/address/updateAddress',
+        url: '/address/edit',
         data: {
-          "addressId":_that.data.addressId,
-          "consigneeName": _that.data.consigneeName,
-          "phoneNo":_that.data.phoneNo,
-          "address":_that.data.address,
-          "provinceId": _that.data. provinceId,
-          "cityId": _that.data.cityId,
-          "countyId":_that.data.countyId,
-          "isDefault": _that.data.isDefault,
-          "pccName": _that.data.location
+          "id":_that.data.id,//地址id
+          "phone":_that.data. phoneNo,//手机号
+          "real_name":_that.data.consigneeName,//姓名
+          "address":address,
+          "is_default":_that.data.isDefault,//默认地址是1  否0 
+          "detail": _that.data.detail,//详细地址
         },
-        header: {
-          "Content-Type": "application/json",
-          "token": "5a4c24f9608d455181e37b5a81a67177",
-        },
+
       })  
-      // console.log(res.data)
-         if (res.data.code==200) {
+      console.log(res)
+         if (res.data.status==200) {
               wx.showToast({
                 title: '修改成功！',  // 标题
                 icon: 'success',   // 图标类型，默认success
@@ -180,14 +181,18 @@ toogle(e){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let info= JSON.parse(options.info);
     let _that=this
-    // console.log(info)
+    let info=JSON.parse(options.item)
+    let dizhi=info.province+' '+info.city+' '+info.district
+    console.log(info)
+  
     _that.setData({
-      addressId:info[0],
-      address:info[3],
-      consigneeName: info[1],
-      phoneNo:info[2]
+          isDefault:info.is_default,//是否为默认地址0/1
+          detail:info.detail,//详细地址
+          phoneNo:info.phone,//手机号码
+          id:info.id,//id
+          consigneeName:info.real_name,//收货人
+          value1:dizhi//省市区
     })
   },
   onClose(){

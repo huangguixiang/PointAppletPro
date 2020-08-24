@@ -1,0 +1,93 @@
+<view style="padding-bottom:80rpx;margin-top:40rpx">
+
+	<view class="dp" wx:for="{{dat}}" wx:key="index">
+		<view class="dp_list">
+			<view style="padding-bottom:32rpx" class="f28">
+				订单编号：{{item.order_id}}
+			</view>
+            <block wx:for="{{item.cartInfo}}" wx:key="index">
+													<view class="good_list">
+								<image src="{{item.productInfo.image}}" class="goodname"></image>
+								<view style="flex:auto">
+									<view>{{item.productInfo.store_name}}</view>
+									<view class="f26" style="color:#999999;margin-top:16rpx">{{item.productInfo.attrInfo.suk}}</view>
+									<view class="amout_good">
+										<text class="f32">￥{{item.productInfo.price}}</text>
+										<view style="color:#999999">
+											*{{item.cart_num}}
+										</view>
+									</view>
+								</view>
+							</view>
+					
+							<view class="amout">
+								共{{item.cart_num}}件
+								<view>总金额：
+									<text>￥{{item.cart_num*item.productInfo.price}}</text>
+								</view>
+							</view>
+								</block>	
+		</view>
+	</view>
+
+	<view class="types">
+		<van-field label="取消类型" readonly value="{{ radio }}" placeholder="退货退款" border="{{ false }}" bindtap="selectType" />
+	</view>
+	<view class="types" style="padding:30rpx">
+		<view class="title">申请原因</view>
+		<van-field value="{{ value }}" type="textarea" autosize placeholder="您可以描述申请售后服务的具体原因，还可以上传最多9张图哦~" border />
+		<view style="margin-top:30rpx">
+			<van-uploader max-count="9" file-list="{{ fileList }}" bind:after-read="afterRead" />
+		</view>
+	</view>
+
+
+	<view class="types">
+		<van-field value="{{ value }}" placeholder="退款联系人" label="退款联系人" border />
+		<van-field value="{{ value }}" placeholder="联系方式" label="联系方式" border />
+	</view>
+	
+	<view class="Feedback">
+		<!-- <view class="title">
+	  	<view>商家反馈</view>
+			<view>商家同意</view>
+		</view> -->
+		<view class="conter">
+			<view>请按如下地址退货: </view>
+			<view> 黄晓锐 18856668899</view>
+			<view>浙江省杭州市余杭区未来科技城有限公司</view>
+		</view>
+	</view>
+	  <view class="addbtn" bindtap="cancel"  >提交</view>
+	<van-popup show="{{ show }}" position="bottom" bind:close="onClose"   custom-style="height: 40%;">
+				<van-radio-group value="{{ radio }}" bind:change="onChange">
+					<van-cell-group>
+						<van-cell title="退货退款" clickable data-name="退货退款" bind:click="onClick" >
+							<van-radio slot="right-icon" name="退货退款" checked-color="#C28E90"/>
+						</van-cell>
+						<van-cell title="仅退款" clickable data-name="仅退款" bind:click="onClick" >
+							<van-radio slot="right-icon" name="仅退款" checked-color="#C28E90"/>
+						</van-cell>
+						<van-cell title="不想要了" clickable data-name="不想要了" bind:click="onClick" >
+							<van-radio slot="right-icon" name="不想要了" checked-color="#C28E90"/>
+						</van-cell>
+						<van-cell title="七天无理由" clickable data-name="七天无理由" bind:click="onClick">
+							<van-radio slot="right-icon" name="七天无理由" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="发错货" clickable data-name="发错货" bind:click="onClick">
+							<van-radio slot="right-icon" name="发错货" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="商品损坏" clickable data-name="商品损坏" bind:click="onClick">
+							<van-radio slot="right-icon" name="商品损坏" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="质量问题" clickable data-name="质量问题"  bind:click="onClick">
+							<van-radio slot="right-icon" name="质量问题" checked-color="#C28E90" />
+						</van-cell>
+						<van-cell title="其他" clickable data-name="其他" bind:click="onClick">
+							<van-radio slot="right-icon" name="其他" checked-color="#C28E90" />
+						</van-cell>
+
+					</van-cell-group>
+				</van-radio-group>
+	</van-popup>
+</view>

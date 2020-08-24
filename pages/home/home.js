@@ -60,14 +60,24 @@ Page({
     // console.log(res.data.data.store[4].cate.goods[0])
     // console.log(res.data.data.store[4].cate.goods.length)
     // console.log(res.data.data.store[5].cate.pic)
-    _that.setData({
-      nav:res.data.data.store[4].cate.goods,
-      nav1:res.data.data.store[5].cate.goods,
-      nav2:res.data.data.store[6].cate.goods,
-      contentOne:res.data.data.store[4].cate.pic,
-      contentTwo:res.data.data.store[5].cate.pic,
-      banner:res.data.data.banner
-    })
+    console.log(res)
+    if (res.data.status==200) {
+      _that.setData({
+        nav:res.data.data.store[4].cate.goods,
+        nav1:res.data.data.store[5].cate.goods,
+        nav2:res.data.data.store[6].cate.goods,
+        contentOne:res.data.data.store[4].cate.pic,
+        contentTwo:res.data.data.store[5].cate.pic,
+        banner:res.data.data.banner
+      })
+    }else{
+      wx.showToast({
+        title: res.data.msg,
+        icon:'none',
+        duration:1500
+      })
+    }
+
     // console.log(nav)
    } catch (error) {
      if(error.errMsg=="request:fail "){

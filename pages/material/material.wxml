@@ -1,29 +1,32 @@
 <view style="padding-bottom:80rpx;margin-top:40rpx">
 
-	<view class="dp">
+	<view class="dp" wx:for="{{dat}}" wx:key="index">
 		<view class="dp_list">
 			<view style="padding-bottom:32rpx" class="f28">
-				订单编号：1000000001
+				订单编号：{{item.order_id}}
 			</view>
-			<view class="good_list">
-				<image src="/images/detail/sp1.jpg" class="goodname"></image>
-				<view style="flex:auto">
-					<view>PVC材质手机壳定制...</view>
-					<view class="f26" style="color:#999999;margin-top:16rpx">iPhone X</view>
-					<view class="amout_good">
-						<text class="f32">￥188.00</text>
-						<view style="color:#999999">
-							*1
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="amout">
-				共1件
-				<view>总金额：
-					<text>￥188.00</text>
-				</view>
-			</view>
+            <block wx:for="{{item.cartInfo}}" wx:key="index">
+													<view class="good_list">
+								<image src="{{item.productInfo.image}}" class="goodname"></image>
+								<view style="flex:auto">
+									<view>{{item.productInfo.store_name}}</view>
+									<view class="f26" style="color:#999999;margin-top:16rpx">{{item.productInfo.attrInfo.suk}}</view>
+									<view class="amout_good">
+										<text class="f32">￥{{item.productInfo.price}}</text>
+										<view style="color:#999999">
+											*{{item.cart_num}}
+										</view>
+									</view>
+								</view>
+							</view>
+					
+							<view class="amout">
+								共{{item.cart_num}}件
+								<view>总金额：
+									<text>￥{{item.cart_num*item.productInfo.price}}</text>
+								</view>
+							</view>
+								</block>	
 		</view>
 	</view>
 
@@ -54,7 +57,7 @@
 			<view>浙江省杭州市余杭区未来科技城有限公司</view>
 		</view>
 	</view> -->
-	  <view class="addbtn" >提交</view>
+	  <view class="addbtn" bindtap="cancel"  >提交</view>
 	<van-popup show="{{ show }}" position="bottom" bind:close="onClose"   custom-style="height: 40%;">
 				<van-radio-group value="{{ radio }}" bind:change="onChange">
 					<van-cell-group>

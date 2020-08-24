@@ -1,18 +1,25 @@
 <view>
 	<view class="p30">
 		<view class="address" bindtap="changeaddress">
-			<view class="address_top" wx:if="{{site.length!=0?false:true}}">
-				<view >
+			<view class="address_top" wx:if="{{sites.length!=0?false:true}}">
+				<view>
 					<image src="/images/user/dz.png" class="left"></image>
 					请选择收货地址
 				</view>
 				<image src="/images/user/r.png" class="right"></image>
 			</view>
-			<view class="names" wx:for="{{site}}" wx:key="index">
-				<text class="bt">{{item.province}}{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
-				<text>{{item.real_name}}</text>
-			 {{item.phone}}
+			<block wx:for="{{site.length==0?sites:site}}" wx:key="index">
+			<view class="names" >
+				<view class="img">
+					<image src="/images/user/dz.png" class="left"></image>
+				</view>
+				<view class="view">
+					<text class="bt">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</text>
+					<text>{{item.real_name}}</text>
+					{{item.phone}}
+				</view>
 			</view>
+			</block>
 		</view>
 
 		<view class="goods">
@@ -23,9 +30,9 @@
 				共{{totalnum}}件
 			</view>
 			<view class="goodlist" wx:for="{{totalNums}}" wx:key="index">
-			<view class="img">
-				<image src="{{item.productInfo.image}}" ></image>
-			</view>
+				<view class="img">
+					<image src="{{item.productInfo.image}}"></image>
+				</view>
 				<view>
 					<view class="f32">{{item.productInfo.store_name}}</view>
 					<view class="f26" style="color:#999999;margin-top:17rpx">{{item.productInfo.attrInfo.suk}}</view>
@@ -44,7 +51,7 @@
 
 			<view class="list" bindtap="discounts">
 				优惠券
-				<view style="color:#C28E90">-￥{{discount}}
+				<view style="color:#C28E90">-￥{{coupon_price}}
 				</view>
 			</view>
 			<view class="list">
@@ -53,7 +60,7 @@
 				<view wx:if="{{priceGroup!=0?true:false}}">运费：{{priceGroup}}元</view>
 			</view>
 			<view class="list">
-				留言		<input style="color:#999999" class="f24 " placeholder="建议留言前先与商家沟通确认" bindblur="input" style="z-index: 0;"></input>		
+				留言 <input style="color:#999999" class="f24 " placeholder="建议留言前先与商家沟通确认" bindblur="input" style="z-index: 0;"></input>
 			</view>
 			<view class="list">
 				合计：
@@ -87,53 +94,53 @@
 		</view>
 		<view style="padding-bottom:34rpx">
 			<van-tabs color="#C28E90" active="{{ active }}" bind:change="onChange">
-				<van-tab title="可用优惠券（2）">
-						<view class="list">
-			<view class="con_list">
-				<view class="left">
-					<view class="f28">
-						<text>13</text>张
-					</view>
-					<view class="f24">5寸照片抵扣券</view>
-				</view>
-				<view class="conter">
-					<view class="f28">5寸照片抵扣券13张</view>
-					<view class="f24" style="margin-top:34rpx">无门槛</view>
-					<view class="f24 tiems" style="margin-top:16rpx">有效期至：2020.03.31
-						<text>即将过期</text>
-					</view>
-				</view>
-				<view class="right">
-					<van-radio-group value="{{ radio }}" bind:change="onChanges">
-						<van-radio name="1"></van-radio>
-					</van-radio-group>
-				</view>
-			</view>
-		</view>
-				</van-tab>
-				<van-tab title="不可用优惠券（0）">
-										<view class="list">
-							<view class="con_list">
-								<view class="left">
-									<view class="f28">
-										<text>13</text>张
-									</view>
-									<view class="f24">5寸照片抵扣券</view>
+				<van-tab title="可用优惠券（{{usableCouponleng}}）">
+					<view class="list" wx:for="{{usableCoupon}}" wx:key="index">
+						<view class="con_list">
+							<view class="left">
+								<view class="f28">
+									<text>{{item.coupon_price}}</text>元
 								</view>
-								<view class="conter">
-									<view class="f28">5寸照片抵扣券13张</view>
-									<view class="f24" style="margin-top:34rpx">无门槛</view>
-									<view class="f24 tiems" style="margin-top:16rpx">有效期至：2020.03.31
-										<text>即将过期</text>
-									</view>
-								</view>
-								<view class="right">
-									<van-radio-group value="{{ radio }}" bind:change="onChanges">
-										<van-radio name="1"></van-radio>
-									</van-radio-group>
+								<view class="f24">{{item.coupon_title}}</view>
+							</view>
+							<view class="conter">
+								<view class="f28">5寸照片抵扣券13张</view>
+								<view class="f24" style="margin-top:34rpx">无门槛</view>
+								<view class="f24 tiems" style="margin-top:16rpx">有效期至：{{item.end_time}}
+									<text>可用</text>
 								</view>
 							</view>
+							<view class="right">
+								<van-radio-group value="{{ radio }}" bind:change="onChanges">
+									<van-radio name="1"></van-radio>
+								</van-radio-group>
+							</view>
 						</view>
+					</view>
+				</van-tab>
+				<van-tab title="不可用优惠券（0）">
+					<view class="list">
+						<view class="con_list">
+							<view class="left">
+								<view class="f28">
+									<text>13</text>张
+								</view>
+								<view class="f24">5寸照片抵扣券</view>
+							</view>
+							<view class="conter">
+								<view class="f28">5寸照片抵扣券13张</view>
+								<view class="f24" style="margin-top:34rpx">无门槛</view>
+								<view class="f24 tiems" style="margin-top:16rpx">有效期至：2020.03.31
+									<text>即将过期</text>
+								</view>
+							</view>
+							<view class="right">
+								<van-radio-group value="{{ radio }}" bind:change="onChanges">
+									<van-radio name="1"></van-radio>
+								</van-radio-group>
+							</view>
+						</view>
+					</view>
 				</van-tab>
 			</van-tabs>
 		</view>
@@ -143,7 +150,7 @@
 
 
 		<view class="kong">
-			
+
 		</view>
 	</van-popup>
 </view>

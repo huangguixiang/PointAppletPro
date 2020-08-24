@@ -2,6 +2,7 @@ import {
   post,
   get
 } from "../../request/request.js";
+const app = getApp()
 Page({
   data: {
     showwl: false,
@@ -31,6 +32,8 @@ Page({
     activeName: '1',
     img: '',
     activ: '',
+    globalData:'1',//首次显示隐藏
+
     cartTotalCounts: '',
     image:"",//商品图片
     goodsId:'',//商品ID
@@ -666,7 +669,15 @@ nextKnows(){
     });
    this.polygon()
     // 在页面中定义插屏广告
+    if(app.globalData.global == 1){
+      this.setData({
+      zdm: true
+      })
+      }
   },
+  onUnload(){
+    app.globalData.chuangjian = 2;
+  }
 })
 
 //画板圆圈

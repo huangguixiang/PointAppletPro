@@ -1,5 +1,4 @@
-//app.js
-var util = require('./request/token.js');
+//app.js);
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -35,12 +34,7 @@ App({
         }
       }
     })
-  // util.put('key','value',3000) //表示设置缓存失效时间为20秒；
-  // util.get('key') // 获取缓存
-  // util.remove('key')//清除缓存：
-  // util.clear()//清除所有缓存：
   },
-    
   globalData: {
     userInfo: null
   }
