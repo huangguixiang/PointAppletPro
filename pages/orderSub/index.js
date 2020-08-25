@@ -19,7 +19,7 @@ Page({
     id:'',
     orderKey:"",
     orderId:'',
-    dizhiId:''
+    dizhiId:'',
   },
 
   /**
@@ -28,20 +28,23 @@ Page({
   onLoad: function (options) {
 
   },
-  onChanges(event) {
-    this.setData({
-      radio: event.detail,
-    });
-  },
-  onChange(event) {
-    this.setData({
-      active:event.detail.name
+  // 选择优惠券
+  onChanges(e) {
+    let _that=this
+    let {usableCoupon}=_that.data
+    let {index}=e.currentTarget.dataset
+    usableCoupon[index].is_ok=!usableCoupon[index].is_ok
+    console.log(usableCoupon)
+    console.log(index)
+       _that.setData({
+        usableCoupon
     })
-    // wx.showToast({
-    //   title: `切换到标签 ${event.detail.name}`,
-    //   icon: 'none',
-    // });
   },
+  // onChange(event) {
+  //   this.setData({
+  //     active:event.detail.name
+  //   })
+  // },
   onClose(){
     this.setData({
       show:false
@@ -147,29 +150,18 @@ Page({
   //优惠券
   async discounts() {
     let _that=this
-    wx.getStorage({
-      key: 'openId',
-      success: function(res) {
-        // console.log(res.data)
-        _that.setData({
-          openId: res.data
-        })
-      },
-    })
-    // subPrice
+    console.log(_that.data.id)
     try {
-        console.log(_that.data.openId)
-     const res = await post({
-       url: '/midianuserserver/coupon/updateCouponState',
-       data: {
-          "couponId":_that.data.totalNums[0].userId,
-          "userId":_that.data.openId,
-          "state":1
-        },
+       
+     const res = await get({
+       url: '/coupons/order/720.72?cartId='+_that.data.id,
      })  
-  
+    console.log(res)
+
      _that.setData({
-      show:true
+      show:true,
+      usableCoupon:res.data.data,
+      usableCouponleng:res.data.data.length,
      })
      // console.log(nav)
     } catch (error) {
@@ -182,6 +174,8 @@ Page({
       }  
     }
    },
+
+
   user(){
     let _that=this
     wx.getStorage({
@@ -204,8 +198,9 @@ Page({
       },
     })
   },
-  //结算
-  async  showNavtos(e) {
+
+  //结算进入渲染
+async  showNavtos() {
 let _that=this
       try {
         const res = await post({
@@ -214,25 +209,43 @@ let _that=this
           "cartId":_that.data.id
         }
         })
-        console.log(res.data.data.orderKey)
-        console.log(res.data.data.addressInfo)
-        console.log(res.data.data)
-        console.log(res.data.data.priceGroup.storePostage)
+        console.log(res)
         let sites=[]
-        let usableCoupon=[]
+     
         sites.push(res.data.data.addressInfo)
-        usableCoupon.push(res.data.data.usableCoupon)
+
         if (res.data.status == 200) {
-          _that.setData({
-            totalNums:res.data.data.cartInfo,
-            sites,
-            usableCoupon,
-            dizhiId:res.data.data.addressInfo.id,
-            usableCouponleng:usableCoupon.length,
-            coupon_price:res.data.data.usableCoupon.coupon_price,
-            orderKey:res.data.data.orderKey,
-            priceGroup:res.data.data.priceGroup.storePostage
-          })
+          console.log(sites)
+          console.log(res.data.data.usableCoupon)
+                   _that.setData({
+                totalNums:res.data.data.cartInfo,
+                sites,
+                dizhiId:res.data.data.addressInfo.id,
+                orderKey:res.data.data.orderKey,
+                priceGroup:res.data.data.priceGroup.storePostage,
+              })
+            // if (res.data.data.usableCoupon!=null) {
+            //      let usableCoupon=[]
+            //           usableCoupon.push(res.data.data.usableCoupon)
+            //   _that.setData({
+            //     totalNums:res.data.data.cartInfo,
+            //     sites,
+            //     dizhiId:res.data.data.addressInfo.id,
+            //     orderKey:res.data.data.orderKey,
+            //     priceGroup:res.data.data.priceGroup.storePostage,
+            //     usableCoupon,
+            //     usableCouponleng:usableCoupon.length,
+            //     coupon_price:res.data.data.usableCoupon.coupon_price, 
+            //   })
+            // } else {
+            //   _that.setData({
+            //     totalNums:res.data.data.cartInfo,
+            //     sites,
+            //     dizhiId:res.data.data.addressInfo.id,
+            //     orderKey:res.data.data.orderKey,
+            //     priceGroup:res.data.data.priceGroup.storePostage,
+            //   })
+            // }
 
         } 
         else {

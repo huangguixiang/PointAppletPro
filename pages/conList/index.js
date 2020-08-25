@@ -36,7 +36,35 @@ Page({
       }  
     }
    },
-
+//领取优惠券
+// async draw() {
+//   let _that = this
+//   try {
+//     const res = await get({
+//       url: '/coupons?page=1&limit=20',
+//     })
+//      console.log(res)
+//      if (res.data.status==200) {
+//          _that.setData({
+//           coupon:res.data.data
+//          })
+//      }else{
+//        wx.showToast({
+//          title: res.data.message,
+//          icon:"none"
+//        })
+//      }
+     
+//   } catch (error) {
+//     if(error.errMsg=="request:fail "){
+//      wx.showToast({
+//        title: "无网络链接",
+//        icon:'none',
+//        duration:1000
+//      }) 
+//     }  
+//   }
+//  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -34,28 +34,28 @@
 				<view class="tb" bindtap="order" data-index="0">
 					<view class="list_top" >
 						<image src="/images/userIcon/obligation.svg "></image>
-						<view>{{unpaid_count}}</view>
+						<view wx:if="{{unpaid_count>0?true:false}}">{{unpaid_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待付款</view>
 				</view>
 				<view  class="tb"  bindtap="order" data-index="1">
 					<view class="list_top">
 						<image src="/images/userIcon/rec.svg"></image>
-						<view>{{unshipped_count}}</view>
+						<view wx:if="{{unshipped_count>0?true:false}}">{{unshipped_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待发货</view>
 				</view>
 				<view  class="tb" bindtap="order" data-index="2">
 					<view class="list_top" >
 						<image src="/images/userIcon/track.svg"></image>
-						<view>{{received_count}}</view>
+						<view wx:if="{{received_count>0?true:false}}">{{received_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待收货</view>
 				</view>
 				<view  class="tb" bindtap="order" data-index="3">
 					<view class="list_top" >
 						<image src="/images/userIcon/eva.svg"></image>
-						<view>{{evaluated_count}}</view>
+						<view wx:if="{{evaluated_count>0?true:false}}">{{evaluated_count}}</view>
 					</view>
 					<view class="f26 use" hover-class="useBg" >待评价</view>
 				</view>
@@ -65,28 +65,30 @@
 
 
 	<view class="k_list">
-		<view bindtap="creation" class="tbs">
+		<view bindtap="creation" class="tbs" hover-class="useBg">
 		  <view class="item" >
 			<image src="/images/userIcon/past.svg" class="itemImg1" mode="aspectFill"></image>
 			</view>
-			<view hover-class="useBg" class="padd">创作历史</view>
+			<view  class="padd">创作历史</view>
 		</view>
-		<view bindtap="navtos" class="tbs">
+		<view bindtap="navtos" class="tbs"  hover-class="useBg">
 		<view class="item">
 			<image src="/images/userIcon/address.svg" class="itemImg2" mode="aspectFill"></image>
 			</view>
-			<view hover-class="useBg" class="padd" >地址管理</view>
+			<view class="padd" >地址管理</view>
 		</view>
 
 		<view class="tbs">
+		  <button open-type='contact' bindcontact="handleContact"  type="text"  >
        <view class="item">
 			 			<image src="/images/userIcon/service.svg " class="itemImg3" mode="aspectFill"></image>
 			 </view>
-			 <button open-type='contact' bindcontact="handleContact"  type="text" hover-class="useBg" class="padd" >在线客服</button>
+			 <view class="service" hover-class="useBg">在线客服</view>
+			 </button>
 			 <!-- <view open-type='contact' bindcontact="handleContact" id="button">在线客服</view> -->
 		</view>
 
-		<view bindtap="discount" class="tbs">
+		<view bindtap="discount" class="tbs" hover-class="useBg">
 			<view class="item">
 			   	<image src="/images/userIcon/coupon.svg " class="itemImg4" mode="aspectFill"></image>
 			</view>

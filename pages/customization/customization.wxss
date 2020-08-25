@@ -47,6 +47,9 @@
   justify-content: center;
   align-items: center;
 }
+.dinzhiye .tubiao .tb .feedBack{
+  background:		#EEEEEE;
+}
 
 /* 抠图 */
 .dinzhiye .tubiao .cutout {

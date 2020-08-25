@@ -30,11 +30,11 @@
 
 			<view class="tubiao">
 				<!-- <van-transition show="{{ show }}"  name="slide-down"> -->
-				<view class="tb"  >
-					<image src="/images/detail/face-01.svg" mode="aspectFill" bindtap="userCutout"></image>
+				<view class="tb" hover-class="feedBack" bindtap="userCutout"  >
+					<image src="/images/detail/face-01.svg" mode="aspectFill" ></image>
 				</view>
-				<view class="tb" style="margin-top: 30rpx;">
-					<image src="/images/detail/car.svg" bindtap="hindeshop" mode="aspectFill"></image>
+				<view class="tb" style="margin-top: 30rpx;" bindtap="hindeshop"  hover-class="feedBack">
+					<image src="/images/detail/car.svg"  mode="aspectFill"></image>
 					<view class="count" wx:if="{{count}}">{{cartTotalCounts}}</view>
 				</view>
 				<!-- duration="{{ { enter: 500, leave: 1000 } }}" -->
