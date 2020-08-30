@@ -38,6 +38,14 @@
   margin-top: -30rpx;
   padding-bottom: 40rpx;
 }
+.money{
+  position:relative;
+  overflow:hidden;
+  display: flex;
+  margin: 30rpx 0;
+  border-bottom: 1rpx solid #dcdada;
+}
+
 
 .amout .f26 {
   padding-top: 33rpx;
@@ -48,6 +56,7 @@
 }
 
 .amout .van-cell__title {
+
   font-size: 40rpx;
 }
 

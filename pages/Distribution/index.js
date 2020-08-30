@@ -23,12 +23,12 @@ Page({
       const res = await get({
         url: "/user"
       })
-      let user=[]
-      user.push(res.data.data)
+      let user=res.data.data;
+      // user.push(res.data.data)
       console.log(res.data.data)
       if (res.data.status==200) {
          _that.setData({
-          user
+          user:user
          })
       }
     } catch (error) {
@@ -49,13 +49,15 @@ Page({
       const res = await post({
         url: "/spread/people"
       })
-
       console.log(res)
-      // if (res.data.status==200) {
-      //    _that.setData({
-      //     user
-      //    })
-      // }
+      let tg_peopl=res.data.data;
+      console.log(tg_peopl);
+      console.log(res)
+      if (res.data.status==200) {
+         _that.setData({
+          tg_peopl:tg_peopl
+         })
+      }
     } catch (error) {
       if (error.errMsg == "request:fail ") {
         wx.showToast({
@@ -149,7 +151,7 @@ Page({
   onShow: function () {
     this.user()
     this.userPromotion()
-    this.userOrder()
+    this.userOrder()  
   },
 
   /**

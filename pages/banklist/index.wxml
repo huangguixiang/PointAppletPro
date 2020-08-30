@@ -1,18 +1,17 @@
 <view>
-	<view class="blak_list" wx:for="{{brnd}}" wx:key="index">
-		<image src="{{item.bankLogo}}" class="icon"  bindtap="recording"></image>
-		<view>{{item.bankBranch}}
-			<text>{{item.bankCardNum}}</text>
+	<view class="blak_list" wx:for="{{bank}}" wx:key="id">
+		<image src="{{item.bank_cate.bank_img}}" class="icon"  bindtap="recording"></image>
+		<view>{{item.bank_cate.bank_name}}
+			<text>{{item.bank_card}}</text>
 		</view>
 		<view>
-			<van-radio-group value="{{ radio }}" bind:change="onChange">
-				<van-radio name="1"></van-radio>
+			<van-radio-group value="{{ radio }}"  bind:change="onChange" data-id="{{item.id}}">
+				<van-radio  name="{{item.id}}"></van-radio>
 			</van-radio-group>
-
 		</view>
-					<view bindtap="del" data-userBankId="{{item.userBankId}}">
-			X
-			</view>
+				<view bindtap="del" data-userBankId="{{item.userBankId}}" data-id="{{item.id}}">
+					X
+				</view>
 	</view>
 
 

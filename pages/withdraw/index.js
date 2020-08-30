@@ -15,7 +15,7 @@ Page({
       {
         "img":'/images/user/yh.png',
         "bankname":"中国建设银行",//银行
-        "cardnum":"888888888888888888888",//卡号
+        "cardnum":"888888888888888888888",//卡号  
       }
     ],
   },
@@ -43,12 +43,38 @@ async Alipay (){
     }
   }
 },
+//银行卡提现
+async handleBank(){
+  let _that = this
+  try {
+    const res = await post({
+      url: "/bank/default/set"
+    })
+    console.log(res)
+    let bangk=res.data.data;
+    console.log(bangk);
+    
+    if (res.data.status==200) {
+       _that.setData({
+        user
+       })
+    }
+  } catch (error) {
+    if (error.errMsg == "request:fail ") {
+      wx.showToast({
+        title: "无网络链接",
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  }
+},
 //微信提现
 async WeChatPay(){
   console.log("aaaa")
   let _that = this
        if (_that.data.money.length!=0) {
-        try {
+        try {  
           const res = await post({
             url: "/extract/cash",
             data:{
@@ -142,7 +168,7 @@ async WeChatPay(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.handleBank()
   },
 
   /**

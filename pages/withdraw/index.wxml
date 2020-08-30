@@ -5,7 +5,7 @@
 				<view class="f30" style="color:#BBBBBB">可提现金额（元）</view>
 			</view>
 			<view style="color:#fff;margin-top:40rpx;font-size:50rpx">
-				999.00
+				999.00  
 			</view>
 		</view>
 		<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_70e2fa2a6f64e4b333e76c4e0b3ccdec.png" class="bj"></image>
@@ -13,7 +13,7 @@
 
 	<view class="amout p30">
 		<view class="f26">提现金额</view>
-		<van-field label="￥" label-class="labelclass" value="{{ value }}" input-class="inputs" placeholder="输入提现金额" border bind:change="onChange" />
+		<van-field label="￥" label-class="labelclass"   value="{{ value }}" input-class="inputs" placeholder="输入提现金额" border bind:change="onChange"/>
 	</view>
 
 
@@ -37,23 +37,17 @@
 			
 			
 			</van-tab>
-			<van-tab title="提现到银行卡">
-			
-			<view class="blak_list" wx:for="{{Pay}}" wx:key="index">
-				<image src="{{item.img}}" class="icon"></image>
-				<view>{{item.bankname}}
-					<text>{{item.cardnum}}</text>
-				</view>
-				<image src="/images/user/rr.png" class="rr" bindtap="morelist"></image>
+			<van-tab title="提现到银行卡" >
+				<view class="blak_list" wx:for="{{Pay}}" wx:key="index" >
+					<image src="{{item.img}}" class="icon"></image>
+					<view>{{item.bankname}}
+						<text>{{item.cardnum}}</text>
+					</view>
+					<image src="/images/user/rr.png" class="rr" bindtap="morelist"></image>
 			</view>
-				<view class="ta f24" style="margin-top:58rpx;color:#999999">*现在申请提现，预计2个小时内到账，实际到账时间以落地行处理结果为准哦~</view>
-	     <view class="btns" bindtap="WeChatPay" style="margin-top:100rpx;margin-bottom:100rpx" hover-class="bg">立即提现</view>
-			
+					<view class="ta f24" style="margin-top:58rpx;color:#999999">*现在申请提现，预计2个小时内到账，实际到账时间以落地行处理结果为准哦~</view>
+	     		<view class="btns" bindtap="WeChatPay" style="margin-top:100rpx;margin-bottom:100rpx" hover-class="bg">立即提现</view>
 			</van-tab>
 		</van-tabs>
-
-
 	</view>
-
-
 </view>

@@ -1,42 +1,42 @@
 <view>
 	<view class="top">
-		<view class="user" wx:for="{{user}}" wx:key="index">
+		<view class="user" >
 			<view>
-				<image class="user_img" src="{{item.avatar}}"></image>
+				<image class="user_img" src="{{user.avatar}}"></image>
 			</view>
 			<view class="f32" style="color:#fff;margin-top:30rpx">
-				{{item.nickname}}
+				{{user.nickname}}
 			</view>
 		</view>
 		<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_70e2fa2a6f64e4b333e76c4e0b3ccdec.png" class="bj"></image>
 	</view>
 
 
-	<view class="income" wx:for="{{user}}" wx:key="index">
-		<view class="f30 ta" style="color:#3D365E;padding-top:40rpx">累计收益（元）</view>
-		<view class=" ta" style="color:#3D365E;padding-top:40rpx;font-size:50rpx">999.00</view>
+	<view class="income" >
+		<view class="f30 ta" style="color:#3D365E;padding-top:40rpx">当前佣金（元）</view>
+		<view class=" ta" style="color:#3D365E;padding-top:40rpx;font-size:50rpx">{{user.promoter_price}}</view>
 		<view class=" btns" bindtap="navto" data-name="withdraw">
 			立即提现
 		</view>
 		<view class="p30 btns_list">
 			<view>
-				<view class="f24">本周收益（元）</view>
-				<view class="f30">999.00</view>
+				<view class="f24">昨日收益（元）</view>
+				<view class="f30">{{user.yesterDay}}</view>
 			</view>
-			<view bindtap="navto" data-name="recording">
+			<!-- <view bindtap="navto" data-name="recording">
 				<view class="f24">锁定收益（元）</view>
 				<view class="f30">999.00</view>
-			</view>
+			</view> -->
 			<view>
-				<view class="f24">待提现（元）</view>
-				<view class="f30">{{item.brokerage_price}}</view>
+				<view class="f24">累计已提（元）</view>
+				<view class="f30">{{user.extractTotalPrice}}</view>
 			</view>
 		</view>
-	</view>
+	</view> 
 
 
 	<view class="user_list">
-		<view class="user_top">
+		<view class="user_top"style="display:block" >
 			<view class="box">
 				<van-tabs animated swipeable color="#C28E90">
 					<van-tab title="推广订单">
@@ -49,22 +49,20 @@
 								</view>
 							</view>
 
-						</view>
+						</view>   
 					</van-tab>
 					<van-tab title="推广用户">
 						<view class="listFa" style="flex-direction:row;">
 							<view>
-								<view class="usernamelist">
+								<view class="usernamelist" wx:for="{{tg_peopl.list}}" wx:key="uid" >
 									<view>
-										<image src="https://shop.io.mi-img.com/app/shop/img?id=shop_98a5943a12b5e5650872227d755632eb.png"></image>
+										<image src="{{item.avatar}}"></image>
 										<view style="margin-left:20rpx">
-											<view class="f26">彭于晏</view>
+											<view class="f26">{{item.nickname}}</view>
 											<view class="f24" style="color:#C28E90;margin-top:20rpx">直接好友</view>
 										</view>
 									</view>
-									<view style="color:#999999" class="f24">
-										2020-03-01
-									</view>
+									<view style="color:#999999" class="f24">{{item.time}}</view>
 								</view>
 							</view>
 						</view>
